@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { eventNames } = require('./user');
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
@@ -7,10 +8,10 @@ const eventSchema = new Schema({
     required: true
   },
   description: String,
-  photo: String,
+  photo: [String],
   location: {
     type: String,
-    // default: 'Club Address',
+    default: '9050 384th Ave SE, Snoqualmie, WA 98065',
     required: true
   },
   date: {
@@ -20,3 +21,5 @@ const eventSchema = new Schema({
 }, {
   timestamps: true
 })
+
+module.exports = mongoose.model('Event', eventSchema)
