@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { getEvents } from "../../utilities/events-api";
+import { ListGroup } from "react-bootstrap";
+import EventCard from '../../components/EventCard/EventCard'
 
 export default function EventFeed() {
   const [events, setEvents] = useState([]);
@@ -11,9 +13,10 @@ export default function EventFeed() {
     }
     getAllEvents();
   }, [])
+  const EventCards = events.map(e => <EventCard event={e} key={e.id} />)
   return (
-    <>
-      <h1>{events[0].title}</h1>
-    </>
+    <ListGroup>
+      {EventCards}
+    </ListGroup>   
   );
 }
