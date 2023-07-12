@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import * as userService from '../../utilities/users-service';
 
 export default function NavBar({ user, setUser }) {
@@ -12,14 +10,6 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    // <nav>
-    //   <Link to="/events">Event Feed</Link>
-    //   &nbsp; | &nbsp;
-    //   <Link to="/events/new">New Event</Link>
-    //   &nbsp;&nbsp;
-    //   <span>Welcome, {user.name}</span>
-    //   &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
-    // </nav>
     <Navbar expand="lg" className="bg-body-secondary">
       <Container>
         <Navbar.Brand href="#home">SVGC</Navbar.Brand>

@@ -1,0 +1,6 @@
+
+.event-form {
+  grid-template-columns: none;
+  /* grid-template-rows: 1fr 1fr 3fr; */
+  margin: 10vmin 20vmin
+}
