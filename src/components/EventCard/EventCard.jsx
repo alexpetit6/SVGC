@@ -1,4 +1,5 @@
-import { ListGroup, Card } from "react-bootstrap";
+import ListGroup from "react-bootstrap/ListGroup";
+import Card from "react-bootstrap/Card";
 
 export default function EventCard({ event }) {
   return (

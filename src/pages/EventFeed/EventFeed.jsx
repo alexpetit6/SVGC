@@ -9,11 +9,10 @@ export default function EventFeed() {
     async function getAllEvents() {
       const allEvents = await getEvents();
       setEvents(allEvents)
-      console.log(events[0].title)
     }
     getAllEvents();
   }, [])
-  const EventCards = events.map(e => <EventCard event={e} key={e.id} />)
+  const EventCards = events.map(e => <EventCard event={e} key={e._id} />)
   return (
     <ListGroup>
       {EventCards}
