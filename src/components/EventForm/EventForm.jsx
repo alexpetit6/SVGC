@@ -110,6 +110,7 @@ export default function EventForm() {
           type='date' 
           placeholder='Enter Date' 
         />
+      </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.date">
         <Form.Label>Event Time</Form.Label>
         <Form.Control 
@@ -118,7 +119,6 @@ export default function EventForm() {
           name='time' 
           type='time' 
         />
-      </Form.Group>
       </Form.Group>
     </Form>
   )
