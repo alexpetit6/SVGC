@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema({
   title: {
     type: String,
+    default: 'Meeting',
     required: true
   },
   description: String,
@@ -18,6 +19,10 @@ const eventSchema = new Schema({
     type: Date,
     required: true
   },
+  time: {
+    type: String,
+    required: true
+  }
 }, {
   timestamps: true
 })

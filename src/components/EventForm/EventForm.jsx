@@ -1,18 +1,26 @@
 import './EventForm.css'
+import { create } from '../../utilities/events-api';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 
 export default function EventForm() {
-  const [formData, setFormData] = useState({
-    title: '',
+  const baseData = {
+    title: undefined,
     description: '',
-    location: '',
+    location: undefined,
     photo: '',
     date: '',
     time: '',
-  });
-  const [isChecked, setIsChecked] = useState(false)
+  }
+  const [formData, setFormData] = useState(baseData);
+  const [isChecked, setIsChecked] = useState(false);
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    await create(formData);
+    setFormData(baseData)
+  }
   function handleChange(evt) {
     setFormData({
       ...formData,
@@ -20,12 +28,14 @@ export default function EventForm() {
     });
   }
   function handleCheck(evt) {
+    setFormData(baseData)
     setIsChecked(!isChecked)
   }
+
   return (
     isChecked
     ?
-    <Form className='event-form'>
+    <Form onSubmit={handleSubmit} className='event-form'>
       <Form.Check
         type="checkbox"
         // id="checkbox-default"
@@ -51,9 +61,14 @@ export default function EventForm() {
           type='time' 
         />
       </Form.Group>
+      <div className="d-grid gap-2">
+        <Button type='submit' variant="success" size="lg">
+          Create Meeting!
+        </Button>
+      </div>
     </Form>
     :
-    <Form className='event-form'>
+    <Form onSubmit={handleSubmit} className='event-form'>
       <Form.Check
         type="checkbox"
         // id="checkbox-default"
@@ -120,6 +135,11 @@ export default function EventForm() {
           type='time' 
         />
       </Form.Group>
+      <div className="d-grid gap-2">
+        <Button type='submit' variant="success" size="lg">
+          Create Event!
+        </Button>
+      </div>
     </Form>
   )
 }

@@ -10,7 +10,8 @@ export default function EventCard({ event }) {
           <Card.Text>{event.description}</Card.Text>
         </Card.Body>
         <Card.Body>
-          <Card.Text><strong>Date & Time:</strong> {event.date}</Card.Text>
+          <Card.Text><strong>Date</strong> {event.date}</Card.Text>
+          <Card.Text><strong>Time</strong> {event.time}</Card.Text>
           <Card.Text><strong>Event Location:</strong> {event.location}</Card.Text>
         </Card.Body>
       </Card>
