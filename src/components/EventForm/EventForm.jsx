@@ -6,9 +6,9 @@ import { useState } from 'react';
 
 export default function EventForm() {
   const baseData = {
-    title: undefined,
+    title: '',
     description: '',
-    location: undefined,
+    location: '',
     photo: '',
     date: '',
     time: '',
@@ -18,6 +18,16 @@ export default function EventForm() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    if ( isChecked ) {
+      setFormData({
+        title: undefined,
+        description: '',
+        location: undefined,
+        photo: '',
+        date: formData.date,
+        time: formData.time,
+      })
+    }
     await create(formData);
     setFormData(baseData)
   }
@@ -28,7 +38,6 @@ export default function EventForm() {
     });
   }
   function handleCheck(evt) {
-    setFormData(baseData)
     setIsChecked(!isChecked)
   }
 
@@ -110,7 +119,7 @@ export default function EventForm() {
         <Form.Label>Event Location</Form.Label>
         <Form.Control 
           onChange={handleChange}
-          value={formData.description}
+          value={formData.location}
           name='location'
           type='text'
           placeholder='Enter an Address'
