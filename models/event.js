@@ -8,7 +8,7 @@ const eventSchema = new Schema({
     required: true
   },
   description: String,
-  photo: [String],
+  photo: String,
   location: {
     type: String,
     default: '9050 384th Ave SE, Snoqualmie, WA 98065',

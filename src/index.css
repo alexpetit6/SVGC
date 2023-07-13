@@ -1,4 +1,4 @@
-/* CSS Custom Properties */
+/* CSS Custom Properties
 :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
@@ -103,21 +103,17 @@ label {
   align-items: center;
 }
 
-input {
+/* input {
   padding: 1vmin;
   font-size: 2vmin;
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
   outline: none;
-}
+} */
 
-input:focus {
-  border-color: var(--orange);
-}
 
-button, a.button {
+/* button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
@@ -150,4 +146,4 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+} */ 

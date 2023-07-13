@@ -5,22 +5,30 @@ import { useState } from 'react';
 
 export default function EventForm() {
   const [formData, setFormData] = useState({
-    theCheckbox: true,
-    theTextInput: 'some text'
+    title: '',
+    description: '',
+    location: '',
+    photo: '',
+    date: ''
   });
+  const [isChecked, setIsChecked] = useState(false)
   function handleChange(evt) {
-    const val = evt.target.type === 'checkbox' ? evt.target.checked : evt.target.value;
     setFormData({
       ...formData,
-      [evt.target.name]: val
+      [evt.target.name]: evt.target.value
     });
+  }
+  function handleCheck(evt) {
+    setIsChecked(!isChecked)
   }
   return (
     <Form className='event-form'>
       <Form.Check // prettier-ignore
-        type="switch"
-        id="custom-switch"
-        label="Check this switch"
+        type="checkbox"
+        id="checkbox-default"
+        label="Is this a meeting?"
+        onChange={handleCheck}
+        checked={isChecked}
       />
       <Form.Group className="mb-3" controlId="eventForm.title">
         <Form.Label>Event Title</Form.Label>
