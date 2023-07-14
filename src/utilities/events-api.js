@@ -12,3 +12,7 @@ export async function create(formData) {
 export async function deleteEvent(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
 }
+
+export async function update(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT')
+}
