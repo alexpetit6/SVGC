@@ -24,7 +24,14 @@ const eventSchema = new Schema({
     required: true
   }
 }, {
-  timestamps: true
-})
+  timestamps: true,
+  toJSON: { virtuals: true }
+});
 
-module.exports = mongoose.model('Event', eventSchema)
+eventSchema.virtual('standardClock').get(function() {
+  const hour = Number(this.time.slice(0, 2));
+  const minute = this.time.slice(3);
+  return hour > 12 ? `${hour - 12}:${minute} PM` : `${hour}:${minute} AM`
+});
+
+module.exports = mongoose.model('Event', eventSchema);
