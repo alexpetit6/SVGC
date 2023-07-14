@@ -20,9 +20,7 @@ export default function EventForm() {
     evt.preventDefault();
     if ( isChecked ) {
       setFormData({
-        title: undefined,
         description: '',
-        location: undefined,
         photo: '',
         date: formData.date,
         time: formData.time,
