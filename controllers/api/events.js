@@ -2,7 +2,8 @@ const Event = require('../../models/event');
 
 module.exports = {
   index,
-  create
+  create,
+  delete: deleteEvent,
 };
 
 async function index(req, res) {
@@ -13,8 +14,16 @@ async function index(req, res) {
 async function create(req, res) {
   try {
     const event = await Event.create(req.body);
-    res.json(event)
+    res.json(event);
   } catch (err) {
-    return err
+    res.json(err);
+  }
+}
+
+async function deleteEvent(req, res) {
+  try {
+    await Event.deleteOne({_id: req.params.id});
+  } catch (err) {
+    res.json(err);
   }
 }

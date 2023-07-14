@@ -1,5 +1,6 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
 export default function EventCard({ event }) {
   return (
@@ -13,6 +14,7 @@ export default function EventCard({ event }) {
           <Card.Text><strong>Date:</strong> {event.date}</Card.Text>
           <Card.Text><strong>Time:</strong> {event.standardClock}</Card.Text>
           <Card.Text><strong>Event Location:</strong> {event.location}</Card.Text>
+          <DeleteButton id={event.id}/>
         </Card.Body>
       </Card>
     </ListGroup.Item>
