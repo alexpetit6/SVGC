@@ -34,4 +34,16 @@ eventSchema.virtual('standardClock').get(function() {
   return hour > 12 ? `${hour - 12}:${minute} PM` : `${hour}:${minute} AM`
 });
 
+eventSchema.virtual('formDate').get(function() {
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+  const date = this.date.toLocaleDateString('ja-JP', options)
+  const dateArr = date.split('/')
+  while (!dateArr.every(el => el.length > 1)) {
+    const badEl = dateArr.find(el => el.length === 1)
+    const idx = dateArr.indexOf(badEl)
+    dateArr[idx] = `0${badEl}`
+  }
+  return dateArr.join('-')
+});
+
 module.exports = mongoose.model('Event', eventSchema);

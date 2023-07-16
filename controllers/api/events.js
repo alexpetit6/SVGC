@@ -2,6 +2,7 @@ const Event = require('../../models/event');
 
 module.exports = {
   index,
+  show,
   create,
   delete: deleteEvent,
   update
@@ -10,6 +11,11 @@ module.exports = {
 async function index(req, res) {
   const events = await Event.find({});
   res.json(events);
+}
+
+async function show(req, res) {
+  const event = await Event.findById(req.params.id)
+  res.json(event)
 }
 
 async function create(req, res) {

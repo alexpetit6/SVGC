@@ -18,6 +18,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/events/new" element={<NewEventPage />} />
+              <Route path="/events/new/:eventId" element={<NewEventPage />} />
               <Route path="/events" element={<EventFeed />} />
             </Routes>
           </>

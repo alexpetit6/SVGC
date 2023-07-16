@@ -1,10 +1,12 @@
 import './EventForm.css'
-import { create } from '../../utilities/events-api';
+import { useParams } from 'react-router-dom';
+import { create, eventDetail } from '../../utilities/events-api';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function EventForm() {
+export default function EventForm({ event, edit}) {
+  const { eventId } = useParams();
   const baseData = {
     title: '',
     description: '',
@@ -16,16 +18,23 @@ export default function EventForm() {
   const [formData, setFormData] = useState(baseData);
   const [isChecked, setIsChecked] = useState(false);
 
+  useEffect(function () {
+    async function getEvent() {
+      const event = await eventDetail(eventId);
+      setFormData({
+        title: event.title,
+        description: event.formDate,
+        location: event.location,
+        photo: event.photo,
+        date: event.formDate,
+        time: event.time,
+      });
+    }
+    getEvent();
+  }, [eventId])
+
   async function handleSubmit(evt) {
     evt.preventDefault();
-    if ( isChecked ) {
-      setFormData({
-        description: '',
-        photo: '',
-        date: formData.date,
-        time: formData.time,
-      })
-    }
     await create(formData);
     setFormData(baseData)
   }
@@ -37,6 +46,7 @@ export default function EventForm() {
   }
   function handleCheck(evt) {
     setIsChecked(!isChecked)
+    console.log(eventId)
   }
 
   return (
