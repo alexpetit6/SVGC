@@ -1,10 +1,12 @@
 import "./ActionButton.css"
 import Button from "react-bootstrap/Button"
 import { deleteEvent, update } from "../../utilities/events-api"
+import { deletePhoto } from "../../utilities/photos-api";
 
 export default function ActionButton({ action, id }) {
   const request = {
-    remove: {variant: 'danger', type: 'DELETE', func: deleteEvent},
+    deleteEvt: {variant: 'danger', type: 'DELETE', func: deleteEvent},
+    deleteImg: {variant: 'danger', type: 'DELETE', func: deletePhoto},
     update: {variant: 'warning', type: 'EDIT', func: update}
   };
   async function handleAction(id) {

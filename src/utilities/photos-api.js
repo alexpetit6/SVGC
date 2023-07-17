@@ -9,3 +9,7 @@ export function getPhotos() {
 export function upload(formData) {
   return sendRequest(`${BASE_URL}/upload`, 'POST', formData, true);
 }
+
+export async function deletePhoto(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
+}

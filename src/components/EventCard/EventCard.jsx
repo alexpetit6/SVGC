@@ -16,7 +16,7 @@ export default function EventCard({ event }) {
           <Card.Text><strong>Date:</strong> {event.date}</Card.Text>
           <Card.Text><strong>Time:</strong> {event.standardClock}</Card.Text>
           <Card.Text><strong>Event Location:</strong> {event.location}</Card.Text>
-          <ActionButton action='remove' id={event.id} />
+          <ActionButton action='deleteEvt' id={event.id} />
           <Button className="action-button" variant='warning' size='sm'><Link to={`/events/new/${event.id}`}>EDIT</Link></Button>
         </Card.Body>
       </Card>

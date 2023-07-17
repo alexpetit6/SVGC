@@ -3,7 +3,8 @@ const Photo = require('../../models/photo');
 
 module.exports = {
   index,
-  upload
+  upload,
+  delete: deletePhoto
 };
 
 async function index(req, res) {
@@ -27,5 +28,13 @@ async function upload(req, res) {
     }
   } catch (err) {
     res.status(400).json(err.message);
+  }
+}
+
+async function deletePhoto(req, res) {
+  try {
+    await Photo.deleteOne({_id: req.params.id});
+  } catch (err) {
+    res.json(err);
   }
 }

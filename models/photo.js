@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const photoSchema = new Schema({
   url: {type: String, required: true},
-  title: String
+  title: {type: String, default: 'untitled'}
 }, {
   timestamps: true,
 });
