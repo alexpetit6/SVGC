@@ -8,8 +8,14 @@ const eventSchema = new Schema({
     default: 'Meeting',
     required: true
   },
-  description: String,
-  photo: String,
+  description: {
+    type: String,
+    default: '',
+  },
+  photo: {
+    type: String,
+    default: '',
+  },
   location: {
     type: String,
     default: '9050 384th Ave SE, Snoqualmie, WA 98065',
@@ -35,15 +41,7 @@ eventSchema.virtual('standardClock').get(function() {
 });
 
 eventSchema.virtual('formDate').get(function() {
-  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-  const date = this.date.toLocaleDateString('ja-JP', options)
-  const dateArr = date.split('/')
-  while (!dateArr.every(el => el.length > 1)) {
-    const badEl = dateArr.find(el => el.length === 1)
-    const idx = dateArr.indexOf(badEl)
-    dateArr[idx] = `0${badEl}`
-  }
-  return dateArr.join('-')
+  return this.date.toISOString().slice(0, 10)
 });
 
 module.exports = mongoose.model('Event', eventSchema);
