@@ -16,7 +16,7 @@ export default function() {
   }, [])
   return (
     <>
-      <PhotoForm setPhotos={setPhotos} />
+      <PhotoForm setPhotos={setPhotos} photos={photos} />
       {/* <Container>
         {photos.map(p => <PhotoCard url={p.url} key={p._id} />)}
       </Container> */}

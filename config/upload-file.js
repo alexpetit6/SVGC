@@ -9,5 +9,6 @@ module.exports = async function(file) {
     Body: file.buffer
   };
   await s3Client.send(new PutObjectCommand(s3Params));
+  console.log(s3Params.Key)
   return `${S3_BASE_URL}${S3_BUCKET}/${s3Params.Key}`;
 };

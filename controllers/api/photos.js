@@ -15,7 +15,7 @@ async function upload(req, res) {
   try {
     if (req.file) {
       // TODO: Remove the console.log after you've verified the output
-      console.log(req.file);
+      console.log('uploading', req.file);
       const photoURL = await uploadFile(req.file);
       const photoDoc = await Photo.create({
         url: photoURL,

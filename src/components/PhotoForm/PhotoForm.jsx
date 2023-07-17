@@ -4,13 +4,19 @@ import { upload } from "../../utilities/photos-api"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-export default function PhotoForm({ setPhotos }) {
+export default function PhotoForm({ setPhotos, photos }) {
   const [title, setTitle] = useState('');
   const fileInputRef = useRef();
 
   async function handleUpload(evt) {
     evt.preventDefault();
-
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('photo', fileInputRef.current.files[0]);
+    const newPhoto = await upload(formData);
+    setPhotos([newPhoto, ...photos]);
+    setTitle('');
+    fileInputRef.current.value = '';
   }
 
   return (
