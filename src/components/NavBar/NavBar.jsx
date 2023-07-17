@@ -18,6 +18,7 @@ export default function NavBar({ user, setUser }) {
           <Nav className="me-auto">
             <Nav.Link href='/events'>Event Feed</Nav.Link>
             <Nav.Link href='/events/new'>New Event</Nav.Link>
+            <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
