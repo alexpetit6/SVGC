@@ -18,5 +18,6 @@ export async function deleteEvent(id) {
 }
 
 export async function update(id, newData) {
+  console.log('api updating')
   return sendRequest(`${BASE_URL}/${id}`, 'PUT', newData)
 }

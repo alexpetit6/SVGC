@@ -33,12 +33,17 @@ export default function EventForm({ event, edit}) {
       }
       getEvent();
     }
-  }, [eventId])
+  }, [])
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    eventId ? await update(eventId, formData) : await create(formData); 
-    setFormData(baseData);
+    if (eventId) {
+      const updatedEvent = await update(eventId, formData)
+      console.log(updatedEvent)
+    } else {
+      await create(formData);
+      setFormData(baseData);
+    }
   }
   function handleChange(evt) {
     setFormData({
