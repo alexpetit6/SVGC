@@ -30,7 +30,7 @@ export default class SignUpForm extends Component {
     } catch {
       // An error occurred
       // Probably due to a duplicate email
-      this.setState({ error: 'Sign Up Failed - Try Again' });
+      this.setState({ error: 'whyyyyyyy' });
     }
   };
 

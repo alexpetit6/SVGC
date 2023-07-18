@@ -19,6 +19,7 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link href='/events'>Event Feed</Nav.Link>
             <Nav.Link href='/events/new'>New Event</Nav.Link>
             <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
+            <Nav.Link href='/' onClick={handleLogOut}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

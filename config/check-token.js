@@ -11,7 +11,7 @@ module.exports = function(req, res, next) {
   // Check if token is valid and not expired
   jwt.verify(token, process.env.SECRET, function(err, decoded) {
     // Invalid token if err
-    if (err) return next();
+    if (err) return  next();
     // decoded is the entire token payload
     req.user = decoded.user;
     // If interested in the expiration,
