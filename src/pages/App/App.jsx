@@ -22,6 +22,7 @@ export default function App() {
               <Route path="/events/new/:eventId" element={<NewEventPage />} />
               <Route path="/events" element={<EventFeed />} />
               <Route path="/photos" element={<PhotoGallery />} />
+              <Route path="/users" element={<AuthPage />} />
             </Routes>
           </>
           :

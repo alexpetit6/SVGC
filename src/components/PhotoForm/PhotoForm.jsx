@@ -14,6 +14,7 @@ export default function PhotoForm({ setPhotos, photos }) {
     if (title) formData.append('title', title);
     formData.append('photo', fileInputRef.current.files[0]);
     const newPhoto = await upload(formData);
+    console.log(formData);
     setPhotos([newPhoto, ...photos]);
     setTitle('');
     fileInputRef.current.value = '';

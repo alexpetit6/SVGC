@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { create, eventDetail, update } from '../../utilities/events-api';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function EventForm() {
   const { eventId } = useParams();
@@ -11,12 +11,13 @@ export default function EventForm() {
     title: '',
     description: '',
     location: '',
-    photo: '',
+    // photo: '',
     date: '',
     time: '',
   }
   const [formData, setFormData] = useState(baseData);
   const [isChecked, setIsChecked] = useState(false);
+  const fileInputRef = useRef();
 
   useEffect(function () {
     if (eventId) {
@@ -24,7 +25,7 @@ export default function EventForm() {
         const event = await eventDetail(eventId);
         setFormData({
           title: event.title,
-          description: event.formDate,
+          description: event.description,
           location: event.location,
           photo: event.photo,
           date: event.formDate,
@@ -35,13 +36,25 @@ export default function EventForm() {
     }
   }, [])
 
+  
   async function handleSubmit(evt) {
     evt.preventDefault();
+    const newFormData = new FormData();
+    for (const [key, value] of Object.entries(formData)) {
+      newFormData.append(key, value);
+    }
+    console.log(newFormData)
     if (eventId) {
       const updatedEvent = await update(eventId, formData)
       console.log(updatedEvent)
     } else {
-      await create(formData);
+      // newFormData.append('title', formData.title);
+      // newFormData.append('description', formData.description);
+      // newFormData.append('location', formData.location);
+      // newFormData.append('photo', fileInputRef.current[0]);
+      // newFormData.append('date', formData.date);
+      // newFormData.append('time', formData.time);
+      await create(newFormData);
       setFormData(baseData);
     }
   }
@@ -50,6 +63,7 @@ export default function EventForm() {
       ...formData,
       [evt.target.name]: evt.target.value
     });
+    // const newFormData = new FormData(form);
   }
   function handleCheck(evt) {
     setIsChecked(!isChecked);
@@ -58,7 +72,7 @@ export default function EventForm() {
   return (
     isChecked
     ?
-    <Form onSubmit={handleSubmit} className='event-form'>
+    <Form onSubmit={handleSubmit} className='event-form' id='event-form'>
       <Form.Check
         type="checkbox"
         // id="checkbox-default"
@@ -111,13 +125,7 @@ export default function EventForm() {
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.photo">
         <Form.Label>Image Url</Form.Label>
-        <Form.Control 
-          onChange={handleChange}
-          value={formData.photo}
-          name='photo'
-          type='text'
-          placeholder='Paste in Image URL' 
-        />
+        <Form.Control type='file' ref={fileInputRef} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.description">
         <Form.Label>Event Description</Form.Label>

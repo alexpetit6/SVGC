@@ -10,7 +10,7 @@ export async function eventDetail(id) {
 }
 
 export async function create(formData) {
-  return sendRequest(BASE_URL, 'POST', formData)
+  return sendRequest(BASE_URL, 'POST', formData, true)
 }
 
 export async function deleteEvent(id) {
