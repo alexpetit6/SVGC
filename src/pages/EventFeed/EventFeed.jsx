@@ -12,7 +12,7 @@ export default function EventFeed() {
     }
     getAllEvents();
   }, [])
-  const EventCards = events.map(e => <EventCard event={e} key={e._id} />)
+  const EventCards = events.map(e => <EventCard event={e} key={e._id} setEvents={setEvents} />)
   return (
     <ListGroup>
       {EventCards}

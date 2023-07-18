@@ -1,4 +1,5 @@
 const uploadFile = require('../../config/upload-file');
+const photo = require('../../models/photo');
 const Photo = require('../../models/photo');
 
 module.exports = {
@@ -34,6 +35,8 @@ async function upload(req, res) {
 async function deletePhoto(req, res) {
   try {
     await Photo.deleteOne({_id: req.params.id});
+    const photos = await Photo.find({}).sort('-createdAt').exec();
+    res.json(photos)
   } catch (err) {
     res.json(err);
   }

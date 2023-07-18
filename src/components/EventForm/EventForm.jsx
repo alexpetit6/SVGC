@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState, useEffect } from 'react';
 
-export default function EventForm({ event, edit}) {
+export default function EventForm() {
   const { eventId } = useParams();
   const baseData = {
     title: '',

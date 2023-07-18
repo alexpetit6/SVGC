@@ -9,13 +9,13 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const events = await Event.find({});
+  const events = await Event.find({}).sort('date').exec();
   res.json(events);
 }
 
 async function show(req, res) {
-  const event = await Event.findById(req.params.id)
-  res.json(event)
+  const event = await Event.findById(req.params.id);
+  res.json(event);
 }
 
 async function create(req, res) {
@@ -34,6 +34,8 @@ async function create(req, res) {
 async function deleteEvent(req, res) {
   try {
     await Event.deleteOne({_id: req.params.id});
+    const events = await Event.find({}).sort('date').exec();
+    res.json(events);
   } catch (err) {
     res.json(err);
   }
@@ -47,8 +49,8 @@ async function update(req, res) {
       req.body, 
       {new: true}
     );
-    res.json(updatedEvent)
+    res.json(updatedEvent);
   } catch (err) {
-    res.json(err)
+    res.json(err);
   }
 }

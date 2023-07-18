@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button"
 import ActionButton from "../ActionButton/ActionButton"
 import { Link } from "react-router-dom";
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, setEvents }) {
   return (
     <ListGroup.Item>
       <Card>
@@ -16,7 +16,7 @@ export default function EventCard({ event }) {
           <Card.Text><strong>Date:</strong> {event.date}</Card.Text>
           <Card.Text><strong>Time:</strong> {event.standardClock}</Card.Text>
           <Card.Text><strong>Event Location:</strong> {event.location}</Card.Text>
-          <ActionButton action='deleteEvt' id={event.id} />
+          <ActionButton action='deleteEvt' id={event.id} setterFunc={setEvents} />
           <Button className="action-button" variant='warning' size='sm'><Link to={`/events/new/${event.id}`}>EDIT</Link></Button>
         </Card.Body>
       </Card>
