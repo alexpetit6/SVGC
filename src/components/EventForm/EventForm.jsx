@@ -16,6 +16,7 @@ export default function EventForm() {
   }
   const [formData, setFormData] = useState(baseData);
   const [isChecked, setIsChecked] = useState(false);
+  const [statusMsg, setStatusMsg] = useState('');
   const fileInputRef = useRef();
 
   useEffect(function () {
@@ -38,14 +39,19 @@ export default function EventForm() {
   
   async function handleSubmit(evt) {
     evt.preventDefault();
+    if(!formData.date || !formData.time) {
+      setStatusMsg('Please enter a date and/or time');
+      return
+    };
     const newFormData = new FormData();
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
     }
-    newFormData.append('photo', fileInputRef.current.files[0]);
     if (eventId) {
-      const updatedEvent = await update(eventId, formData)
+      await update(eventId, newFormData);
+      setStatusMsg('Changes Submitted Successfully!');
     } else {
+      newFormData.append('photo', fileInputRef.current.files[0]);
       // newFormData.append('title', formData.title);
       // newFormData.append('description', formData.description);
       // newFormData.append('location', formData.location);
@@ -99,6 +105,7 @@ export default function EventForm() {
           Create Meeting!
         </Button>
       </div>
+      <p className='text-danger'>{statusMsg}</p>
     </Form>
     :
     <Form onSubmit={handleSubmit} className='event-form'>
@@ -163,9 +170,10 @@ export default function EventForm() {
       </Form.Group>
       <div className="d-grid gap-2">
         <Button type='submit' variant="success" size="lg">
-          Create Event!
+          {eventId ? 'Submit Changes' : 'Create New Event!'}
         </Button>
       </div>
+      <p className='text-danger'>{statusMsg}</p>
     </Form>
   )
 }

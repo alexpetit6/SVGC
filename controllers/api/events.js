@@ -47,8 +47,10 @@ async function deleteEvent(req, res) {
 }
 
 async function update(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key];
+  };
   try {
-    console.log('updating')
     const updatedEvent = await Event.findOneAndUpdate(
       {_id: req.params.id}, 
       req.body, 

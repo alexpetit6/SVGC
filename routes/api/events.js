@@ -8,7 +8,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 router.get('/', eventsCtrl.index);
 router.get('/:id', eventsCtrl.show);
 router.post('/', ensureLoggedIn, upload.single('photo'),  eventsCtrl.create);
-router.delete('/:id', ensureLoggedIn,  eventsCtrl.delete);
-router.put('/:id', ensureLoggedIn, eventsCtrl.update)
+router.delete('/:id', ensureLoggedIn, eventsCtrl.delete);
+router.put('/:id', ensureLoggedIn, upload.none(), eventsCtrl.update)
 
 module.exports = router

@@ -9,15 +9,17 @@ export default function EventCard({ event, setEvents }) {
     <ListGroup.Item>
       <Card>
         <Card.Body>
-          <Card.Title><h1 className='display-4'>{event.title}</h1></Card.Title>
+          <Link to={`/events/${event.id}`}>
+            <Card.Title><h1 className='display-4'>{event.title}</h1></Card.Title>
+          </Link>
           <Card.Text>{event.description}</Card.Text>
         </Card.Body>
         <Card.Body>
-          <Card.Text><strong>Date:</strong> {event.date}</Card.Text>
+          <Card.Text><strong>Date:</strong> {event.formDate}</Card.Text>
           <Card.Text><strong>Time:</strong> {event.standardClock}</Card.Text>
           <Card.Text><strong>Event Location:</strong> {event.location}</Card.Text>
           <ActionButton action='deleteEvt' id={event.id} setterFunc={setEvents} />
-          <Button className="action-button" variant='warning' size='sm'><Link to={`/events/new/${event.id}`}>EDIT</Link></Button>
+          <Button className='action-button' variant='warning' size='sm'><Link to={`/events/new/${event.id}`}>EDIT</Link></Button>
         </Card.Body>
       </Card>
     </ListGroup.Item>

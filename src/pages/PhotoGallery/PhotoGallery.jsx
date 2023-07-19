@@ -4,7 +4,7 @@ import PhotoForm from "../../components/PhotoForm/PhotoForm";
 import { getPhotos } from "../../utilities/photos-api";
 import Container from "react-bootstrap/Container";
 
-export default function() {
+export default function PhotoGallery() {
   const [photos, setPhotos] = useState([]);
 
   useEffect(function() {
