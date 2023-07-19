@@ -1,5 +1,4 @@
 const uploadFile = require('../../config/upload-file');
-const photo = require('../../models/photo');
 const Photo = require('../../models/photo');
 
 module.exports = {
@@ -14,10 +13,10 @@ async function index(req, res) {
 }
 
 async function upload(req, res) {
+  console.log(req.body)
   try {
     if (req.file) {
       // TODO: Remove the console.log after you've verified the output
-      console.log('uploading', req.file);
       const photoURL = await uploadFile(req.file);
       const photoDoc = await Photo.create({
         url: photoURL,

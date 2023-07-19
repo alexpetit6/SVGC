@@ -11,7 +11,6 @@ export default function EventForm() {
     title: '',
     description: '',
     location: '',
-    // photo: '',
     date: '',
     time: '',
   }
@@ -43,17 +42,16 @@ export default function EventForm() {
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
     }
-    console.log(newFormData)
+    newFormData.append('photo', fileInputRef.current.files[0]);
     if (eventId) {
       const updatedEvent = await update(eventId, formData)
-      console.log(updatedEvent)
     } else {
       // newFormData.append('title', formData.title);
       // newFormData.append('description', formData.description);
       // newFormData.append('location', formData.location);
-      // newFormData.append('photo', fileInputRef.current[0]);
       // newFormData.append('date', formData.date);
       // newFormData.append('time', formData.time);
+      console.log(newFormData)
       await create(newFormData);
       setFormData(baseData);
     }
@@ -63,7 +61,6 @@ export default function EventForm() {
       ...formData,
       [evt.target.name]: evt.target.value
     });
-    // const newFormData = new FormData(form);
   }
   function handleCheck(evt) {
     setIsChecked(!isChecked);
@@ -75,7 +72,6 @@ export default function EventForm() {
     <Form onSubmit={handleSubmit} className='event-form' id='event-form'>
       <Form.Check
         type="checkbox"
-        // id="checkbox-default"
         label="Is this a meeting?"
         onChange={handleCheck}
         checked={isChecked}
@@ -108,7 +104,6 @@ export default function EventForm() {
     <Form onSubmit={handleSubmit} className='event-form'>
       <Form.Check
         type="checkbox"
-        // id="checkbox-default"
         label="Is this a meeting?"
         onChange={handleCheck}
         checked={isChecked}

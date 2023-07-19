@@ -1,3 +1,4 @@
+const uploadFile = require('../../config/upload-file');
 const Event = require('../../models/event');
 
 module.exports = {
@@ -19,14 +20,18 @@ async function show(req, res) {
 }
 
 async function create(req, res) {
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key];
-  }
   try {
     const event = await Event.create(req.body);
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key];
+    };
+    if (req.file) {
+      const photoURL = await uploadFile(req.file);
+      event.photo = photoURL;
+      event.save();
+    };
     res.json(event);
   } catch (err) {
-    console.log(err)
     res.json(err);
   }
 }
