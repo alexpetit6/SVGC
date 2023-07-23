@@ -51,13 +51,7 @@ export default function EventForm() {
       await update(eventId, newFormData);
       setStatusMsg('Changes Submitted Successfully!');
     } else {
-      newFormData.append('photo', fileInputRef.current.files[0]);
-      // newFormData.append('title', formData.title);
-      // newFormData.append('description', formData.description);
-      // newFormData.append('location', formData.location);
-      // newFormData.append('date', formData.date);
-      // newFormData.append('time', formData.time);
-      console.log(newFormData)
+      if (!isChecked) newFormData.append('photo', fileInputRef.current.files[0]);
       await create(newFormData);
       setFormData(baseData);
     }

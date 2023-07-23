@@ -6,7 +6,6 @@ const eventSchema = new Schema({
   title: {
     type: String,
     default: 'Meeting',
-    required: true
   },
   description: {
     type: String,
@@ -19,7 +18,6 @@ const eventSchema = new Schema({
   location: {
     type: String,
     default: '9050 384th Ave SE, Snoqualmie, WA 98065',
-    required: true
   },
   date: {
     type: Date,

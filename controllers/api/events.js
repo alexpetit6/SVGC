@@ -21,10 +21,10 @@ async function show(req, res) {
 
 async function create(req, res) {
   try {
-    const event = await Event.create(req.body);
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key];
     };
+    const event = await Event.create(req.body);
     if (req.file) {
       const photoURL = await uploadFile(req.file);
       event.photo = photoURL;
@@ -32,7 +32,7 @@ async function create(req, res) {
     };
     res.json(event);
   } catch (err) {
-    res.json(err);
+    console.log(err)
   }
 }
 
