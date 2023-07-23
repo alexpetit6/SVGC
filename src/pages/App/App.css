@@ -45,3 +45,8 @@ html, body {
     transform: rotate(360deg);
   }
 } */
+
+#signup-btn {
+  display: block;
+  margin: 0 auto;
+}
