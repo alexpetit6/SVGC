@@ -3,6 +3,7 @@ import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { getEvents } from "../../utilities/events-api";
 import dayjs from "dayjs";
+import CustomEvent from "../../components/CustomEvent/CustomEvent";
 const utc = require('dayjs/plugin/utc')
 const timezone = require('dayjs/plugin/timezone')
 dayjs.extend(utc)
@@ -22,6 +23,19 @@ export default function CalendarPage() {
     getAllEvents();
   }, []);
   
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    const backgroundColor = event.color || 'purple'; // Default color if not provided
+    const style = {
+      backgroundColor,
+      borderRadius: '5px',
+      opacity: 0.8,
+      color: 'white',
+      border: '1px solid #3174ad',
+      display: 'block',
+      padding: '5px',
+    };
+    return { style };
+  };
 
   return (
     <div>
@@ -32,6 +46,8 @@ export default function CalendarPage() {
         events={events}
         views={{month: true}}
         style={{ height: '100vmin' }}
+        components={{event: CustomEvent}}
+        eventPropGetter={eventStyleGetter}
       />
     </div>
   )

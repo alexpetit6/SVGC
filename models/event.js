@@ -42,4 +42,8 @@ eventSchema.virtual('formDate').get(function() {
   return this.date.toISOString().slice(0, 10)
 });
 
+eventSchema.virtual('color').get(function() {
+  return this.title === 'Meeting' ? '#3174ad' : 'Purple'
+});
+
 module.exports = mongoose.model('Event', eventSchema);
