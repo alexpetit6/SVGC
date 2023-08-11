@@ -8,7 +8,7 @@ const timezone = require('dayjs/plugin/timezone')
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
-dayjs.tz.setDefault('UTC')
+dayjs.tz.setDefault('America/Los_Angeles')
 
 const localizer = dayjsLocalizer(dayjs)
 
@@ -27,10 +27,10 @@ export default function CalendarPage() {
     <div>
       <Calendar
         localizer={localizer}
-        intl={{ timeZone: 'UTC' }}
         startAccessor="date"
         endAccessor="date"
         events={events}
+        views={{month: true}}
         style={{ height: '100vmin' }}
       />
     </div>
