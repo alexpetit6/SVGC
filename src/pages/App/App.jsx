@@ -15,25 +15,20 @@ export default function App() {
 
   return (
     <main className="App">
-      { user ?
-          <>
-            <NavBar user={user} setUser={setUser} />
-            <Routes>
-              {/* Route components in here */}
-              <Route path="/events/new" element={<NewEventPage />} />
-              <Route path="/events/new/:eventId" element={<NewEventPage />} />
-              <Route path="/events" element={<EventFeed />} />
-              <Route path="/events/:eventId" element={<EventDetailPage />} />
-              <Route path="/calendar" element={<CalendarPage />} />
-              <Route path="/*" element={<EventFeed />} />
-              <Route path="/photos" element={<PhotoGallery />} />
-            </Routes>
-          </>
-          :
-          <Routes>
-            <Route path="/*" element={<AuthPage setUser={setUser} />} />
-          </Routes>
-      }
+      <>
+        <NavBar user={user} setUser={setUser} />
+        <Routes>
+          {/* Route components in here */}
+          <Route path="/events/new" element={<NewEventPage />} />
+          <Route path="/events/new/:eventId" element={<NewEventPage />} />
+          <Route path="/events" element={<EventFeed />} />
+          <Route path="/events/:eventId" element={<EventDetailPage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/*" element={<EventFeed />} />
+          <Route path="/photos" element={<PhotoGallery />} />
+          <Route path="/admin" element={<AuthPage setUser={setUser} />} />
+        </Routes>
+      </>
     </main>
   );
 }

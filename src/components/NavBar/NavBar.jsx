@@ -20,7 +20,7 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link href='/events/new'>New Event</Nav.Link>
             <Nav.Link href='/calendar'>Calendar Page</Nav.Link>
             <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
-            <Nav.Link href='/' onClick={handleLogOut}>Logout</Nav.Link>
+            { user ? <Nav.Link href='/' onClick={handleLogOut}>Logout</Nav.Link> : null }
           </Nav>
         </Navbar.Collapse>
       </Container>

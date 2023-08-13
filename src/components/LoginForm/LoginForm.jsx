@@ -2,12 +2,15 @@ import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -26,6 +29,7 @@ export default function LoginForm({ setUser }) {
     } catch {
       setError('Log In Failed - Try Again');
     }
+    navigate('/events')
   }
 
   return (
