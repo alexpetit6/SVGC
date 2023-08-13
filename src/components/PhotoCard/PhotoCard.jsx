@@ -3,7 +3,7 @@ import Row  from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ActionButton from '../ActionButton/ActionButton'
 
-export default function PhotoCard({ photos, setPhotos, i, url, title, id }) {
+export default function PhotoCard({ photos, setPhotos, i, url, title, id, user }) {
   
   if (!i || !(i % 2)) {
     const next = photos[i + 1]
@@ -15,9 +15,15 @@ export default function PhotoCard({ photos, setPhotos, i, url, title, id }) {
               <Card.Text className='text-center'>{title}</Card.Text>
             </Card.Body>
             <Card.Img variant="bottom" src={url} />
-            <Card.ImgOverlay>
-              <ActionButton action='deleteImg' id={id} setterFunc={setPhotos}></ActionButton>
-            </Card.ImgOverlay>
+            {
+              user
+              ?
+              <Card.ImgOverlay>
+                <ActionButton action='deleteImg' id={id} setterFunc={setPhotos}></ActionButton>
+              </Card.ImgOverlay>
+              :
+              null
+            }
           </Card>
         </Col>
         {
@@ -29,9 +35,15 @@ export default function PhotoCard({ photos, setPhotos, i, url, title, id }) {
               <Card.Text className='text-center'>{next.title}</Card.Text>
             </Card.Body>
             <Card.Img variant="bottom" src={next.url} />
-            <Card.ImgOverlay>
-              <ActionButton action='deleteImg' id={next._id} setterFunc={setPhotos}></ActionButton>
-            </Card.ImgOverlay>
+            {
+              user
+              ?
+              <Card.ImgOverlay>
+                <ActionButton action='deleteImg' id={id} setterFunc={setPhotos}></ActionButton>
+              </Card.ImgOverlay>
+              :
+              null
+            }
           </Card>
         </Col>
         :

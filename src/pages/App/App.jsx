@@ -17,17 +17,29 @@ export default function App() {
     <main className="App">
       <>
         <NavBar user={user} setUser={setUser} />
-        <Routes>
-          {/* Route components in here */}
-          <Route path="/events/new" element={<NewEventPage />} />
-          <Route path="/events/new/:eventId" element={<NewEventPage />} />
-          <Route path="/events" element={<EventFeed />} />
-          <Route path="/events/:eventId" element={<EventDetailPage />} />
-          <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/*" element={<EventFeed />} />
-          <Route path="/photos" element={<PhotoGallery />} />
-          <Route path="/admin" element={<AuthPage setUser={setUser} />} />
-        </Routes>
+        {
+          user
+          ?
+          <Routes>
+            <Route path="/events/new" element={<NewEventPage />} />
+            <Route path="/events/new/:eventId" element={<NewEventPage />} />
+            <Route path="/events" element={<EventFeed user={user}/>} />
+            <Route path="/events/:eventId" element={<EventDetailPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/*" element={<EventFeed />} />
+            <Route path="/photos" element={<PhotoGallery user={user}/>} />
+            <Route path="/admin" element={<AuthPage setUser={setUser} />} />
+          </Routes>
+          :
+          <Routes>
+            <Route path="/events" element={<EventFeed user={user}/>} />
+            <Route path="/events/:eventId" element={<EventDetailPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/*" element={<EventFeed />} />
+            <Route path="/photos" element={<PhotoGallery user={user}/>} />
+            <Route path="/admin" element={<AuthPage setUser={setUser} />} />
+          </Routes>
+        }
       </>
     </main>
   );

@@ -17,10 +17,18 @@ export default function NavBar({ user, setUser }) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href='/events'>Event Feed</Nav.Link>
-            <Nav.Link href='/events/new'>New Event</Nav.Link>
             <Nav.Link href='/calendar'>Calendar Page</Nav.Link>
             <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
-            { user ? <Nav.Link href='/' onClick={handleLogOut}>Logout</Nav.Link> : null }
+            { 
+              user 
+              ? 
+              <>
+                <Nav.Link href='/events/new'>New Event</Nav.Link>
+                <Nav.Link href='/' onClick={handleLogOut}>Logout</Nav.Link> 
+              </>
+              : 
+              null 
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

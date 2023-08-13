@@ -3,7 +3,7 @@ import { getEvents } from "../../utilities/events-api";
 import { ListGroup } from "react-bootstrap";
 import EventCard from '../../components/EventCard/EventCard'
 
-export default function EventFeed() {
+export default function EventFeed({user}) {
   const [events, setEvents] = useState([]);
   useEffect(function() {
     async function getAllEvents() {
@@ -12,7 +12,7 @@ export default function EventFeed() {
     }
     getAllEvents();
   }, [])
-  const EventCards = events.map(e => <EventCard event={e} key={e._id} setEvents={setEvents} />)
+  const EventCards = events.map(e => <EventCard event={e} key={e._id} setEvents={setEvents} user={user}/>)
   return (
     <ListGroup>
       {EventCards}

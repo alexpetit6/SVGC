@@ -4,7 +4,7 @@ import PhotoForm from "../../components/PhotoForm/PhotoForm";
 import { getPhotos } from "../../utilities/photos-api";
 import Container from "react-bootstrap/Container";
 
-export default function PhotoGallery() {
+export default function PhotoGallery({ user }) {
   const [photos, setPhotos] = useState([]);
 
   useEffect(function() {
@@ -16,7 +16,7 @@ export default function PhotoGallery() {
   }, [])
   return (
     <>
-      <PhotoForm setPhotos={setPhotos} photos={photos} />
+      { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
       <Container>
         {photos.map((p, i) => <PhotoCard 
           i={i} 
@@ -25,7 +25,8 @@ export default function PhotoGallery() {
           url={p.url} 
           title={p.title} 
           key={p._id} 
-          id={p._id} 
+          id={p._id}
+          user={user} 
         />)}
       </Container>
     </>

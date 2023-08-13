@@ -15,8 +15,13 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  const event = await Event.findById(req.params.id);
-  res.json(event);
+  try {
+    console
+    const event = await Event.findById(req.params.id);
+    res.json(event);
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 async function create(req, res) {
