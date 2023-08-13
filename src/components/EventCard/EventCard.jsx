@@ -1,3 +1,4 @@
+import './EventCard.css'
 import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button"
@@ -7,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function EventCard({ event, setEvents, user }) {
   return (
     <ListGroup.Item>
-      <Card>
+      <Card className='event-card'>
         <Card.Body>
           <Link to={`/events/${event.id}`}>
             <Card.Title><h1 className='display-4'>{event.title}</h1></Card.Title>

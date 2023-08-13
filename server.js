@@ -17,6 +17,7 @@ app.use(express.json());
 // to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'public/images')));
 
 // Middleware to verify token and assign user object of payload to req.user.
 // Be sure to mount before routes
