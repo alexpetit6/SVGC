@@ -11,7 +11,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-secondary">
+    <Navbar expand="lg" id="navbar">
       <Container>
         <Navbar.Brand href="#home"><img id="nav-logo" src="/SVGC-Logo.jpeg" alt="SVGC" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

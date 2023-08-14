@@ -2,3 +2,7 @@
   height: 10vmin;
   border-radius: 50%;
 }
+
+#navbar {
+  background-image: url('../../../public/images/cherry-blossom.jpg');
+}
