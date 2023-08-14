@@ -1,8 +1,16 @@
 #nav-logo {
-  height: 10vmin;
+  height: 12vmin;
   border-radius: 50%;
 }
 
+#navbar > img {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
 #navbar {
-  background-image: url('../../../public/images/cherry-blossom.jpg');
+  background-color: rgba(236, 211, 192, 0.5);
 }

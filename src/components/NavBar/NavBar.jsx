@@ -12,6 +12,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <Navbar expand="lg" id="navbar">
+      <img src="/blossom.png" alt="" />
       <Container>
         <Navbar.Brand href="#home"><img id="nav-logo" src="/SVGC-Logo.jpeg" alt="SVGC" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
