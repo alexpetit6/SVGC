@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import './sass/RBC.scss'
+// import 'react-big-calendar/lib/sass/styles.scss'
 import { getEvents } from "../../utilities/events-api";
 import dayjs from "dayjs";
 import CustomEvent from "../../components/CustomEvent/CustomEvent";
@@ -30,7 +32,7 @@ export default function CalendarPage() {
       borderRadius: '5px',
       opacity: 0.8,
       color: 'white',
-      border: '1px solid #3174ad',
+      border: '1px solid black',
       display: 'block',
       padding: '5px',
     };

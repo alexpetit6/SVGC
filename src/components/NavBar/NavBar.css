@@ -1,16 +1,26 @@
 #nav-logo {
-  height: 12vmin;
+  height: 10vmin;
   border-radius: 50%;
 }
 
 #navbar > img {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
 }
 
-#navbar {
+/* #navbar {
+  overflow: hidden;
   background-color: rgba(236, 211, 192, 0.5);
+} */
+
+#navbar {
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid grey;
+}
+
+.nav-link {
+  color: white;
 }

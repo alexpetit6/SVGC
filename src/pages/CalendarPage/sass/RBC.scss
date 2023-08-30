@@ -1,0 +1,12 @@
+@import 'react-big-calendar/lib/sass/styles';
+@import 'react-big-calendar/lib/sass/variables';
+
+.rbc-today {
+  background-color: rgb(235, 229, 219);
+}
+
+.rbc-header {
+  border-bottom: black;
+}
+
+$calendar-border: red;

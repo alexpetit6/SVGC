@@ -1,10 +1,5 @@
 # SVGC
 SVGC stands for Snoqualmie Valley Garden Club: the non-profit that this website is being made for. The goal is to have a plant themed website that is dynamically edited by admins of the club. An easy UX for the admin and a nice, clean, and snappy website for the visitor is paramount. It is currently a work in progress and will probably receive a lot of changes over time.
-# Screenshot
-
-<img src="https://i.imgur.com/lR8rAHA.png">
-<img src="https://i.imgur.com/GeIhAOn.png">
-<img src="https://i.imgur.com/FeQ4hn4.png">
 
 # Technologies Used
 
