@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser }) {
     <Navbar expand="lg" id="navbar">
       {/* <img src="/blossom.png" alt="" /> */}
       <Container>
-        <Navbar.Brand href="#home"><img id="nav-logo" src="/SVGC-Logo.jpeg" alt="SVGC" /></Navbar.Brand>
+        <Navbar.Brand href="/"><img id="nav-logo" src="/SVGC-Logo.jpeg" alt="SVGC" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

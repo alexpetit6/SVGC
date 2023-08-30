@@ -1,5 +1,7 @@
-.header-img {
+.img-crop {
+  overflow: hidden;
   position: absolute;
   top: 0;
   z-index: -1;
+  height: 60vh;
 }
