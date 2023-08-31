@@ -17,6 +17,9 @@
 } */
 
 #navbar {
+  position: absolute;
+  width: 100%;
+  top: 0;
   backdrop-filter: blur(10px) brightness(75%);
   border-bottom: 1px solid grey;
 }
