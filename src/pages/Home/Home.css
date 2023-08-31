@@ -17,5 +17,44 @@
   width: 100%;
   height: 100vh;
   z-index: -1;
-  background-image: url('https://i.imgur.com/6FuGBua.jpg')
+  background-image: url('https://i.imgur.com/6FuGBua.jpg');
+  border-bottom: solid black 20px;
 }
+
+.img-text {
+  /* background-image: ; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: teal;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}
+
+.col-xl {
+  padding: 0;
+}
+
+.img-text > p {
+width: 300px;
+}
+
+#home-pic-1 {
+  height: 100vh;
+  margin: 20px;
+}
+
+.home-pix {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .img-text {
+    height: 60vh;
+  }
+}
+
