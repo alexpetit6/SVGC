@@ -17,7 +17,7 @@ export default function EventFeed({user}) {
   return (
     <>
     <div className="header-img">
-      <h1 className='header-text'>Brand Statement</h1>
+      <h1 className='header-text'>Events</h1>
     </div>
     <ListGroup>
       {EventCards}
