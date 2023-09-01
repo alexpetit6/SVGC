@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { eventNames } = require('./user');
+const dayjs = require('dayjs')
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
@@ -40,6 +40,18 @@ eventSchema.virtual('standardClock').get(function() {
 
 eventSchema.virtual('formDate').get(function() {
   return this.date.toISOString().slice(0, 10)
+});
+
+eventSchema.virtual('displayDate').get(function() {
+  const suffixArr = ['st', 'nd', 'rd'];
+  let suffix = null;
+  const newDateStr = dayjs(this.date).format('MMM. DD YYYY');
+  const day = newDateStr.slice(5,7);
+  if ( day > 3 ) suffix = 'th';
+  else suffix = suffixArr[day - 1];
+  const noZeroDate = newDateStr.replace(/ 0/, ' ');
+  if ( noZeroDate.length === 11 ) return `${noZeroDate.slice(0,6)}${suffix}, ${noZeroDate.slice(7)}`
+  return `${noZeroDate.slice(0,7)}${suffix}, ${noZeroDate.slice(8)}`
 });
 
 eventSchema.virtual('color').get(function() {

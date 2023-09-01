@@ -17,7 +17,7 @@ export default function Home() {
         <img className='img-fluid' id='home-pic-1' src="https://i.imgur.com/e09OXu0.jpg" alt="" />
       </Col>
     </Row>
-    <Row id='home-row2'>>
+    <Row id='home-row2'>
       <Col className='home-pix' xl>
         <img className='img-fluid' id='home-pic-1' src="https://i.imgur.com/e09OXu0.jpg" alt="" />
       </Col>

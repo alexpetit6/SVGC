@@ -9,22 +9,23 @@ export default function EventCard({ event, setEvents, user }) {
   return (
     <ListGroup.Item>
       <Card className='event-card'>
-        <Card.Body>
           <Link to={`/events/${event.id}`}>
-            <Card.Title><h1 className='display-4'>{event.title}</h1></Card.Title>
+            <Card.Header><h1 className='display-4'>{event.title}</h1></Card.Header>
           </Link>
+        <Card.Body id='event-body'>
           <Card.Text>{event.description}</Card.Text>
-        </Card.Body>
-        <Card.Body>
-          <Card.Text><strong>Date:</strong> {event.formDate}</Card.Text>
+          <div className='card-date'>
+            <h1>{event.displayDate.slice(0, 4)}</h1>
+            <h3>{event.displayDate.slice(4)}</h3>
+          </div>
           <Card.Text><strong>Time:</strong> {event.standardClock}</Card.Text>
           <Card.Text><strong>Event Location:</strong> {event.location}</Card.Text>
           {
             user
             ?
             <>
-              <ActionButton action='deleteEvt' id={event.id} setterFunc={setEvents} />
-              <Button className='action-button' variant='warning' size='sm'><Link to={`/events/new/${event.id}`}>EDIT</Link></Button>
+            <ActionButton action='deleteEvt' id={event.id} setterFunc={setEvents} />
+            <Button className='action-button' variant='warning' size='sm'><Link to={`/events/new/${event.id}`}>EDIT</Link></Button>
             </>
             :
             null
