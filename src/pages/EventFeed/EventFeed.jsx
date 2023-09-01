@@ -1,3 +1,4 @@
+import './EventFeed.css'
 import { useState, useEffect } from "react";
 import { getEvents } from "../../utilities/events-api";
 import { ListGroup } from "react-bootstrap";
@@ -15,6 +16,9 @@ export default function EventFeed({user}) {
   const EventCards = events.map(e => <EventCard event={e} key={e._id} setEvents={setEvents} user={user}/>)
   return (
     <>
+    <div className="header-img">
+      <h1 className='header-text'>Brand Statement</h1>
+    </div>
     <ListGroup>
       {EventCards}
     </ListGroup>

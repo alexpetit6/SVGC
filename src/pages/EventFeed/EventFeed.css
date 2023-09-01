@@ -1,0 +1,10 @@
+.header-img {
+  height: 60vh;
+  background-image: url('https://i.imgur.com/7kr9heo.jpg');
+}
+
+.header-text {
+  position: relative;
+  text-align: center;
+  top: 32vh;
+}
