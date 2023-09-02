@@ -9,8 +9,8 @@ export default function EventCard({ event, setEvents, user }) {
   return (
     <ListGroup.Item>
       <Card className='event-card'>
-          <Link to={`/events/${event.id}`}>
-            <Card.Header><h1 className='display-4'>{event.title}</h1></Card.Header>
+          <Link id='event-link' to={`/events/${event.id}`}>
+            <Card.Header id='event-header'><h1 className='display-4'>{event.title}</h1></Card.Header>
           </Link>
         <Card.Body id='event-body'>
           <Card.Text>{event.description}</Card.Text>
@@ -18,8 +18,8 @@ export default function EventCard({ event, setEvents, user }) {
             <h1>{event.displayDate.slice(0, 4)}</h1>
             <h3>{event.displayDate.slice(4)}</h3>
           </div>
-          <Card.Text><strong>Time:</strong> {event.standardClock}</Card.Text>
-          <Card.Text><strong>Event Location:</strong> {event.location}</Card.Text>
+          <Card.Text>{event.standardClock}</Card.Text>
+          <Card.Text>{event.location}</Card.Text>
           {
             user
             ?

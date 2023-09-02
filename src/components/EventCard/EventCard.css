@@ -1,24 +1,60 @@
 .event-card {
-  position: relative;
   width: 70vw;
   height: 30vmax;
   text-align: center;
   margin: 1vmin auto;
 }
 
-#event-body {
-  position: relative;
-  background-color: red;
+#event-header {
+  background-color: var(--primary-color);
+  color: var(--accent1);
 }
 
-.card-body {
+#event-link {
+  text-decoration: none;
+}
+
+#event-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 0;
+  position: relative;
+  color: white;
+  background-color: var(--secondary-color);
+}
+
+#event-body > :nth-last-child(-n+2) {
+  position: relative;
+  left: 40%;
+  width: 35vw;
+}
+
+#event-body > :nth-child(3) {
+  font-size: 6vw;
+}
+
+#event-body > :last-child {
 }
 
 .card-date {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   top: 0;
   height: 100%;
   width: 30%;
   background-color: var(--accent1);
+  color: var(--primary-color);
+}
+
+.card-date > h1 {
+  font-size: 8vw;
+}
+
+.card-date > h3 {
+  width: 10vw;
+  font-size: 4vw;
 }
