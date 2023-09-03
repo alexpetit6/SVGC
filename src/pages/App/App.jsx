@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
@@ -13,11 +13,18 @@ import Home from '../Home/Home';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [absolutePosition, setAbsolutePosition] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    (location.pathname.includes('/events/new') || location.pathname.includes('/admin')) ? setAbsolutePosition(false) : setAbsolutePosition(true);
+  }, [location]);
+  
 
   return (
     <main className="App">
       <>
-        <NavBar user={user} setUser={setUser} />
+        <NavBar absolutePosition={absolutePosition} user={user} setUser={setUser} />
         {
           user
           ?
@@ -26,18 +33,18 @@ export default function App() {
             <Route path="/events/new/:eventId" element={<NewEventPage />} />
             <Route path="/events" element={<EventFeed user={user}/>} />
             <Route path="/events/:eventId" element={<EventDetailPage />} />
-            <Route path="/calendar" element={<CalendarPage />} />
-            <Route path="/*" element={<EventFeed />} />
-            <Route path="/photos" element={<PhotoGallery user={user}/>} />
+            <Route path="/calendar" element={<CalendarPage/>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/photos" element={<PhotoGallery user={user} />} />
             <Route path="/admin" element={<AuthPage setUser={setUser} />} />
           </Routes>
           :
           <Routes>
-            <Route path="/events" element={<EventFeed user={user}/>} />
+            <Route path="/events" element={<EventFeed user={user} />} />
             <Route path="/events/:eventId" element={<EventDetailPage />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/" element={<Home />} />
-            <Route path="/photos" element={<PhotoGallery user={user}/>} />
+            <Route path="/photos" element={<PhotoGallery user={user} />} />
             <Route path="/admin" element={<AuthPage setUser={setUser} />} />
           </Routes>
         }
