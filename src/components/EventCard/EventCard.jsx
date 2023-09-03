@@ -13,7 +13,7 @@ export default function EventCard({ event, setEvents, user }) {
             <Card.Header id='event-header'><h1 className='display-4'>{event.title}</h1></Card.Header>
           </Link>
         <Card.Body id='event-body'>
-          <Card.Text>{event.description}</Card.Text>
+          {/* <Card.Text>{event.description}</Card.Text> */}
           <div className='card-date'>
             <h1>{event.displayDate.slice(0, 4)}</h1>
             <h3>{event.displayDate.slice(4)}</h3>

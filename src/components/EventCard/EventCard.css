@@ -30,11 +30,12 @@
   width: 35vw;
 }
 
-#event-body > :nth-child(3) {
+#event-body > :nth-child(2) {
   font-size: 6vw;
 }
 
 #event-body > :last-child {
+  font-size: 2vw;
 }
 
 .card-date {
