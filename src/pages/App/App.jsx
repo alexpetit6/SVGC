@@ -17,7 +17,7 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
-    (location.pathname.includes('/events/new') || location.pathname.includes('/admin')) ? setAbsolutePosition(false) : setAbsolutePosition(true);
+    (location.pathname.includes('/events/new') || location.pathname.includes('/admin') || location.pathname.includes('/calendar')) ? setAbsolutePosition(false) : setAbsolutePosition(true);
   }, [location]);
   
 
