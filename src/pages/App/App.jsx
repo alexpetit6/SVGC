@@ -17,7 +17,8 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
-    (location.pathname.includes('/events/new') || location.pathname.includes('/admin') || location.pathname.includes('/calendar')) ? setAbsolutePosition(false) : setAbsolutePosition(true);
+    const regex = /events\/[\S*]|calendar|admin/g
+    regex.test(location.pathname) ? setAbsolutePosition(false) : setAbsolutePosition(true);
   }, [location]);
   
 
