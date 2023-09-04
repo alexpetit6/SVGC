@@ -16,19 +16,22 @@ export default function PhotoGallery({ user }) {
   }, [])
   return (
     <>
-      { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
-      <Container>
-        {photos.map((p, i) => <PhotoCard 
-          i={i} 
-          setPhotos={setPhotos}
-          photos={photos} 
-          url={p.url} 
-          title={p.title} 
-          key={p._id} 
-          id={p._id}
-          user={user} 
-        />)}
-      </Container>
+    <div className="header-img" style={{backgroundImage: 'url(https://i.imgur.com/BOv2ex5.jpg)'}}>
+      <h1 className='header-text'>Photos</h1>
+    </div>
+    { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
+    <Container>
+      {photos.map((p, i) => <PhotoCard 
+        i={i} 
+        setPhotos={setPhotos}
+        photos={photos} 
+        url={p.url} 
+        title={p.title} 
+        key={p._id} 
+        id={p._id}
+        user={user} 
+      />)}
+    </Container>
     </>
   )
 }

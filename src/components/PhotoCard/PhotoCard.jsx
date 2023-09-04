@@ -1,3 +1,4 @@
+import './PhotoCard.css'
 import Card from 'react-bootstrap/Card'
 import Row  from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -9,12 +10,12 @@ export default function PhotoCard({ photos, setPhotos, i, url, title, id, user }
     const next = photos[i + 1]
     return (
       <Row>
-        <Col md>
-          <Card>
-            <Card.Body>
+        <Col className='photo-col' md>
+          <Card className='photo-card'>
+            {/* <Card.Body>
               <Card.Text className='text-center'>{title}</Card.Text>
-            </Card.Body>
-            <Card.Img variant="bottom" src={url} />
+            </Card.Body> */}
+            <Card.Img className='card-img' src={url} />
             {
               user
               ?
@@ -29,12 +30,12 @@ export default function PhotoCard({ photos, setPhotos, i, url, title, id, user }
         {
         next
         ?
-        <Col md>
-          <Card>
-            <Card.Body>
+        <Col className='photo-col' md>
+          <Card className='photo-card'>
+            {/* <Card.Body>
               <Card.Text className='text-center'>{next.title}</Card.Text>
-            </Card.Body>
-            <Card.Img variant="bottom" src={next.url} />
+            </Card.Body> */}
+            <Card.Img className='card-img' src={next.url} />
             {
               user
               ?
