@@ -1,8 +1,9 @@
 .event-card {
   width: 70vw;
-  height: 30vmax;
+  height: 25vmax;
   text-align: center;
   margin: 1vmin auto;
+  overflow: hidden;
 }
 
 #event-header {
@@ -52,10 +53,10 @@
 }
 
 .card-date > h1 {
-  font-size: 8vw;
+  font-size: 6vw;
 }
 
 .card-date > h3 {
   width: 10vw;
-  font-size: 4vw;
+  font-size: 3vw;
 }

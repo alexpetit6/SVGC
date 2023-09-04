@@ -1,8 +1,9 @@
+import './EventDetailPage.css'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { eventDetail } from "../../utilities/events-api";
 import ListGroup from "react-bootstrap/ListGroup"
-import DetailCard from "../../components/DetailCard/DetailCard";
+import EventCard from '../../components/EventCard/EventCard';
 
 export default function EventDetailPage() {
   const [event, setEvent] = useState();
@@ -20,8 +21,11 @@ export default function EventDetailPage() {
   
   if(event) {
     return (
-      <ListGroup>
-        <DetailCard event={event} />
+      <ListGroup id='detail-list'>
+        <ListGroup.Item ><img className="event-img" src={event.photo} alt={event.title} /></ListGroup.Item>
+        <ListGroup.Item>{event.description}</ListGroup.Item>
+          <EventCard event={event} key={event._id} />
+        
       </ListGroup>
     )
   }

@@ -1,0 +1,18 @@
+
+#detail-list > * {
+  display: flex;
+  justify-content: center;
+  color: white;
+  border-radius: 0px;
+  border: none;
+  background-color: var(--secondary-color);
+}
+
+#detail-list > :nth-child(2) {
+  background-color: var(--primary-color);
+  font-size: 2vw;
+}
+
+.event-img {
+  height: 54vw;
+}
