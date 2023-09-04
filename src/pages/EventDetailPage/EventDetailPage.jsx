@@ -22,10 +22,9 @@ export default function EventDetailPage() {
   if(event) {
     return (
       <ListGroup id='detail-list'>
+        <ListGroup.Item className='text-center'>{event.displayDate} {event.standardClock} <br /> {event.location}</ListGroup.Item>
         <ListGroup.Item ><img className="event-img" src={event.photo} alt={event.title} /></ListGroup.Item>
         <ListGroup.Item>{event.description}</ListGroup.Item>
-          <EventCard event={event} key={event._id} />
-        
       </ListGroup>
     )
   }

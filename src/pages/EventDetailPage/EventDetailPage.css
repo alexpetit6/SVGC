@@ -8,11 +8,14 @@
   background-color: var(--secondary-color);
 }
 
-#detail-list > :nth-child(2) {
+#detail-list > :nth-child(even) {
   background-color: var(--primary-color);
-  font-size: 2vw;
+}
+
+#detail-list > :last-child {
+  font-size: 1.5vw;
 }
 
 .event-img {
-  height: 54vw;
+  height: 54vmax;
 }
