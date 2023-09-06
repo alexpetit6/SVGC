@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PhotoCard from "../../components/PhotoCard/PhotoCard";
 import PhotoForm from "../../components/PhotoForm/PhotoForm";
 import { getPhotos } from "../../utilities/photos-api";
-import Container from "react-bootstrap/Container";
+import Fancybox from "../../components/FancyBox/FancyBox";
 
 export default function PhotoGallery({ user }) {
   const [photos, setPhotos] = useState([]);
@@ -20,18 +20,16 @@ export default function PhotoGallery({ user }) {
       <h1 className='header-text'>Photos</h1>
     </div>
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
-    <Container>
+    <Fancybox>
       {photos.map((p, i) => <PhotoCard 
-        i={i} 
         setPhotos={setPhotos}
-        photos={photos} 
         url={p.url} 
-        title={p.title} 
+        caption={p.caption} 
         key={p._id} 
         id={p._id}
         user={user} 
       />)}
-    </Container>
+    </Fancybox>
     </>
   )
 }

@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button"
 import { deleteEvent } from "../../utilities/events-api"
 import { deletePhoto } from "../../utilities/photos-api";
 
-export default function ActionButton({ action, id, setterFunc }) {
+export default function ActionButton({ action, id, setterFunc, className }) {
   const request = {
     deleteEvt: {variant: 'danger', type: 'DELETE', func: deleteEvent},
     deleteImg: {variant: 'danger', type: 'DELETE', func: deletePhoto},
@@ -13,6 +13,6 @@ export default function ActionButton({ action, id, setterFunc }) {
    setterFunc(items); 
   }
   return (
-    <Button className="action-button" variant={request[action].variant} onClick={() => handleAction(id)} size='sm'>{request[action].type}</Button>
+    <Button className={className} variant={request[action].variant} onClick={() => handleAction(id)} size='sm'>{request[action].type}</Button>
   )
 }

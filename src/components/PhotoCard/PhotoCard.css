@@ -1,13 +1,10 @@
-.photo-card {
-  margin-top: 10px;
-  width: fit-content;
-}
-
-.card-img {
+.gallery-img {
   height: 50vh;
 }
 
-.photo-col {
-  display: flex;
-  justify-content: center;
+.delete-img {
+  position: relative;
+  right: 150px;
+  bottom: 180px;
+  height: 30px;
 }
