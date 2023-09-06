@@ -20,7 +20,7 @@ async function upload(req, res) {
       const photoURL = await uploadFile(req.file);
       const photoDoc = await Photo.create({
         url: photoURL,
-        title: req.body.title
+        caption: req.body.caption
       });
       res.json(photoDoc);
     } else {
