@@ -10,6 +10,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import PhotoGallery from '../PhotoGallery/PhotoGallery';
 import CalendarPage from '../CalendarPage/CalendarPage';
 import Home from '../Home/Home';
+import CommunityPage from '../CommunityPage/CommunityPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -35,6 +36,7 @@ export default function App() {
             <Route path="/events" element={<EventFeed user={user}/>} />
             <Route path="/events/:eventId" element={<EventDetailPage />} />
             <Route path="/calendar" element={<CalendarPage/>} />
+            <Route path="/community" element={<CommunityPage />} />
             <Route path="/" element={<Home />} />
             <Route path="/photos" element={<PhotoGallery user={user} />} />
             <Route path="/admin" element={<AuthPage setUser={setUser} />} />
@@ -44,6 +46,7 @@ export default function App() {
             <Route path="/events" element={<EventFeed user={user} />} />
             <Route path="/events/:eventId" element={<EventDetailPage />} />
             <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/community" element={<CommunityPage />} />
             <Route path="/" element={<Home />} />
             <Route path="/photos" element={<PhotoGallery user={user} />} />
             <Route path="/admin" element={<AuthPage setUser={setUser} />} />

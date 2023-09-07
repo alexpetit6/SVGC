@@ -1,0 +1,20 @@
+#community-body {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+#community-body > p {
+  margin: auto 20px;
+}
+
+#community-body > img {
+  height: 70vh;
+}
+
+#community-body > :first-child {
+  grid-column: span 3;
+}
+
+#community-body > :last-child {
+  grid-column: span 3;
+}

@@ -2,7 +2,6 @@ import './NavBar.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useState, useRef } from 'react';
 import * as userService from '../../utilities/users-service';
 
 export default function NavBar({ user, setUser, absolutePosition }) {
@@ -24,6 +23,7 @@ export default function NavBar({ user, setUser, absolutePosition }) {
             <Nav.Link href='/events'>Event Feed</Nav.Link>
             <Nav.Link href='/calendar'>Calendar Page</Nav.Link>
             <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
+            <Nav.Link href='/community'>Community Service</Nav.Link>
             { 
               user 
               ? 
