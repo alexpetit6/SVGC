@@ -3,7 +3,8 @@ import './CommunityPage.css'
 export default function CommunityPage() {
   return (
     <>
-    <div className="header-img" style={{backgroundImage: 'url(https://i.imgur.com/zcyoc9z.jpg)'}}>
+    <div className="header-img" >
+      <img src="https://i.imgur.com/zcyoc9z.jpg)" alt="" />
       <h1 className='header-text'>Community Service</h1>
     </div>
     <div id='community-body'>

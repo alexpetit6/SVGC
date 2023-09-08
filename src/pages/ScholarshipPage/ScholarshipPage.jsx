@@ -3,7 +3,8 @@ import './ScholarshipPage.css'
 export default function ScholarshipPage() {
   return (
     <>
-    <div className="header-img" style={{backgroundImage: 'url(https://i.imgur.com/lyYwiM6.jpg)'}}>
+    <div className="header-img" >
+      <img src="https://i.imgur.com/lyYwiM6.jpg)" alt="" />
       <h1 className='header-text'>Scholarships</h1>
     </div>
     <div id='scholarship-body'>

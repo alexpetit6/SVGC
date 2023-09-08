@@ -16,7 +16,8 @@ export default function PhotoGallery({ user }) {
   }, [])
   return (
     <>
-    <div className="header-img" style={{backgroundImage: 'url(https://i.imgur.com/BOv2ex5.jpg)'}}>
+    <div className="header-img" >
+      <img src="https://i.imgur.com/BOv2ex5.jpg" alt="" />
       <h1 className='header-text'>Photos</h1>
     </div>
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }

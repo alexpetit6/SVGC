@@ -1,10 +1,17 @@
 .header-img {
+  width: 100vw;
   height: 60vh;
-  background-image: url('https://i.imgur.com/7kr9heo.jpg');
+  overflow: hidden;
+}
+
+.header-img > img {
+  width: 1440px;
 }
 
 .header-text {
-  position: relative;
+  width: 100%;
+  position: absolute;
   text-align: center;
-  top: 32vh;
+  top: 30vh;
+  color: black;
 }
