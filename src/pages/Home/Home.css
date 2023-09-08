@@ -1,28 +1,38 @@
-/* .img-crop {
+
+#home-img {
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  height: 60vh;
-} */
+}
+
+#home-img > img {
+  width: 1440px;
+}
 
 #brand-statement {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  color: white;
+}
+
+/* #brand-statement {
   width: 100%;
   text-align: center;
   color: white;
   position: relative;
   top: 40%;
-}
-#home-img {
+} */
+/* #home-img {
   width: 100%;
   height: 100vh;
   z-index: -1;
   background-image: url('https://i.imgur.com/6FuGBua.jpg');
   border-bottom: solid var(--secondary-color) 20px;
-}
+} */
 
 .img-text {
-  /* background-image: ; */
   display: flex;
   flex-direction: column;
   justify-content: center;
