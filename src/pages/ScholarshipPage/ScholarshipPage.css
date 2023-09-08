@@ -1,0 +1,26 @@
+#scholarship-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+#scholarship-body > :first-child {
+  grid-column: span 2;
+}
+
+#scholarship-body > :last-child {
+  grid-column: span 2;
+}
+
+#scholarship-body > :nth-child(2) {
+  width: 50%;
+}
+
+#scholarship-body > p {
+  margin: auto;
+}
+
+#scholarship-body > img {
+  height: 70vh;
+  margin: auto;
+}

@@ -24,6 +24,7 @@ export default function NavBar({ user, setUser, absolutePosition }) {
             <Nav.Link href='/calendar'>Calendar Page</Nav.Link>
             <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
             <Nav.Link href='/community'>Community Service</Nav.Link>
+            <Nav.Link href='/scholarships'>Scholarships</Nav.Link>
             { 
               user 
               ? 
