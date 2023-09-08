@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './sass/RBC.scss'
-// import 'react-big-calendar/lib/sass/styles.scss'
 import { getEvents } from "../../utilities/events-api";
 import dayjs from "dayjs";
 import CustomEvent from "../../components/CustomEvent/CustomEvent";
@@ -26,7 +24,7 @@ export default function CalendarPage() {
   }, []);
   
   const eventStyleGetter = (event, start, end, isSelected) => {
-    const backgroundColor = event.color || 'purple'; // Default color if not provided
+    const backgroundColor = event.color || '#00E091';
     const style = {
       backgroundColor,
       borderRadius: '5px',

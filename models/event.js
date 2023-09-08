@@ -55,7 +55,7 @@ eventSchema.virtual('displayDate').get(function() {
 });
 
 eventSchema.virtual('color').get(function() {
-  return this.title === 'Meeting' ? '#3174ad' : 'Purple'
+  return this.title === 'Meeting' ? 'var(--secondary-color)' : '#00E091'
 });
 
 module.exports = mongoose.model('Event', eventSchema);

@@ -10,7 +10,7 @@ export default function CustomEvent({event}) {
       </div>
       :
       <div >
-      <a className='calendar-event' href={`/events/${event._id}`} target="_blank" >
+      <a className='calendar-event' href={`/events/${event._id}`} >
       <strong>{event.title}</strong>
         </a>
       </div>
