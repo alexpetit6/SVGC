@@ -1,3 +1,4 @@
+import './PhotoGallery.css'
 import { useState, useEffect } from "react";
 import PhotoCard from "../../components/PhotoCard/PhotoCard";
 import PhotoForm from "../../components/PhotoForm/PhotoForm";

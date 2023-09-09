@@ -3,6 +3,13 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 50px;
   background-color: var(--secondary-color);
+}
+
+#fancy-box > :nth-child(-n + 2) {
+  margin-top: 50px;
+}
+
+#fancy-box > * {
+  margin: 25px;
 }

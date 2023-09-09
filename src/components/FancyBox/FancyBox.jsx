@@ -1,4 +1,3 @@
-import './FancyBox.css';
 import React, { useRef, useEffect } from "react";
 
 import { Fancybox as NativeFancybox } from "@fancyapps/ui";
