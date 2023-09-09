@@ -7,6 +7,7 @@ import EventDetailPage from '../EventDetailPage/EventDetailPage';
 import NewEventPage from '../NewEventPage/NewEventPage';
 import EventFeed from '../EventFeed/EventFeed';
 import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer';
 import PhotoGallery from '../PhotoGallery/PhotoGallery';
 import CalendarPage from '../CalendarPage/CalendarPage';
 import Home from '../Home/Home';
@@ -48,6 +49,7 @@ export default function App() {
         :
         null
       }
+      <Footer />
       </>
     </main>
   );
