@@ -5,18 +5,17 @@
 
 
 #scholarship-body > :first-child {
+  margin: 20px;
   grid-column: span 2;
 }
 
 #scholarship-body > :last-child {
+  margin: 20px;
   grid-column: span 2;
 }
 
 #scholarship-body > :nth-child(2) {
   width: 50%;
-}
-
-#scholarship-body > p {
   margin: auto;
 }
 

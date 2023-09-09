@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, auto);
 }
 
-#community-body > p {
+#community-body > :nth-child(n +2):nth-child(-n +4) {
   margin: auto 20px;
 }
 
@@ -12,9 +12,11 @@
 }
 
 #community-body > :first-child {
+  margin: 20px;
   grid-column: span 3;
 }
 
 #community-body > :last-child {
+  margin: 20px;
   grid-column: span 3;
 }
