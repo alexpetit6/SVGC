@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
     <div id='home-img'>
-      <img src="https://i.imgur.com/6FuGBua.jpg" alt="" />
+      <img src="https://i.imgur.com/ltGf2TP.jpg" alt="" />
       <h1 id='brand-statement' className='text-center'>Brand Statement</h1>
     </div>
     <Row id='home-row1'>

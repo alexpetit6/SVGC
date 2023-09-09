@@ -15,3 +15,9 @@
   top: 30vh;
   color: black;
 }
+
+@media (min-width: 1440px) {
+  .header-img > img {
+    width: 100vw;
+  }
+}
