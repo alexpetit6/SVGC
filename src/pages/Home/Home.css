@@ -23,7 +23,7 @@
   width: 100%;
   position: absolute;
   text-align: center;
-  top: 40%;
+  top: 45vh;
   color: white;
 }
 
@@ -55,9 +55,9 @@
 width: 300px;
 }
 
-#home-pic-1 {
-  height: 100vh;
-  margin: 20px;
+.home-body-img {
+  height: 90vh;
+  margin: auto 20px;
 }
 
 .home-pix {
@@ -65,9 +65,14 @@ width: 300px;
   justify-content: center;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .img-text {
     height: 60vh;
+  }
+
+  .home-body-img {
+    height: 60vh;
+    margin: 20px;
   }
 }
 
