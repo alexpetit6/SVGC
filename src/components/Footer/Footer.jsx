@@ -6,7 +6,6 @@ export default function Footer() {
     <div id='footer'>
       <img id="footer-logo" src="/SVGC-Logo.jpeg" alt="SVGC" />
       <div id='footer-links'>
-        <Link to='/'>Home</Link>
         <Link to='/events'>Event Feed</Link>
         <Link to='/calendar'>Calendar Page</Link>
         <Link to='/photos'>Photo Gallery</Link>

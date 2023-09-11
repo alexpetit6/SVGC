@@ -1,6 +1,6 @@
 #footer {
-  height: 40vh;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   background-color: #C4C4C4;
@@ -8,15 +8,15 @@
 }
 
 #footer-logo {
-  height: 75%;
+  height: 15vmax;
   border-radius: 50%;
 }
 
 #footer-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: 30px;
+  font-size: 5vmin;
+  margin: 10px;
 }
 
 #footer-links > * {
