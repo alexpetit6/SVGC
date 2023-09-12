@@ -10,6 +10,12 @@
 #event-header {
   background-color: var(--primary-color);
   color: var(--accent1);
+  transition: all 1s;
+}
+
+#event-header:hover {
+  background-color: #0a4b39dd;
+  color: var(--primary-color);
 }
 
 #event-header > h1 {
