@@ -1,6 +1,6 @@
 .event-card {
   width: 70vw;
-  height: 25vmax;
+  /* height: 25vmax; */
   text-align: center;
   margin: 1vmin auto;
   overflow: hidden;
@@ -29,6 +29,7 @@
 
 #event-body {
   display: flex;
+  height: 21vmax;
   flex-direction: column;
   justify-content: center;
   padding: 0;
@@ -37,20 +38,26 @@
   background-color: var(--secondary-color);
 }
 
-#event-body > :nth-last-child(-n+2) {
+.time-place {
   position: relative;
   left: 40%;
   width: 35vw;
 }
 
-#event-body > :nth-child(2) {
-  font-size: 4vmax;
+.place {
+  margin-bottom: 4px;
 }
 
-#event-body > :last-child > * {
+.place > * {
   color: white;
-  font-size: calc(0.3em + 1vw);
+  font-size: calc(0.5em + 1vw);
+  line-height: 1;
 }
+
+#event-body > :nth-child(2) {
+  font-size: calc(0.5em + 5vw);
+}
+
 
 .card-date {
   position: absolute;
@@ -74,12 +81,25 @@
   font-size: calc(0.5em + 2.5vw);
 }
 
+.event-buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 0;
+}
+
+.event-buttons > * {
+  font-size: calc(0.3em + 1vw);
+  padding: 1px;
+}
+
 @media (max-width: 576px) {
   .event-card {
     width: 90vw;
   }
 
-  #event-body > :nth-last-child(-n+2) {
+  .time-place {
     left: 45%;
   }
 }
