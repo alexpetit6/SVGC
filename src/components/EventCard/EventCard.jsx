@@ -10,7 +10,9 @@ export default function EventCard({ event, setEvents, user }) {
     <ListGroup.Item>
       <Card className='event-card'>
           <Link id='event-link' to={`/events/${event.id}`}>
-            <Card.Header id='event-header'><h1 className='display-4'>{event.title}</h1></Card.Header>
+            <Card.Header id='event-header'>
+              <h1>{event.title}</h1>
+            </Card.Header>
           </Link>
         <Card.Body id='event-body'>
           {/* <Card.Text>{event.description}</Card.Text> */}

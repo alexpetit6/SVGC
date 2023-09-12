@@ -6,9 +6,15 @@
   overflow: hidden;
 }
 
+
 #event-header {
   background-color: var(--primary-color);
   color: var(--accent1);
+}
+
+#event-header > h1 {
+  font-size: calc(0.5em + 3vw);
+  font-weight: 300;
 }
 
 #event-link {
@@ -32,11 +38,11 @@
 }
 
 #event-body > :nth-child(2) {
-  font-size: 6vw;
+  font-size: 4vmax;
 }
 
 #event-body > :last-child {
-  font-size: 2vw;
+  font-size: calc(0.3em + 1vw);
 }
 
 .card-date {
@@ -53,10 +59,20 @@
 }
 
 .card-date > h1 {
-  font-size: 6vw;
+  font-size: calc(1em + 4vw);
 }
 
 .card-date > h3 {
-  width: 10vw;
-  font-size: 3vw;
+  width: 60%;
+  font-size: calc(0.5em + 2.5vw);
+}
+
+@media (max-width: 576px) {
+  .event-card {
+    width: 90vw;
+  }
+
+  #event-body > :nth-last-child(-n+2) {
+    left: 45%;
+  }
 }
