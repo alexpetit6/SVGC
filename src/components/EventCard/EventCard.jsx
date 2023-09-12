@@ -21,7 +21,9 @@ export default function EventCard({ event, setEvents, user }) {
             <h3>{event.displayDate.slice(4)}</h3>
           </div>
           <Card.Text>{event.standardClock}</Card.Text>
-          <Card.Text>{event.location}</Card.Text>
+          <Card.Text>
+            <a href={`https://www.google.com/maps/place/${encodeURI(event.location)}`} target='_blank' rel='noreferrer'>{event.location}</a>
+          </Card.Text>
           {
             user
             ?

@@ -41,7 +41,8 @@
   font-size: 4vmax;
 }
 
-#event-body > :last-child {
+#event-body > :last-child > * {
+  color: white;
   font-size: calc(0.3em + 1vw);
 }
 
