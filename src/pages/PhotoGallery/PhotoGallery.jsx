@@ -7,17 +7,17 @@ import Fancybox from "../../components/FancyBox/FancyBox";
 
 export default function PhotoGallery({ user, archive }) {
   const [photos, setPhotos] = useState([]);
-  const [archivePhotos, setArchivePhotos] = useState([]);
+  const [filteredPhotos, setFilteredPhotos] = useState([]);
 
   useEffect(function() {
     async function getIndex() {
       const index = await getPhotos();
       let filteredIndex = null
       archive ? filteredIndex = index.filter((p) => p.archived) : filteredIndex = index.filter((p) => !p.archived)
-      setPhotos(filteredIndex)
+      setFilteredPhotos(filteredIndex)
     }
     getIndex();
-  }, [])
+  }, [photos])
 
   return (
     archive
@@ -28,7 +28,7 @@ export default function PhotoGallery({ user, archive }) {
       <h1 className='header-text'>Photo Archive</h1>
     </div>
     <Fancybox>
-      {photos.map((p, i) => <PhotoCard 
+      {filteredPhotos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
         url={p.url} 
         caption={p.caption}
@@ -47,7 +47,7 @@ export default function PhotoGallery({ user, archive }) {
     </div>
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
     <Fancybox>
-      {photos.map((p, i) => <PhotoCard 
+      {filteredPhotos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
         url={p.url}
         archived={false}
