@@ -29,7 +29,7 @@
 
 #event-body {
   display: flex;
-  height: 21vmax;
+  height: 19vmax;
   flex-direction: column;
   justify-content: center;
   padding: 0;
