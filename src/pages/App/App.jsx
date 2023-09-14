@@ -36,7 +36,8 @@ export default function App() {
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/scholarships" element={<ScholarshipPage />} />
         <Route path="/" element={<Home />} />
-        <Route path="/photos" element={<PhotoGallery user={user} />} />
+        <Route path="/photos" element={<PhotoGallery archive={false} user={user} />} />
+        <Route path="/photos/archive" element={<PhotoGallery archive={true} user={user} />} />
         <Route path="/admin" element={<AuthPage setUser={setUser} />} />
       </Routes>
       { 

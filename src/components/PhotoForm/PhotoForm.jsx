@@ -32,7 +32,7 @@ export default function PhotoForm({ setPhotos, photos }) {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="photoForm.file">
-        <Form.Label>Meeting Time</Form.Label>
+        <Form.Label>Image File</Form.Label>
         <Form.Control type='file' ref={fileInputRef} />
       </Form.Group>
       <div className="d-grid gap-2">
