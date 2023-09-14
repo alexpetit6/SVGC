@@ -7,6 +7,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 router.get('/', photosCtrl.index);
 router.post('/upload', ensureLoggedIn, upload.single('photo'), photosCtrl.upload);
 router.delete('/:id', ensureLoggedIn, photosCtrl.delete);
+router.put('/:id', ensureLoggedIn, photosCtrl.archive);
 // The 'photo' maps to the name used when adding the input to the FormData object
 
 module.exports = router;

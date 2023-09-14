@@ -4,7 +4,8 @@ const Photo = require('../../models/photo');
 module.exports = {
   index,
   upload,
-  delete: deletePhoto
+  delete: deletePhoto,
+  archive
 };
 
 async function index(req, res) {
@@ -34,6 +35,18 @@ async function upload(req, res) {
 async function deletePhoto(req, res) {
   try {
     await Photo.deleteOne({_id: req.params.id});
+    const photos = await Photo.find({}).sort('-createdAt').exec();
+    res.json(photos)
+  } catch (err) {
+    res.json(err);
+  }
+}
+
+async function archive(req, res) {
+  try {
+    const photo = await Photo.findById(req.params.id);
+    photo.archived = true;
+    photo.save();
     const photos = await Photo.find({}).sort('-createdAt').exec();
     res.json(photos)
   } catch (err) {

@@ -13,3 +13,7 @@ export function upload(formData) {
 export async function deletePhoto(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
 }
+
+export async function archivePhoto(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT')
+}

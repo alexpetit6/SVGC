@@ -19,8 +19,6 @@ export default function PhotoGallery({ user, archive }) {
     getIndex();
   }, [])
 
-
-
   return (
     archive
     ?
@@ -33,7 +31,8 @@ export default function PhotoGallery({ user, archive }) {
       {photos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
         url={p.url} 
-        caption={p.caption} 
+        caption={p.caption}
+        archived={true} 
         key={p._id} 
         id={p._id}
         user={user} 
@@ -50,7 +49,8 @@ export default function PhotoGallery({ user, archive }) {
     <Fancybox>
       {photos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
-        url={p.url} 
+        url={p.url}
+        archived={false}
         caption={p.caption} 
         key={p._id} 
         id={p._id}
