@@ -1,13 +1,16 @@
+#archive-link {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0 0 0;
+  background-color: var(--secondary-color);
+}
+
 #fancy-box {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   background-color: var(--secondary-color);
-}
-
-#fancy-box > :nth-child(-n + 2) {
-  margin-top: 50px;
 }
 
 #fancy-box > * {

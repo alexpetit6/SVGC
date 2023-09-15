@@ -4,6 +4,8 @@ import PhotoCard from "../../components/PhotoCard/PhotoCard";
 import PhotoForm from "../../components/PhotoForm/PhotoForm";
 import { getPhotos } from "../../utilities/photos-api";
 import Fancybox from "../../components/FancyBox/FancyBox";
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function PhotoGallery({ user, archive }) {
   const [photos, setPhotos] = useState([]);
@@ -46,6 +48,10 @@ export default function PhotoGallery({ user, archive }) {
       <h1 className='header-text'>Photos</h1>
     </div>
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
+    {/* <Link id='archive-link' to='/photos/archive'>View Photo Archive</Link> */}
+    <div id='archive-link'>
+      <Button href='/photos/archive'>View Photo Archive</Button>
+    </div>
     <Fancybox>
       {filteredPhotos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
