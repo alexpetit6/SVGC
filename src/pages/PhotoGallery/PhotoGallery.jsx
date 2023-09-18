@@ -26,7 +26,7 @@ export default function PhotoGallery({ user, archive }) {
     ?
     <>
     <div className="header-img" >
-      <img src="https://i.imgur.com/BOv2ex5.jpg" alt="" />
+      <img src="https://i.imgur.com/5bWUAkC.jpg" alt="" />
       <h1 className='header-text'>Photo Archive</h1>
     </div>
     <Fancybox>
@@ -44,7 +44,7 @@ export default function PhotoGallery({ user, archive }) {
     :
     <>
     <div className="header-img" >
-      <img src="https://i.imgur.com/BOv2ex5.jpg" alt="" />
+      <img src="https://i.imgur.com/5bWUAkC.jpg" alt="" />
       <h1 className='header-text'>Photos</h1>
     </div>
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }

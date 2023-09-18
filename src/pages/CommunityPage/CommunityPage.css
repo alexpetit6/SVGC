@@ -1,10 +1,16 @@
 #community-body {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-#community-body > :nth-child(n +2):nth-child(-n +4) {
-  margin: auto 20px;
+#community-body > * {
+  margin: 20px;
+}
+
+#community-body > :nth-child(2), #community-body > :nth-child(5){
+  width: 50vw;
 }
 
 #community-body > img {
@@ -13,10 +19,16 @@
 
 #community-body > :first-child {
   margin: 20px;
-  grid-column: span 3;
+  grid-column: span 2;
 }
 
 #community-body > :last-child {
   margin: 20px;
-  grid-column: span 3;
+  grid-column: span 2;
+}
+
+@media (max-width: 576px) {
+  #community-body > :nth-child(2), :nth-child(5) {
+    width: auto;
+  }
 }

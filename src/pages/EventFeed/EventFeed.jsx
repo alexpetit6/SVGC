@@ -17,7 +17,7 @@ export default function EventFeed({user}) {
   return (
     <>
     <div className="header-img">
-      <img src="https://i.imgur.com/7kr9heo.jpg"/>
+      <img src="https://i.imgur.com/ysjWldO.jpg"/>
       <h1 className='header-text'>Events</h1>
     </div>
     <ListGroup>
