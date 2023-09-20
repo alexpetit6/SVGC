@@ -6,6 +6,7 @@ export async function getPosts() {
 }
 
 export async function postDetail(id) {
+  console.log('detail')
   return sendRequest(`${BASE_URL}/${id}`);
 }
 

@@ -13,6 +13,8 @@ import CalendarPage from '../CalendarPage/CalendarPage';
 import Home from '../Home/Home';
 import CommunityPage from '../CommunityPage/CommunityPage';
 import ScholarshipPage from '../ScholarshipPage/ScholarshipPage';
+import BlogFeed from '../BlogFeed/BlogFeed';
+import BlogPostPage from '../BlogPostPage/BlogPostPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -20,7 +22,7 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
-    const regex = /events\/[\S*]|calendar|admin/g
+    const regex = /events\/[\S*]|calendar|admin|blog/g
     regex.test(location.pathname) ? setAbsolutePosition(false) : setAbsolutePosition(true);
   }, [location]);
   
@@ -32,6 +34,8 @@ export default function App() {
       <Routes>
         <Route path="/events" element={<EventFeed user={user} />} />
         <Route path="/events/:eventId" element={<EventDetailPage />} />
+        <Route path="/blog" element={<BlogFeed />} />
+        <Route path="/blog/:postId" element={<BlogPostPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/scholarships" element={<ScholarshipPage />} />

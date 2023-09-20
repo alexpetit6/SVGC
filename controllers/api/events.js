@@ -16,7 +16,6 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    console
     const event = await Event.findById(req.params.id);
     res.json(event);
   } catch (err) {
