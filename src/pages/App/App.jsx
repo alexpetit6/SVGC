@@ -15,6 +15,7 @@ import CommunityPage from '../CommunityPage/CommunityPage';
 import ScholarshipPage from '../ScholarshipPage/ScholarshipPage';
 import BlogFeed from '../BlogFeed/BlogFeed';
 import BlogPostPage from '../BlogPostPage/BlogPostPage';
+import BlogPostForm from '../BlogPostForm/BlogPostForm';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -32,6 +33,17 @@ export default function App() {
       <>
       <NavBar absolutePosition={absolutePosition} user={user} setUser={setUser} />
       <Routes>
+        { 
+          user
+          ?
+          <>
+          <Route path="/events/new" element={<NewEventPage />} />
+          <Route path="/blog/new" element={<BlogPostForm />} />
+          <Route path="/events/new/:eventId" element={<NewEventPage />} />
+          </>
+          :
+          null
+        }
         <Route path="/events" element={<EventFeed user={user} />} />
         <Route path="/events/:eventId" element={<EventDetailPage />} />
         <Route path="/blog" element={<BlogFeed />} />
@@ -44,16 +56,6 @@ export default function App() {
         <Route path="/photos/archive" element={<PhotoGallery archive={true} user={user} />} />
         <Route path="/admin" element={<AuthPage setUser={setUser} />} />
       </Routes>
-      { 
-        user
-        ?
-        <Routes>
-          <Route path="/events/new" element={<NewEventPage />} />
-          <Route path="/events/new/:eventId" element={<NewEventPage />} />
-        </Routes>
-        :
-        null
-      }
       <Footer />
       </>
     </main>
