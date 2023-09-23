@@ -1,6 +1,8 @@
 import './BlogPostForm.css';
 import { useState, useEffect, useRef } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { create } from '../../utilities/posts-api';
+
 
 export default function BlogPostForm() {
   const baseData = {
@@ -18,14 +20,18 @@ export default function BlogPostForm() {
     });
   }
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
     const newFormData = new FormData();
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
     };
     newFormData.append('header', headerInputRef.current.files[0]);
-    newFormData.append('gallery', galleryInputRef.current.files);
+    newFormData.append('gallery', galleryInputRef.current.files[0]);
+    newFormData.append('gallery', galleryInputRef.current.files[1]);
+    newFormData.append('gallery', galleryInputRef.current.files[2]);
+    await create(newFormData);
+    setFormData(baseData);
   }
 
   return (
@@ -55,7 +61,7 @@ export default function BlogPostForm() {
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.gallery">
         <Form.Label>Photo Gallery</Form.Label>
-        <Form.Control type='file' ref={headerInputRef} multiple/>
+        <Form.Control type='file' ref={galleryInputRef} multiple/>
       </Form.Group>
       <div className="d-grid gap-2">
         <Button type='submit' variant="success" size="lg">

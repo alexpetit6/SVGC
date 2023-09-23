@@ -8,7 +8,6 @@ const postSchema = new Schema({
   },
   headerPhoto: {
     type: String,
-    required: true,
   },
   body: {
     type: String,
@@ -16,7 +15,6 @@ const postSchema = new Schema({
   },
   gallery: {
     type: Array,
-    required: true,
   },
 }, {
   timestamps: true,

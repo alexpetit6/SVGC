@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { postDetail } from '../../utilities/posts-api';
 
 export default function BlogPostPage() {
-  const [post, setPost] = useState();
+  const [post, setPost] = useState(null);
   const { postId } = useParams();
 
   useEffect(function() {
@@ -17,15 +17,17 @@ export default function BlogPostPage() {
     getPost();
   }, []);
   
-  return (
-    <>
-    <img src={post.headerPhoto} />
-    <h1>{post.title}</h1>
-    <p>{post.body}</p>
-    <img src={post.gallery[0]} />
-    <img src={post.gallery[1]} />
-    <img src={post.gallery[2]} /> 
-    <h1 style={{color: 'black'}}>{postId}</h1>
-    </>
-  )
+  if (post) {
+    return (
+      <>
+      <img src={post.headerPhoto} />
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+      <img src={post.gallery[0]} />
+      <img src={post.gallery[1]} />
+      <img src={post.gallery[2]} /> 
+      <h1 style={{color: 'black'}}>{postId}</h1>
+      </>
+    )
+  }
 }

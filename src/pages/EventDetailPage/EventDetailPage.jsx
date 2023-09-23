@@ -12,7 +12,6 @@ export default function EventDetailPage() {
   useEffect(function() {
     async function getEvent() {
       const e = await eventDetail(eventId);
-      // console.log(e)
       setEvent(e);
     }
     getEvent();

@@ -4,7 +4,7 @@ const Post = require('../../models/post');
 module.exports = {
   index,
   show,
-  // create,
+  create,
   // delete: deletePost,
   // update
 };
@@ -22,5 +22,31 @@ async function show(req, res) {
     res.json(post);
   } catch (err) {
     console.log('err')
+  }
+}
+
+async function create(req, res) {
+  try {
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key];
+    };
+    const headerPhotoURL = await uploadFile(req.files['header'][0]);
+    const galleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
+      return await uploadFile(p);
+    }));
+    console.log(`galleryURLs:${galleryURLs}`)
+    const post = await Post.create({
+      title: req.body.title,
+      headerPhoto: headerPhotoURL,
+      body: req.body.body,
+      gallery: galleryURLs,
+    });
+    console.log('headerPhoto', headerPhotoURL);
+    // post.headerPhoto = headerPhotoURL;
+    // post.gallery = galleryUrls;
+    // post.save();
+    res.json(post);
+  } catch (err) {
+    console.log(err)
   }
 }

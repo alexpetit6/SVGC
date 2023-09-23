@@ -8,7 +8,7 @@ const imgsUpload = upload.fields([{ name: 'header', maxCount: 1 }, { name: 'gall
 
 router.get('/', postsCtrl.index);
 router.get('/:id', postsCtrl.show);
-// router.post('/', ensureLoggedIn, imgsUpload,  postsCtrl.create);
+router.post('/', ensureLoggedIn, imgsUpload,  postsCtrl.create);
 // router.delete('/:id', ensureLoggedIn, postsCtrl.delete);
 // router.put('/:id', ensureLoggedIn, upload.none(), postsCtrl.update);
 
