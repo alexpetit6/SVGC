@@ -29,7 +29,7 @@ export default function PhotoGallery({ user, archive }) {
       <img src="https://i.imgur.com/5bWUAkC.jpg" alt="" />
       <h1 className='header-text'>Photo Archive</h1>
     </div>
-    <Fancybox>
+    <Fancybox newClass='photo-gallery'>
       {filteredPhotos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
         url={p.url} 
@@ -52,7 +52,7 @@ export default function PhotoGallery({ user, archive }) {
     <div id='archive-link'>
       <Button href='/photos/archive'>View Photo Archive</Button>
     </div>
-    <Fancybox>
+    <Fancybox newClass='photo-gallery'>
       {filteredPhotos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
         url={p.url}

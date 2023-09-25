@@ -20,7 +20,7 @@ export default function Fancybox(props) {
     };
   });
 
-  return <div id='fancy-box' ref={containerRef}>{props.children}</div>;
+  return <div className={props.newClass} ref={containerRef}>{props.children}</div>;
 }
 
 
