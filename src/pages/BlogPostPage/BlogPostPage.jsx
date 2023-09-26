@@ -21,7 +21,9 @@ export default function BlogPostPage() {
   if (post) {
     return (
       <>
-      <img className='blog-header-img' src={post.headerPhoto} />
+      <div className='blog-header'>
+        <img className='blog-header-img' src={post.headerPhoto} />
+      </div>
       <h1 className='blog-title'>{post.title}</h1>
       <p className='blog-body'>{post.body}</p>
       <Fancybox newClass='blog-gallery'>

@@ -1,0 +1,25 @@
+.blog-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 90vh;
+  width: 100vw;
+}
+
+@media (max-width: 1440px) {
+  .blog-header-img {
+    width: 1440px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-header {
+    height: 60vw;
+  }
+
+  .blog-header-img {
+    width: 100%;
+  }
+}
