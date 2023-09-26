@@ -7,6 +7,7 @@ import Fancybox from '../../components/FancyBox/FancyBox';
 export default function BlogPostPage() {
   const [post, setPost] = useState(null);
   const { postId } = useParams();
+  const body = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n Facilisis sed odio morbi quis commodo odio.\n\n Tellus id interdum velit laoreet id donec.\n\n Sed odio morbi quis commodo odio aenean sed adipiscing diam.\n\n Semper eget duis at tellus at urna.\n\n Nunc pulvinar sapien et ligula.\n\n'
 
   useEffect(function() {
     async function getPost() {
@@ -25,11 +26,7 @@ export default function BlogPostPage() {
         <img className='blog-header-img' src={post.headerPhoto} />
       </div>
       <h1 className='blog-title'>{post.title}</h1>
-      <div className='blog-body'>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam quam nulla porttitor massa. Phasellus vestibulum lorem sed risus ultricies tristique. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Metus dictum at tempor commodo ullamcorper. Sit amet consectetur adipiscing elit pellentesque habitant. Aliquam sem fringilla ut morbi.</p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam quam nulla porttitor massa. Phasellus vestibulum lorem sed risus ultricies tristique. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Metus dictum at tempor commodo ullamcorper. Sit amet consectetur adipiscing elit pellentesque habitant. Aliquam sem fringilla ut morbi.</p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam quam nulla porttitor massa. Phasellus vestibulum lorem sed risus ultricies tristique. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Metus dictum at tempor commodo ullamcorper. Sit amet consectetur adipiscing elit pellentesque habitant. Aliquam sem fringilla ut morbi.</p>
-      </div>
+      <p className='blog-body'>{post.body}</p>
       <Fancybox newClass='blog-gallery'>
         <a data-fancybox href={post.gallery[0]}>
           <img src={post.gallery[0]} />

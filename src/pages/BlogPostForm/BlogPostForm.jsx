@@ -56,7 +56,7 @@ export default function BlogPostForm() {
           value={formData.body} 
           name='body' 
           as='textarea'
-          rows={4}
+          rows={6}
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.gallery">
