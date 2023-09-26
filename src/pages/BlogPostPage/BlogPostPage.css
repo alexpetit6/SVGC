@@ -8,6 +8,36 @@
   width: 100vw;
 }
 
+.blog-title {
+  font-size: calc(3em + 7vw);
+  text-align: center;
+}
+
+.blog-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-gallery > * > * {
+  height: 40vh;
+}
+
+.blog-gallery > * {
+  padding: 10px;
+}
+
+.blog-body {
+  margin: auto;
+  font-size: large;
+  color: white;
+  width: 60vw;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  border: 15px solid var(--primary-color);
+}
+
 @media (max-width: 1440px) {
   .blog-header-img {
     width: 1440px;
@@ -21,5 +51,9 @@
 
   .blog-header-img {
     width: 100%;
+  }
+
+  .blog-body {
+    width: 90vw;
   }
 }

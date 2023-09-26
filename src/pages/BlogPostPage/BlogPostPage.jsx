@@ -25,7 +25,11 @@ export default function BlogPostPage() {
         <img className='blog-header-img' src={post.headerPhoto} />
       </div>
       <h1 className='blog-title'>{post.title}</h1>
-      <p className='blog-body'>{post.body}</p>
+      <div className='blog-body'>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam quam nulla porttitor massa. Phasellus vestibulum lorem sed risus ultricies tristique. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Metus dictum at tempor commodo ullamcorper. Sit amet consectetur adipiscing elit pellentesque habitant. Aliquam sem fringilla ut morbi.</p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam quam nulla porttitor massa. Phasellus vestibulum lorem sed risus ultricies tristique. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Metus dictum at tempor commodo ullamcorper. Sit amet consectetur adipiscing elit pellentesque habitant. Aliquam sem fringilla ut morbi.</p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam quam nulla porttitor massa. Phasellus vestibulum lorem sed risus ultricies tristique. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Metus dictum at tempor commodo ullamcorper. Sit amet consectetur adipiscing elit pellentesque habitant. Aliquam sem fringilla ut morbi.</p>
+      </div>
       <Fancybox newClass='blog-gallery'>
         <a data-fancybox href={post.gallery[0]}>
           <img src={post.gallery[0]} />
@@ -37,7 +41,6 @@ export default function BlogPostPage() {
           <img src={post.gallery[2]} />
         </a>
       </Fancybox>
-      <h1 style={{color: 'black'}}>{postId}</h1>
       </>
     )
   }
