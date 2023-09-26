@@ -2,7 +2,7 @@ import './BlogPostPage.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { postDetail } from '../../utilities/posts-api';
-import { Fancybox } from '@fancyapps/ui';
+import Fancybox from '../../components/FancyBox/FancyBox';
 
 export default function BlogPostPage() {
   const [post, setPost] = useState(null);
@@ -25,9 +25,15 @@ export default function BlogPostPage() {
       <h1 className='blog-title'>{post.title}</h1>
       <p className='blog-body'>{post.body}</p>
       <Fancybox newClass='blog-gallery'>
-        <img data-fancybox src={post.gallery[0]} />
-        <img data-fancybox src={post.gallery[1]} />
-        <img data-fancybox src={post.gallery[2]} /> 
+        <a data-fancybox href={post.gallery[0]}>
+          <img src={post.gallery[0]} />
+        </a>
+        <a data-fancybox href={post.gallery[1]}>
+          <img src={post.gallery[1]} />
+        </a>
+        <a data-fancybox href={post.gallery[2]}>
+          <img src={post.gallery[2]} />
+        </a>
       </Fancybox>
       <h1 style={{color: 'black'}}>{postId}</h1>
       </>
