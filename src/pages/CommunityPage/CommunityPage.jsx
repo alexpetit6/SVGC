@@ -1,6 +1,7 @@
 import './CommunityPage.css';
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
+import CommunityForm from '../../components/CommunityForm/CommunityForm';
 
 export default function CommunityPage({ user }) {
   const [editing, setEditing] = useState(false);
@@ -10,7 +11,17 @@ export default function CommunityPage({ user }) {
   }
 
   return (
-
+    editing
+    ?
+    <>
+    <div className="header-img" >
+      <img src="https://i.imgur.com/zcyoc9z.jpg)" alt="" />
+      <h1 className='header-text'>Community Service</h1>
+    </div>
+    { user ? <Button id='edit-community-btn' onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
+    <CommunityForm />
+    </>
+    :
     <>
     <div className="header-img" >
       <img src="https://i.imgur.com/zcyoc9z.jpg)" alt="" />
