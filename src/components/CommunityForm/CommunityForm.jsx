@@ -1,9 +1,10 @@
 import { Form } from 'react-bootstrap';
 import './CommunityForm.css';
 import { useState, useRef } from 'react';
+import FileInputCard from '../FileInputCard/FileInputCard';
 
-export default function CommunityForm() {
-  const [formData, setFormData] = useState([]);
+export default function CommunityForm({ community }) {
+  const [formData, setFormData] = useState(community);
 
   const firstImgRef = useRef(null);
   const secondImgRef = useRef(null);
@@ -16,7 +17,7 @@ export default function CommunityForm() {
   }
 
   return (
-    <Form>
+    <Form id='community-form'>
       <Form.Control 
         onChange={handleChange} 
         value={formData.intro} 
@@ -24,21 +25,21 @@ export default function CommunityForm() {
         as='textarea' 
       />
       <Form.Control 
-          onChange={handleChange}
-          value={formData.body1}
-          name='body1' 
-          as="textarea" 
-          rows={4} 
-        />
-      <Form.Control type='file' ref={firstImgRef} />
+        onChange={handleChange}
+        value={formData.body1}
+        name='body1' 
+        as="textarea" 
+        rows={4} 
+      />
+      <FileInputCard className='community-input-card' img={formData.img1} inputRef={firstImgRef}/>
+      <FileInputCard className='community-input-card' img={formData.img2} inputRef={secondImgRef}/>
       <Form.Control 
-          onChange={handleChange}
-          value={formData.body2}
-          name='body2' 
-          as="textarea" 
-          rows={4} 
-        />
-      <Form.Control type='file' ref={secondImgRef} />
+        onChange={handleChange}
+        value={formData.body2}
+        name='body2' 
+        as="textarea" 
+        rows={4} 
+      />
       <Form.Control 
         onChange={handleChange} 
         value={formData.outro} 

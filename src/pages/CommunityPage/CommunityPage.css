@@ -22,16 +22,6 @@
   height: 70vh;
 }
 
-#community-body > :first-child {
-  margin: 20px;
-  grid-column: span 2;
-}
-
-#community-body > :last-child {
-  margin: 20px;
-  grid-column: span 2;
-}
-
 @media (max-width: 576px) {
   #community-body > :nth-child(2), :nth-child(5) {
     width: auto;

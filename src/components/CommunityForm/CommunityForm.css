@@ -1,0 +1,24 @@
+#community-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#community-form > * {
+  margin: 20px;
+}
+
+#community-form > :nth-child(2), #community-form > :nth-child(5){
+  width: 50vw;
+}
+
+.community-input-card > img {
+  height: 70vh;
+}
+
+@media (max-width: 576px) {
+  #community-form > :nth-child(2), #community-form > :nth-child(5) {
+    width: auto;
+  }
+}
