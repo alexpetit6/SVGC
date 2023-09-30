@@ -1,12 +1,22 @@
-import './CommunityPage.css'
+import './CommunityPage.css';
+import { Button } from 'react-bootstrap';
+import { useState } from 'react';
 
-export default function CommunityPage() {
+export default function CommunityPage({ user }) {
+  const [editing, setEditing] = useState(false);
+
+  function handleEditing() {
+    setEditing(!editing);
+  }
+
   return (
+
     <>
     <div className="header-img" >
       <img src="https://i.imgur.com/zcyoc9z.jpg)" alt="" />
       <h1 className='header-text'>Community Service</h1>
     </div>
+    { user ? <Button id='edit-community-btn' onClick={handleEditing} variant='warning' size='lg'>EDIT</Button> : null }
     <div id='community-body'>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque est, voluptatem assumenda ad sequi soluta ducimus sit alias quia deserunt aperiam perferendis omnis molestiae! Hic architecto voluptatibus ullam facilis cumque.

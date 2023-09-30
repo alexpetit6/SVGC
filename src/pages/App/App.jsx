@@ -49,7 +49,7 @@ export default function App() {
         <Route path="/blog" element={<BlogFeed />} />
         <Route path="/blog/:postId" element={<BlogPostPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/community" element={<CommunityPage />} />
+        <Route path="/community" element={<CommunityPage user={user}/>} />
         <Route path="/scholarships" element={<ScholarshipPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/photos" element={<PhotoGallery archive={false} user={user} />} />
