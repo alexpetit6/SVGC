@@ -16,14 +16,15 @@ async function show(req, res) {
 }
 
 async function update(req, res) {
-  // for (let key in req.body) {
-  //   if (req.body[key] === '') delete req.body[key];
-  // };
   try {
+    console.log('put')
     const community = await Community.findOne({});
-    req.body.forEach(el => community[el] = el);
-    if (req.files['firstImg']) community.img1 = req.files['firstImg'][0];
-    if (req.files['secondImg']) community.img2 = req.files['secondImg'][0];
+    for (let key in req.body) {
+      console.log(`key: ${key}`)
+      community[key] = req.body[key]
+    };
+    if (req.files['img1']) community.img1 = await uploadFile(req.files['img1'][0]);
+    if (req.files['img2']) community.img2 = await uploadFile(req.files['img2'][0]);
     await community.save();
     res.json(community);
   } catch (err) {

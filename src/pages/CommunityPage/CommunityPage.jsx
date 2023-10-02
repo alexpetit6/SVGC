@@ -30,7 +30,7 @@ export default function CommunityPage({ user }) {
         <h1 className='header-text'>Community Service</h1>
       </div>
       { user ? <Button id='edit-community-btn' onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
-      <CommunityForm community={community}/>
+      <CommunityForm community={community} setCommunity={setCommunity}/>
       </>
       :
       <>

@@ -18,6 +18,10 @@
   width: 50vw;
 }
 
+#community-body > :first-child, #community-body > :last-child{
+  width: 90vw;
+}
+
 #community-body > img {
   height: 70vh;
 }

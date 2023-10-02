@@ -9,7 +9,11 @@
   margin: 20px;
 }
 
-#community-form > :nth-child(2), #community-form > :nth-child(5){
+#community-form > :first-child, #community-form > :nth-child(6) {
+  width: 90vw;
+}
+
+#community-form > :nth-child(2), #community-form > :nth-child(5) {
   width: 50vw;
 }
 

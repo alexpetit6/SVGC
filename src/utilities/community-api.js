@@ -6,5 +6,6 @@ export async function getCommunity() {
 }
 
 export async function update(newData) {
+  console.log('updating')
   return sendRequest(BASE_URL, 'PUT', newData, true);
 }
