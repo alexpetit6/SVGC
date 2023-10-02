@@ -11,6 +11,7 @@ export default function CommunityForm({ community, setCommunity }) {
     body2: community.body2,
     outro: community.outro,
   });
+  const [isLoading, setLoading] = useState(false);
 
   const firstImgRef = useRef(null);
   const secondImgRef = useRef(null);
@@ -24,6 +25,7 @@ export default function CommunityForm({ community, setCommunity }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setLoading(true);
     const newFormData = new FormData();
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
@@ -38,6 +40,7 @@ export default function CommunityForm({ community, setCommunity }) {
       outro: updatedCommunity.outro,
     });
     setCommunity(updatedCommunity);
+    setLoading(false);
   }
 
   return (
@@ -78,7 +81,7 @@ export default function CommunityForm({ community, setCommunity }) {
           as='textarea' 
         />
       </Form.Group>
-      <Button type='submit'>SUBMIT</Button>
+      <Button type='submit' disabled={isLoading}>{isLoading ? 'Saving Changes...' : 'SUBMIT'}</Button>
     </Form>
   )
 }

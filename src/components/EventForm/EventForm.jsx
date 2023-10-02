@@ -17,6 +17,8 @@ export default function EventForm() {
   const [formData, setFormData] = useState(baseData);
   const [isChecked, setIsChecked] = useState(false);
   const [statusMsg, setStatusMsg] = useState('');
+  const [isLoading, setLoading] = useState(false);
+
   const fileInputRef = useRef();
 
   useEffect(function () {
@@ -39,6 +41,7 @@ export default function EventForm() {
   
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setLoading(true);
     if(!formData.date || !formData.time) {
       setStatusMsg('Please enter a date and/or time');
       return
@@ -55,13 +58,16 @@ export default function EventForm() {
       await create(newFormData);
       setFormData(baseData);
     }
+    setLoading(false);
   }
+
   function handleChange(evt) {
     setFormData({
       ...formData,
       [evt.target.name]: evt.target.value
     });
   }
+
   function handleCheck(evt) {
     setIsChecked(!isChecked);
   }
@@ -163,9 +169,13 @@ export default function EventForm() {
         />
       </Form.Group>
       <div className="d-grid gap-2">
-        <Button type='submit' variant="success" size="lg">
-          {eventId ? 'Submit Changes' : 'Create New Event!'}
-        </Button>
+        {
+        eventId 
+        ? 
+        <Button type='submit' disabled={isLoading}>{isLoading ? 'Saving Changes...' : 'SUBMIT'}</Button> 
+        : 
+        <Button type='submit' disabled={isLoading}>{isLoading ? 'Creating Event...' : 'SUBMIT'}</Button>
+        }
       </div>
       <p className='text-danger'>{statusMsg}</p>
     </Form>

@@ -6,10 +6,13 @@ import Form from 'react-bootstrap/Form';
 
 export default function PhotoForm({ setPhotos, photos }) {
   const [caption, setCaption] = useState('');
+  const [isLoading, setLoading] = useState(false);
+
   const fileInputRef = useRef();
 
   async function handleUpload(evt) {
     evt.preventDefault();
+    setLoading(true);
     const formData = new FormData();
     if (caption) formData.append('caption', caption);
     formData.append('photo', fileInputRef.current.files[0]);
@@ -18,6 +21,7 @@ export default function PhotoForm({ setPhotos, photos }) {
     setPhotos([newPhoto, ...photos]);
     setCaption('');
     fileInputRef.current.value = '';
+    setLoading(false);
   }
 
   return (
@@ -36,8 +40,8 @@ export default function PhotoForm({ setPhotos, photos }) {
         <Form.Control type='file' ref={fileInputRef} />
       </Form.Group>
       <div className="d-grid gap-2">
-        <Button type='submit' variant="success" size="lg">
-          Add Photo!
+        <Button type='submit' variant="success" size="lg" disabled={isLoading}>
+          {isLoading ? 'Uploading...' : 'Add Photo!'}
         </Button>
       </div>
     </Form>

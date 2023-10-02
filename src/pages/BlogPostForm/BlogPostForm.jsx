@@ -10,6 +10,8 @@ export default function BlogPostForm() {
     body: '',
   };
   const [formData, setFormData] = useState(baseData);
+  const [isLoading, setLoading] = useState(false);
+
   const headerInputRef = useRef(null);
   const galleryInputRef = useRef(null);
 
@@ -22,6 +24,7 @@ export default function BlogPostForm() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    setLoading(true);
     const newFormData = new FormData();
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
@@ -31,6 +34,7 @@ export default function BlogPostForm() {
     newFormData.append('gallery', galleryInputRef.current.files[1]);
     newFormData.append('gallery', galleryInputRef.current.files[2]);
     await create(newFormData);
+    setLoading(false);
     setFormData(baseData);
   }
 
@@ -64,9 +68,9 @@ export default function BlogPostForm() {
         <Form.Control type='file' ref={galleryInputRef} multiple/>
       </Form.Group>
       <div className="d-grid gap-2">
-        <Button type='submit' variant="success" size="lg">
+        <Button type='submit' variant="success" size="lg" disabled={isLoading}>
           {/* {eventId ? 'Submit Changes' : 'Create New Event!'} */}
-          Submit Changes
+          {isLoading ? 'Saving Changes...' : 'SUBMIT'}
         </Button>
       </div>
     </Form>
