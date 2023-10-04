@@ -62,7 +62,10 @@ html, body {
 }
 
 .header-text {
-  width: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: calc(2em + 2.5vw);
+  text-shadow: 2px 5px 2px #000000;
   color: white;
   position: absolute;
   text-align: center;
