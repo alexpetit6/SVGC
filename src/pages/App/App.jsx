@@ -16,6 +16,7 @@ import ScholarshipPage from '../ScholarshipPage/ScholarshipPage';
 import BlogFeed from '../BlogFeed/BlogFeed';
 import BlogPostPage from '../BlogPostPage/BlogPostPage';
 import BlogPostForm from '../BlogPostForm/BlogPostForm';
+import JoinPage from '../JoinPage/JoinPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/community" element={<CommunityPage user={user}/>} />
         <Route path="/scholarships" element={<ScholarshipPage />} />
+        <Route path="/join" element={<JoinPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/photos" element={<PhotoGallery archive={false} user={user} />} />
         <Route path="/photos/archive" element={<PhotoGallery archive={true} user={user} />} />

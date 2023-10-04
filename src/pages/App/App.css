@@ -51,3 +51,27 @@ html, body {
   margin: 0 auto;
 }
 
+.header-img {
+  width: 100vw;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.header-img > img {
+  width: 1440px;
+}
+
+.header-text {
+  width: 100%;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 30vh;
+}
+
+@media (min-width: 1440px) {
+  .header-img > img {
+    width: 100vw;
+  }
+}
+

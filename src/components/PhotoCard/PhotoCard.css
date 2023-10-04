@@ -7,6 +7,10 @@
   height: 50vh;
 }
 
+.gallery-img:hover {
+  cursor: pointer;
+}
+
 .delete-img {
   position: absolute;
 }

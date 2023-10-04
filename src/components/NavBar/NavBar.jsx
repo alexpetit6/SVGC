@@ -12,12 +12,12 @@ export default function NavBar({ user, setUser, absolutePosition }) {
   }
 
   return (
-    <Navbar expand="lg" id={absolutePosition ? 'absolute-nav' : 'static-nav'}>
+    <Navbar expand="lg" data-bs-theme="dark" id={absolutePosition ? 'absolute-nav' : 'static-nav'}>
       {/* <img src="/blossom.png" alt="" /> */}
       <Container>
         <Navbar.Brand href="/"><img id="nav-logo" src="/SVGC-Logo.jpeg" alt="SVGC" /></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href='/'>Home</Nav.Link>
             <Nav.Link href='/events'>Event Feed</Nav.Link>
@@ -26,6 +26,7 @@ export default function NavBar({ user, setUser, absolutePosition }) {
             <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
             <Nav.Link href='/community'>Community Service</Nav.Link>
             <Nav.Link href='/scholarships'>Scholarships</Nav.Link>
+            <Nav.Link href='/join'>Membership</Nav.Link>
             { 
               user 
               ? 
