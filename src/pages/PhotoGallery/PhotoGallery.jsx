@@ -5,11 +5,13 @@ import PhotoForm from "../../components/PhotoForm/PhotoForm";
 import { getPhotos } from "../../utilities/photos-api";
 import Fancybox from "../../components/FancyBox/FancyBox";
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 export default function PhotoGallery({ user, archive }) {
   const [photos, setPhotos] = useState([]);
   const [filteredPhotos, setFilteredPhotos] = useState([]);
+  const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/photo-gallery-mobile.jpg' : '/headers/photo-gallery.jpg');
+
+  window.addEventListener('resize', () => window.innerWidth <= 576 ? setHeaderImg('/headers/photo-gallery-mobile.jpg') : setHeaderImg('/headers/photo-gallery.jpg') )
 
   useEffect(function() {
     async function getIndex() {
@@ -26,7 +28,7 @@ export default function PhotoGallery({ user, archive }) {
     ?
     <>
     <div className="header-img" >
-      <img src="https://i.imgur.com/5bWUAkC.jpg" alt="" />
+      <img src={headerImg} alt="" />
       <h1 className='header-text'>Photo Archive</h1>
     </div>
     <Fancybox newClass='photo-gallery'>
@@ -44,7 +46,7 @@ export default function PhotoGallery({ user, archive }) {
     :
     <>
     <div className="header-img" >
-      <img src="https://i.imgur.com/5bWUAkC.jpg" alt="" />
+      <img src={headerImg} alt="" />
       <h1 className='header-text'>Photos</h1>
     </div>
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }

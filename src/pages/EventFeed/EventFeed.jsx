@@ -6,6 +6,10 @@ import EventCard from '../../components/EventCard/EventCard'
 
 export default function EventFeed({user}) {
   const [events, setEvents] = useState([]);
+  const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/event-feed-mobile.jpg' : '/headers/event-feed.jpg');
+
+  window.addEventListener('resize', () => window.innerWidth <= 576 ? setHeaderImg('/headers/event-feed-mobile.jpg') : setHeaderImg('/headers/event-feed.jpg') )
+
   useEffect(function() {
     async function getAllEvents() {
       const allEvents = await getEvents();
@@ -13,11 +17,13 @@ export default function EventFeed({user}) {
     }
     getAllEvents();
   }, [])
+
   const EventCards = events.map(e => <EventCard event={e} key={e._id} setEvents={setEvents} user={user}/>)
+
   return (
     <>
     <div className="header-img">
-      <img src="https://i.imgur.com/ysjWldO.jpg"/>
+      <img src={headerImg}/>
       <h1 className='header-text'>Events</h1>
     </div>
     <ListGroup>

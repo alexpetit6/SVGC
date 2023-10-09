@@ -53,12 +53,12 @@ html, body {
 
 .header-img {
   width: 100vw;
-  height: 60vh;
+  height: 70vh;
   overflow: hidden;
 }
 
 .header-img > img {
-  width: 1440px;
+  height: 100%;
 }
 
 .header-text {
@@ -72,9 +72,17 @@ html, body {
   top: 30vh;
 }
 
+@media (min-width: 576px) {
+  .header-img > img {
+    width: 1440px;
+    height: auto;
+  }
+}
+
 @media (min-width: 1440px) {
   .header-img > img {
     width: 100vw;
+    height: auto;
   }
 }
 

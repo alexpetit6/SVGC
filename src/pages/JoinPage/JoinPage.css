@@ -28,3 +28,14 @@
 #cheddar-link {
   width: 300px;
 }
+
+@media (max-width: 768px) {
+  #join-page-card {
+    width: 95vw;
+    height: 66.3vw;
+  }
+
+  #cheddar-link {
+    width: 200px;
+  }
+}

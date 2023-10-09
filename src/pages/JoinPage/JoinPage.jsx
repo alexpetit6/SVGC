@@ -1,10 +1,19 @@
 import './JoinPage.css';
+import { useState, useEffect } from 'react';
 
 export default function JoinPage() {
+  const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/membership-mobile.jpg' : '/headers/membership.jpg');
+
+  window.addEventListener('resize', () => window.innerWidth <= 576 ? setHeaderImg('/headers/membership-mobile.jpg') : setHeaderImg('/headers/membership.jpg') )
+
+  // useEffect(function() {
+  //   window.innerWidth <= 576 ? setHeaderImg('/headers/membership-mobile.jpg') : setHeaderImg('/headers/membership.jpg')
+  // }, [])
+
   return (
     <>
     <div className="header-img">
-      <img src="https://i.imgur.com/2peAyqN.jpg"/>
+      <img src={headerImg}/>
       <h1 className='header-text'>Join The Club!</h1>
     </div>
     <p id='join-page-intro'>

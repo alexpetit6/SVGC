@@ -1,4 +1,8 @@
- /* CSS Custom Properties */
+a {
+  text-decoration: none;
+}
+
+/* CSS Custom Properties */
 :root {
   --primary-color: #0a4b39;
   --secondary-color: #182722;
