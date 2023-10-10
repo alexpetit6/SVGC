@@ -6,7 +6,6 @@
   overflow: hidden;
 }
 
-
 #event-header {
   background-color: var(--primary-color);
   color: var(--accent1);
@@ -15,7 +14,7 @@
 
 #event-header:hover {
   background-color: #0a4b39dd;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 #event-header > h1 {

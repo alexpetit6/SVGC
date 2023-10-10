@@ -1,3 +1,17 @@
 #blog-form {
   margin: 20px;
 }
+
+.edit-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-gallery > * {
+  margin: 20px;
+}
+
+.edit-gallery > * > img {
+  height: 40vh;
+}

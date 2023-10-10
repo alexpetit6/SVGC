@@ -1,19 +1,46 @@
 import './BlogPostForm.css';
 import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { create } from '../../utilities/posts-api';
-
+import { postDetail } from '../../utilities/posts-api';
+import FileInputCard from '../../components/FileInputCard/FileInputCard';
 
 export default function BlogPostForm() {
   const baseData = {
     title: '',
     body: '',
   };
+
+  const [post, setPost] = useState([])
   const [formData, setFormData] = useState(baseData);
   const [isLoading, setLoading] = useState(false);
 
+  const { postId } = useParams();
+
   const headerInputRef = useRef(null);
   const galleryInputRef = useRef(null);
+  const editGalleryRef1 = useRef(null);
+  const editGalleryRef2 = useRef(null);
+  const editGalleryRef3 = useRef(null);
+
+  useEffect(function () {
+    if (postId) {
+      async function getPost() {
+        const post = await postDetail(postId);
+        setFormData({
+          title: post.title,
+          body: post.body,
+          location: post.location,
+          photo: post.photo,
+          date: post.formDate,
+          time: post.time,
+        });
+        setPost(post);
+      }
+      getPost();
+    }
+  }, [])
 
   function handleChange(evt) {
     setFormData({
@@ -29,11 +56,15 @@ export default function BlogPostForm() {
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
     };
-    newFormData.append('header', headerInputRef.current.files[0]);
-    newFormData.append('gallery', galleryInputRef.current.files[0]);
-    newFormData.append('gallery', galleryInputRef.current.files[1]);
-    newFormData.append('gallery', galleryInputRef.current.files[2]);
-    await create(newFormData);
+    if (postId) {
+
+    } else {
+      newFormData.append('header', headerInputRef.current.files[0]);
+      newFormData.append('gallery', galleryInputRef.current.files[0]);
+      newFormData.append('gallery', galleryInputRef.current.files[1]);
+      newFormData.append('gallery', galleryInputRef.current.files[2]);
+      await create(newFormData);
+    }
     setLoading(false);
     setFormData(baseData);
   }
@@ -50,8 +81,7 @@ export default function BlogPostForm() {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.photo">
-        <Form.Label>Header Image</Form.Label>
-        <Form.Control type='file' ref={headerInputRef} />
+        <FileInputCard inputRef={headerInputRef} img={post.headerPhoto}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="blogForm.body">
         <Form.Label>Body Text</Form.Label>
@@ -65,13 +95,26 @@ export default function BlogPostForm() {
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.gallery">
         <Form.Label>Photo Gallery</Form.Label>
+        {
+        postId
+        ?
+        <div className='edit-gallery'>
+          <FileInputCard inputRef={editGalleryRef1} img={post.gallery[0]}/>
+          <FileInputCard inputRef={editGalleryRef2} img={post.gallery[1]}/>
+          <FileInputCard inputRef={editGalleryRef3} img={post.gallery[2]}/>
+        </div>
+        :
         <Form.Control type='file' ref={galleryInputRef} multiple/>
+        }
       </Form.Group>
       <div className="d-grid gap-2">
-        <Button type='submit' variant="success" size="lg" disabled={isLoading}>
-          {/* {eventId ? 'Submit Changes' : 'Create New Event!'} */}
-          {isLoading ? 'Saving Changes...' : 'SUBMIT'}
-        </Button>
+        {
+        postId 
+        ? 
+        <Button type='submit' disabled={isLoading}>{isLoading ? 'Saving Changes...' : 'SUBMIT'}</Button> 
+        : 
+        <Button type='submit' disabled={isLoading}>{isLoading ? 'Creating Event...' : 'SUBMIT'}</Button>
+        }
       </div>
     </Form>
   )

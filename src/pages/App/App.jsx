@@ -24,7 +24,7 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
-    const regex = /events\/[\S*]|calendar|admin/g
+    const regex = /events\/[\S*]|calendar|admin|blog./g
     regex.test(location.pathname) ? setAbsolutePosition(false) : setAbsolutePosition(true);
   }, [location]);
   
@@ -39,8 +39,9 @@ export default function App() {
           ?
           <>
           <Route path="/events/new" element={<NewEventPage />} />
-          <Route path="/blog/new" element={<BlogPostForm />} />
           <Route path="/events/new/:eventId" element={<NewEventPage />} />
+          <Route path="/blog/new" element={<BlogPostForm />} />
+          <Route path="/blog/new/:postId" element={<BlogPostForm />} />
           </>
           :
           null

@@ -6,7 +6,7 @@ module.exports = {
   show,
   create,
   // delete: deletePost,
-  // update
+  update
 };
 
 async function index(req, res) {
@@ -48,5 +48,19 @@ async function create(req, res) {
     res.json(post);
   } catch (err) {
     console.log(err)
+  }
+}
+
+async function update(req, res) {
+  try {
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key];
+    };
+    if (req.files['header'][0]) {
+      const headerPhotoURL = await uploadFile(req.files['header'][0]);
+    };
+    if (req.files['gallery']) console.log(req.files['gallery']);
+  } catch (err) {
+    console.log(err);
   }
 }

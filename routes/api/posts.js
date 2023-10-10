@@ -10,6 +10,6 @@ router.get('/', postsCtrl.index);
 router.get('/:id', postsCtrl.show);
 router.post('/', ensureLoggedIn, imgsUpload,  postsCtrl.create);
 // router.delete('/:id', ensureLoggedIn, postsCtrl.delete);
-// router.put('/:id', ensureLoggedIn, upload.none(), postsCtrl.update);
+router.put('/:id', ensureLoggedIn, imgsUpload, postsCtrl.update);
 
 module.exports = router;
