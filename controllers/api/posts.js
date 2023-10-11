@@ -56,10 +56,30 @@ async function update(req, res) {
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key];
     };
-    if (req.files['header'][0]) {
+    const updatedPost = await Post.findOneAndUpdate(
+      {_id: req.params.id},
+      {
+        title: req.body.title,
+        body: req.body.body,
+      },
+      {new: true}
+    );
+    if (req.files['header']) {
       const headerPhotoURL = await uploadFile(req.files['header'][0]);
+      updatedPost.headerPhoto = headerPhotoURL;
     };
-    if (req.files['gallery']) console.log(req.files['gallery']);
+    if (req.files['gallery']) {
+      const galleryIndices = JSON.parse(req.body.galleryIndices);
+      console.log(galleryIndices)
+      const newGalleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
+        return await uploadFile(p);
+      }));
+      newGalleryURLs.forEach(function(url, i) {
+        updatedPost.gallery.splice(galleryIndices[i], 1, url);
+      })
+    };
+    updatedPost.save();
+    res.json(updatedPost);
   } catch (err) {
     console.log(err);
   }

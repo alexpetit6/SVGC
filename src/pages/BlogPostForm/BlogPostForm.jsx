@@ -2,7 +2,7 @@ import './BlogPostForm.css';
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
-import { create } from '../../utilities/posts-api';
+import { create, update } from '../../utilities/posts-api';
 import { postDetail } from '../../utilities/posts-api';
 import FileInputCard from '../../components/FileInputCard/FileInputCard';
 
@@ -12,7 +12,7 @@ export default function BlogPostForm() {
     body: '',
   };
 
-  const [post, setPost] = useState([])
+  const [post, setPost] = useState(null)
   const [formData, setFormData] = useState(baseData);
   const [isLoading, setLoading] = useState(false);
 
@@ -57,16 +57,26 @@ export default function BlogPostForm() {
       newFormData.append(key, value);
     };
     if (postId) {
-
+      if (headerInputRef.current) newFormData.append('header', headerInputRef.current.files[0]);
+      const editRefs = [editGalleryRef1, editGalleryRef2, editGalleryRef3];
+      const galleryIndices = [];
+      editRefs.forEach(function(ref, i) {
+        if (ref.current) {
+          newFormData.append('gallery', ref.current.files[0]);
+          galleryIndices.push(i);
+        };
+      });
+      newFormData.append('galleryIndices', JSON.stringify(galleryIndices));
+      await update(postId, newFormData);
     } else {
       newFormData.append('header', headerInputRef.current.files[0]);
       newFormData.append('gallery', galleryInputRef.current.files[0]);
       newFormData.append('gallery', galleryInputRef.current.files[1]);
       newFormData.append('gallery', galleryInputRef.current.files[2]);
       await create(newFormData);
+      setFormData(baseData);
     }
     setLoading(false);
-    setFormData(baseData);
   }
 
   return (
@@ -81,7 +91,7 @@ export default function BlogPostForm() {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.photo">
-        <FileInputCard inputRef={headerInputRef} img={post.headerPhoto}/>
+        <FileInputCard inputRef={headerInputRef} img={post ? post.headerPhoto : null}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="blogForm.body">
         <Form.Label>Body Text</Form.Label>
@@ -96,7 +106,7 @@ export default function BlogPostForm() {
       <Form.Group className="mb-3" controlId="eventForm.gallery">
         <Form.Label>Photo Gallery</Form.Label>
         {
-        postId
+        post
         ?
         <div className='edit-gallery'>
           <FileInputCard inputRef={editGalleryRef1} img={post.gallery[0]}/>
