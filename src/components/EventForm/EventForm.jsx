@@ -50,11 +50,11 @@ export default function EventForm() {
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
     }
+    if (fileInputRef.current) newFormData.append('photo', fileInputRef.current.files[0]);
     if (eventId) {
       await update(eventId, newFormData);
       setStatusMsg('Changes Submitted Successfully!');
     } else {
-      if (!isChecked) newFormData.append('photo', fileInputRef.current.files[0]);
       await create(newFormData);
       setFormData(baseData);
     }

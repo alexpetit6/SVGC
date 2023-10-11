@@ -30,8 +30,7 @@ async function create(req, res) {
     };
     const event = await Event.create(req.body);
     if (req.file) {
-      const photoURL = await uploadFile(req.file);
-      event.photo = photoURL;
+      event.photo = await uploadFile(req.file);
       event.save();
     };
     res.json(event);
@@ -60,6 +59,10 @@ async function update(req, res) {
       req.body, 
       {new: true}
     );
+    if (req.file) {
+      updatedEvent.photo = await uploadFile(req.file);
+      updatedEvent.save();
+    }
     res.json(updatedEvent);
   } catch (err) {
     res.json(err);

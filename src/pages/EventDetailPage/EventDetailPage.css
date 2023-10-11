@@ -13,7 +13,8 @@
 }
 
 .event-img {
-  width: 70vw;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 .event-detail-desc {
