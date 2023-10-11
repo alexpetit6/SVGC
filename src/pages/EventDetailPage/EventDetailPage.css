@@ -1,14 +1,23 @@
+.list-group-item {
+  border: none;
+}
 
-#detail-list > * {
-  display: flex;
-  justify-content: center;
+#detail-list > :nth-child(odd) {
+  /* display: flex;
+  justify-content: center; */
   color: white;
   border-radius: 0px;
   border: none;
   background-color: var(--secondary-color);
 }
 
+.event-location {
+  display: block;
+}
+
 #detail-list > :nth-child(even) {
+  display: flex;
+  justify-content: center;
   background-color: var(--primary-color);
 }
 
