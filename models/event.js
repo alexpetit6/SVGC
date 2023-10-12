@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema({
   title: {
     type: String,
-    default: 'Meeting',
+    default: 'Board Meeting',
   },
   description: {
     type: String,
@@ -55,7 +55,7 @@ eventSchema.virtual('displayDate').get(function() {
 });
 
 eventSchema.virtual('color').get(function() {
-  return this.title === 'Meeting' ? 'var(--secondary-color)' : '#00E091'
+  return this.title === 'Board Meeting' ? 'var(--secondary-color)' : '#00E091'
 });
 
 module.exports = mongoose.model('Event', eventSchema);

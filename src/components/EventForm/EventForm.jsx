@@ -78,7 +78,7 @@ export default function EventForm() {
     <Form onSubmit={handleSubmit} className='event-form' id='event-form'>
       <Form.Check
         type="checkbox"
-        label="Is this a meeting?"
+        label="Is this a board meeting?"
         onChange={handleCheck}
         checked={isChecked}
       />
@@ -111,7 +111,7 @@ export default function EventForm() {
     <Form onSubmit={handleSubmit} className='event-form'>
       <Form.Check
         type="checkbox"
-        label="Is this a meeting?"
+        label="Is this a board meeting?"
         onChange={handleCheck}
         checked={isChecked}
       />

@@ -3,9 +3,9 @@ import "./CustomEvent.css"
 export default function CustomEvent({event}) {
   return (
     
-      event.title === 'Meeting' 
+      event.title === 'Board Meeting' 
       ?
-      <div>
+      <div className="board-meeting">
         <strong>{event.title}</strong>
       </div>
       :
