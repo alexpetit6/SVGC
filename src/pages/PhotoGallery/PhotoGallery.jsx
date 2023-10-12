@@ -2,6 +2,7 @@ import './PhotoGallery.css'
 import { useState, useEffect } from "react";
 import PhotoCard from "../../components/PhotoCard/PhotoCard";
 import PhotoForm from "../../components/PhotoForm/PhotoForm";
+import PageHeader from '../../components/PageHeader/PageHeader';
 import { getPhotos } from "../../utilities/photos-api";
 import Fancybox from "../../components/FancyBox/FancyBox";
 import { Button } from 'react-bootstrap';
@@ -27,10 +28,7 @@ export default function PhotoGallery({ user, archive }) {
     archive
     ?
     <>
-    <div className="header-img" >
-      <img src={headerImg} alt="" />
-      <h1 className='header-text'>Photo Archive</h1>
-    </div>
+    <PageHeader img={headerImg} text='Photo Archive' />
     <Fancybox newClass='photo-gallery'>
       {filteredPhotos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
@@ -40,15 +38,12 @@ export default function PhotoGallery({ user, archive }) {
         key={p._id} 
         id={p._id}
         user={user} 
-      />)}
+        />)}
     </Fancybox>
     </>
     :
     <>
-    <div className="header-img" >
-      <img src={headerImg} alt="" />
-      <h1 className='header-text'>Photos</h1>
-    </div>
+    <PageHeader img={headerImg} text='Photos' />
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
     {/* <Link id='archive-link' to='/photos/archive'>View Photo Archive</Link> */}
     <div id='archive-link'>

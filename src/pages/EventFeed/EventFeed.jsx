@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getEvents } from "../../utilities/events-api";
 import { ListGroup } from "react-bootstrap";
 import EventCard from '../../components/EventCard/EventCard'
+import PageHeader from '../../components/PageHeader/PageHeader';
 
 export default function EventFeed({user}) {
   const [events, setEvents] = useState([]);
@@ -22,10 +23,7 @@ export default function EventFeed({user}) {
 
   return (
     <>
-    <div className="header-img">
-      <img src={headerImg}/>
-      <h1 className='header-text'>Events</h1>
-    </div>
+    <PageHeader img={headerImg} text='Events' />
     <ListGroup>
       {EventCards}
     </ListGroup>

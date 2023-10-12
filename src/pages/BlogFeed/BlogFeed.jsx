@@ -3,6 +3,7 @@ import { getPosts } from '../../utilities/posts-api';
 import { useEffect, useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import BlogCard from '../../components/BlogCard/BlogCard';
+import PageHeader from '../../components/PageHeader/PageHeader';
 
 export default function BlogFeed() {
   const [posts, setPosts] = useState([]);
@@ -22,10 +23,7 @@ export default function BlogFeed() {
 
   return (
     <>
-    <div className="header-img">
-      <img src={headerImg}/>
-      <h1 className='header-text'>Blog</h1>
-    </div>
+    <PageHeader img={headerImg} text='Blog' />
     <ListGroup>
       {Posts}
     </ListGroup>

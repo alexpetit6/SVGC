@@ -1,12 +1,10 @@
 import './ScholarshipPage.css'
+import PageHeader from '../../components/PageHeader/PageHeader'
 
 export default function ScholarshipPage() {
   return (
     <>
-    <div className="header-img" >
-      <img src="https://i.imgur.com/lyYwiM6.jpg)" alt="" />
-      <h1 className='header-text'>Scholarships</h1>
-    </div>
+    <PageHeader img='https://i.imgur.com/lyYwiM6.jpg' text='Scholarships' />
     <div id='scholarship-body'>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque est, voluptatem assumenda ad sequi soluta ducimus sit alias quia deserunt aperiam perferendis omnis molestiae! Hic architecto voluptatibus ullam facilis cumque.

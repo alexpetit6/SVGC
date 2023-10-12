@@ -1,0 +1,34 @@
+.header-img {
+  width: 100vw;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.header-img > img {
+  height: 100%;
+}
+
+.header-text {
+  left: 50%;
+  transform: translate(-50%);
+  font-size: calc(2em + 2.5vw);
+  text-shadow: 2px 5px 2px #000000;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 30vh;
+}
+
+@media (min-width: 576px) {
+  .header-img > img {
+    width: 1440px;
+    height: auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-img > img {
+    width: 100vw;
+    height: auto;
+  }
+}
