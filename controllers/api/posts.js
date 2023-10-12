@@ -5,7 +5,7 @@ module.exports = {
   index,
   show,
   create,
-  // delete: deletePost,
+  delete: deletePost,
   update
 };
 
@@ -34,20 +34,25 @@ async function create(req, res) {
     const galleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
       return await uploadFile(p);
     }));
-    console.log(`galleryURLs:${galleryURLs}`)
     const post = await Post.create({
       title: req.body.title,
       headerPhoto: headerPhotoURL,
       body: req.body.body,
       gallery: galleryURLs,
     });
-    console.log('headerPhoto', headerPhotoURL);
-    // post.headerPhoto = headerPhotoURL;
-    // post.gallery = galleryUrls;
-    // post.save();
     res.json(post);
   } catch (err) {
     console.log(err)
+  }
+}
+
+async function deletePost(req, res) {
+  try {
+    await Post.deleteOne({_id: req.params.id});
+    const posts = await Post.find({});
+    res.json(posts);
+  } catch (err) {
+    res.json(err);
   }
 }
 

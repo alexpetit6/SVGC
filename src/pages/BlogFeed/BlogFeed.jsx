@@ -19,7 +19,7 @@ export default function BlogFeed() {
     getAllPosts();
   }, [])
 
-  const Posts = posts.map((p) => <BlogCard key={p.id} post={p} />)
+  const Posts = posts.map((p) => <BlogCard key={p.id} post={p} setPosts={setPosts} />)
 
   return (
     <>
