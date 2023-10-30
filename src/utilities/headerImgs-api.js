@@ -1,7 +1,7 @@
 import sendRequest from "./send-request";
-const BASE_URL = '/api/community';
+const BASE_URL = '/api/headerImgs';
 
-export async function getCommunity() {
+export async function getHeaderImg() {
   return sendRequest(BASE_URL);
 }
 
