@@ -27,12 +27,12 @@ export default function HeaderImgForm({img, page}) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FileInputCard  img={img} inputRef={fileInputRef} />
+      <FileInputCard className='header-input-card' img={img} inputRef={fileInputRef} />
         <Form.Check
         inline
         label='Mobile image?'
         type='checkbox'
-        id='inline-checkbox-1'
+        id='mobile-checkbox'
         onClick={() => handleCheck()}
         />
         {/* <Form.Check

@@ -11,7 +11,10 @@ export default function FileInputCard({ className, img, inputRef }) {
 
   return (
     <Card className={className}>
+      <div>
       <Card.Img variant="top" src={img} />
+
+      </div>
       <Card.Body>
         <Card.Text>
           { editing ? <Form.Control type='file' ref={inputRef} /> : <Button onClick={handleEditing}>Change Image?</Button>}
