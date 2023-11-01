@@ -5,7 +5,7 @@ import { ListGroup } from 'react-bootstrap';
 import BlogCard from '../../components/BlogCard/BlogCard';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
-export default function BlogFeed() {
+export default function BlogFeed({ user }) {
   const [posts, setPosts] = useState([]);
   const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/blog-mobile.jpg' : '/headers/blog.jpg');
 
@@ -23,7 +23,7 @@ export default function BlogFeed() {
 
   return (
     <>
-    <PageHeader img={headerImg} text='Blog' />
+    <PageHeader img={headerImg} text='Blog' user={user} page='blog' />
     <ListGroup>
       {Posts}
     </ListGroup>

@@ -5,7 +5,7 @@ import { ListGroup } from "react-bootstrap";
 import EventCard from '../../components/EventCard/EventCard'
 import PageHeader from '../../components/PageHeader/PageHeader';
 
-export default function EventFeed({user}) {
+export default function EventFeed({ user }) {
   const [events, setEvents] = useState([]);
   const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/event-feed-mobile.jpg' : '/headers/event-feed.jpg');
 
@@ -19,11 +19,11 @@ export default function EventFeed({user}) {
     getAllEvents();
   }, [])
 
-  const EventCards = events.map(e => <EventCard event={e} key={e._id} setEvents={setEvents} user={user}/>)
+  const EventCards = events.map(e => <EventCard event={e} key={e._id} setEvents={setEvents} user={user} />)
 
   return (
     <>
-    <PageHeader img={headerImg} text='Events' />
+    <PageHeader img={headerImg} text='Events' user={user} page='eventFeed' />
     <ListGroup>
       {EventCards}
     </ListGroup>

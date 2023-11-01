@@ -2,7 +2,7 @@ import './JoinPage.css';
 import { useState, useEffect } from 'react';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
-export default function JoinPage() {
+export default function JoinPage({ user }) {
   const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/membership-mobile.jpg' : '/headers/membership.jpg');
 
   window.addEventListener('resize', () => window.innerWidth <= 576 ? setHeaderImg('/headers/membership-mobile.jpg') : setHeaderImg('/headers/membership.jpg') )
@@ -13,7 +13,7 @@ export default function JoinPage() {
 
   return (
     <>
-    <PageHeader img={headerImg} text='Join The Club!' />
+    <PageHeader img={headerImg} text='Join The Club!' user={user} page='membership' />
     <p id='join-page-intro'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisis sed odio morbi quis commodo odio. Tellus id interdum velit laoreet id donec. Sed odio morbi quis commodo odio aenean sed adipiscing diam. Semper eget duis at tellus at urna. Nunc pulvinar sapien et ligula.
     </p>

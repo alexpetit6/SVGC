@@ -9,14 +9,19 @@
 }
 
 .header-text {
+  position: absolute;
   left: 50%;
   transform: translate(-50%);
   font-size: calc(2em + 2.5vw);
   text-shadow: 2px 5px 2px #000000;
   color: white;
-  position: absolute;
-  text-align: center;
   top: 30vh;
+}
+
+#header-edit-btn {
+  position: absolute;
+  left: 0;
+  bottom: 30%;
 }
 
 @media (min-width: 576px) {

@@ -28,7 +28,7 @@ export default function PhotoGallery({ user, archive }) {
     archive
     ?
     <>
-    <PageHeader img={headerImg} text='Photo Archive' />
+    <PageHeader img={headerImg} text='Photo Archive' user={user} page='gallery' />
     <Fancybox newClass='photo-gallery'>
       {filteredPhotos.map((p, i) => <PhotoCard 
         setPhotos={setPhotos}
@@ -43,7 +43,7 @@ export default function PhotoGallery({ user, archive }) {
     </>
     :
     <>
-    <PageHeader img={headerImg} text='Photos' />
+    <PageHeader img={headerImg} text='Photos' user={user} page='gallery' />
     { user ?  <PhotoForm setPhotos={setPhotos} photos={photos} /> : null }
     {/* <Link id='archive-link' to='/photos/archive'>View Photo Archive</Link> */}
     <div id='archive-link'>

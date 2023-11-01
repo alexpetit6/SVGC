@@ -5,6 +5,7 @@ require('./config/database');
 // Require the Mongoose models
 const User = require('./models/user');
 const Event = require('./models/event');
+const HeaderImg = require('./models/headerImg');
 // const Category = require('./models/category');
 // const Order = require('./models/order');
 

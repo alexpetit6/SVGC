@@ -26,13 +26,13 @@ export default function CommunityPage({ user }) {
       editing
       ?
       <>
-      <PageHeader img='https://i.imgur.com/zcyoc9z.jpg' text='Community Service'/>
+      <PageHeader img='https://i.imgur.com/zcyoc9z.jpg' text='Community Service' user={user} page='community' />
       { user ? <Button id='edit-community-btn' onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
       <CommunityForm community={community} setCommunity={setCommunity}/>
       </>
       :
       <>
-      <PageHeader img='https://i.imgur.com/zcyoc9z.jpg' text='Community Service'/>
+      <PageHeader img='https://i.imgur.com/zcyoc9z.jpg' text='Community Service' user={user} page='community' />
       { user ? <Button id='edit-community-btn' onClick={handleEditing} variant='warning' size='lg'>EDIT</Button> : null }
       <div id='community-body'>
         <p>

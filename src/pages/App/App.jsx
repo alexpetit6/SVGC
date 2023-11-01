@@ -48,12 +48,12 @@ export default function App() {
         }
         <Route path="/events" element={<EventFeed user={user} />} />
         <Route path="/events/:eventId" element={<EventDetailPage />} />
-        <Route path="/blog" element={<BlogFeed />} />
+        <Route path="/blog" element={<BlogFeed user={user} />} />
         <Route path="/blog/:postId" element={<BlogPostPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/community" element={<CommunityPage user={user}/>} />
-        <Route path="/scholarships" element={<ScholarshipPage />} />
-        <Route path="/join" element={<JoinPage />} />
+        <Route path="/scholarships" element={<ScholarshipPage user={user} />} />
+        <Route path="/join" element={<JoinPage user={user} />} />
         <Route path="/" element={<Home />} />
         <Route path="/photos" element={<PhotoGallery archive={false} user={user} />} />
         <Route path="/photos/archive" element={<PhotoGallery archive={true} user={user} />} />

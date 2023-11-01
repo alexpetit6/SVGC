@@ -1,7 +1,7 @@
 import sendRequest from "./send-request";
 const BASE_URL = '/api/headerImgs';
 
-export async function getHeaderImg() {
+export async function getImgs() {
   return sendRequest(BASE_URL);
 }
 

@@ -4,10 +4,10 @@ import { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { update } from '../../utilities/headerImgs-api';
 
-export default function HeaderImgForm(img) {
+export default function HeaderImgForm({img, page}) {
   const [type, setType] = useState(null)
 
-  fileInputRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   function handleRadio(imgType) {
     imgType === 'desktop' ? setType('desktop') : setType('mobile'); 
@@ -18,6 +18,7 @@ export default function HeaderImgForm(img) {
     if (fileInputRef.current) {
       const newFormData = new FormData();
       newFormData.append('type', type);
+      newFormData.append('page', page);
       newFormData.append('photo', fileInputRef.current.files[0]);
       const headerImg = await update(newFormData);
     }
