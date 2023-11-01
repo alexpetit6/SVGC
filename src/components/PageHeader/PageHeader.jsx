@@ -24,7 +24,7 @@ export default function PageHeader({ text, user, page }) {
     editing
     ?
     <>
-      <HeaderImgForm img={headerImg} page={page} />
+      <HeaderImgForm img={headerImg} setHeaderImg={setHeaderImg} page={page} />
       { user ? <Button onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
     </>
     :
