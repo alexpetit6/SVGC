@@ -20,6 +20,7 @@ import JoinPage from '../JoinPage/JoinPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [headerImgs, setHeaderImgs] = useState(null);
   const [absolutePosition, setAbsolutePosition] = useState(true);
   const location = useLocation();
 

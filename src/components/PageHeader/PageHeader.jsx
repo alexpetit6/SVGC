@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { getImgs } from '../../utilities/headerImgs-api';
 
-export default function PageHeader({ img, text, user, page }) {
+export default function PageHeader({ text, user, page }) {
   const [headerImg, setHeaderImg] = useState(null);
   const [editing, setEditing] = useState(false);
 
@@ -24,12 +24,12 @@ export default function PageHeader({ img, text, user, page }) {
     editing
     ?
     <>
-      <HeaderImgForm img={img} page={page} />
+      <HeaderImgForm img={headerImg} page={page} />
       { user ? <Button onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
     </>
     :
     <div className="header-img">
-      <img src={img}/>
+      <img src={headerImg}/>
       <h1 className='header-text'>{text}</h1>
       { user ? <Button id='header-edit-btn' onClick={handleEditing} variant='warning' size='lg'>EDIT</Button> : null }
     </div>

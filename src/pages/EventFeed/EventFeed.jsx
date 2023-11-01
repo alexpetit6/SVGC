@@ -7,9 +7,9 @@ import PageHeader from '../../components/PageHeader/PageHeader';
 
 export default function EventFeed({ user }) {
   const [events, setEvents] = useState([]);
-  const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/event-feed-mobile.jpg' : '/headers/event-feed.jpg');
+  // const [headerImg, setHeaderImg] = useState(window.innerWidth <= 576 ? '/headers/event-feed-mobile.jpg' : '/headers/event-feed.jpg');
 
-  window.addEventListener('resize', () => window.innerWidth <= 576 ? setHeaderImg('/headers/event-feed-mobile.jpg') : setHeaderImg('/headers/event-feed.jpg') )
+  // window.addEventListener('resize', () => window.innerWidth <= 576 ? setHeaderImg('/headers/event-feed-mobile.jpg') : setHeaderImg('/headers/event-feed.jpg') )
 
   useEffect(function() {
     async function getAllEvents() {
@@ -23,7 +23,7 @@ export default function EventFeed({ user }) {
 
   return (
     <>
-    <PageHeader img={headerImg} text='Events' user={user} page='eventFeed' />
+    <PageHeader text='Events' user={user} page='eventFeed' />
     <ListGroup>
       {EventCards}
     </ListGroup>
