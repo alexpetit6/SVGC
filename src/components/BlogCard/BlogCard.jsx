@@ -25,7 +25,7 @@ export default function BlogCard({ post, setPosts, user }) {
           </Card.Text>
         </Card.Body>
         <Link to={`/blog/${post.id}`}> 
-          <Card.Img variant="bottom" src="https://i.imgur.com/2peAyqN.jpg" />
+          <Card.Img id='blog-card-img' variant="bottom" src="https://i.imgur.com/2peAyqN.jpg" />
         </Link> 
       </Card>
     </ListGroup.Item>
