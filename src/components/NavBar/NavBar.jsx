@@ -20,9 +20,9 @@ export default function NavBar({ user, setUser, absolutePosition }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href='/'>Home</Nav.Link>
-            <Nav.Link href='/events'>Event Feed</Nav.Link>
+            <Nav.Link href='/events'>Events</Nav.Link>
             <Nav.Link href='/blog'>Blog</Nav.Link>
-            <Nav.Link href='/calendar'>Calendar Page</Nav.Link>
+            <Nav.Link href='/calendar'>Calendar</Nav.Link>
             <Nav.Link href='/photos'>Photo Gallery</Nav.Link>
             <Nav.Link href='/community'>Community Service</Nav.Link>
             <Nav.Link href='/scholarships'>Scholarships</Nav.Link>

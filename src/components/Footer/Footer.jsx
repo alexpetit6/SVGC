@@ -1,5 +1,6 @@
 import './Footer.css'
 import { Link } from 'react-router-dom'
+import MailchimpForm from '../MailchimpForm/MailchimpForm'
 
 export default function Footer() {
   return(
@@ -12,6 +13,7 @@ export default function Footer() {
         <Link to='/community'>Community Service</Link>
         <Link to='/scholarships'>Scholarships</Link>
       </div>
+      <MailchimpForm />
     </div>
   )
 }
