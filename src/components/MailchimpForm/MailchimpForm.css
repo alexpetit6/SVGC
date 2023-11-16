@@ -1,0 +1,38 @@
+#mc_embed_signup_scroll {
+  margin: 20px;
+  display: grid;
+  width: 500px;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 20px;
+}
+
+#mc-embed-title {
+  grid-column: span 2;
+  text-align: center;
+  color: white;
+}
+
+#mce-FNAME {
+  grid-row: 2;
+}
+
+#mce-LNAME {
+  grid-row: 2;
+}
+
+#mce-FNAME, #mce-LNAME {
+  width: 100%;
+}
+
+#mce-EMAIL {
+  grid-column: span 2;
+  width: 100%;
+}
+
+#mc-embedded-subscribe {
+  height: 30px;
+  grid-column: span 2;
+}
+
