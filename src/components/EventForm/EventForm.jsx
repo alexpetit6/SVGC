@@ -13,7 +13,7 @@ export default function EventForm() {
     location: '',
     date: '',
     time: '',
-  }
+  };
   const [formData, setFormData] = useState(baseData);
   const [isChecked, setIsChecked] = useState(false);
   const [statusMsg, setStatusMsg] = useState('');

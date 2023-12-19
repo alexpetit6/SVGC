@@ -16,7 +16,6 @@ export default function EventDetailPage() {
     }
     getEvent();
   }, []);
-  console.log(event)
   
   if(event) {
     return (

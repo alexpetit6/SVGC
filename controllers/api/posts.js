@@ -75,7 +75,6 @@ async function update(req, res) {
     };
     if (req.files['gallery']) {
       const galleryIndices = JSON.parse(req.body.galleryIndices);
-      console.log(galleryIndices)
       const newGalleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
         return await uploadFile(p);
       }));
