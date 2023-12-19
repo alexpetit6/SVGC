@@ -29,6 +29,14 @@ export default function App() {
     regex.test(location.pathname) ? setAbsolutePosition(false) : setAbsolutePosition(true);
   }, [location]);
   
+  // useEffect(() => {
+  //   const rootStyles = document.querySelector(':root').style;
+  //   rootStyles.setProperty('--primary-color', 'red');
+  //   // function setCSSVariable(name, value) {
+  //   //   rootStyles.insertRule(`:root { ${name}: ${value}; }`, rootStyles.cssRules.length);
+  //   // }
+  //   // setCSSVariable('--primary-color', 'red');
+  // }, []);
 
   return (
     <main className="App">

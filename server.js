@@ -32,6 +32,7 @@ app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/photos', require('./routes/api/photos'));
 app.use('/api/community', require('./routes/api/community'));
 app.use('/api/headerImgs', require('./routes/api/headerImgs'));
+app.use('/api/colors', require('./routes/api/colors'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
