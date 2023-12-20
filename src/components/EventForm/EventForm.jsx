@@ -179,6 +179,6 @@ export default function EventForm() {
       </div>
       <p className='text-danger'>{statusMsg}</p>
     </Form>
-  )
+  );
 }
 

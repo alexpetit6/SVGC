@@ -30,6 +30,7 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/events', require('./routes/api/events'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/photos', require('./routes/api/photos'));
+app.use('/api/home', require('./routes/api/home'));
 app.use('/api/community', require('./routes/api/community'));
 app.use('/api/headerImgs', require('./routes/api/headerImgs'));
 app.use('/api/colors', require('./routes/api/colors'));

@@ -57,5 +57,5 @@ export default function EditHome({ home }) {
         </Col>
       </Row>
     </form>
-  )
+  );
 }
