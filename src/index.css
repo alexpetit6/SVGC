@@ -6,8 +6,8 @@ a {
 :root {
   --primary-color: #0a4b39;
   --secondary-color: #182722;
-  --accent1: #00E091;
-  --accent2: #E5A298;
+  --accent: #00E091;
+  /* --accent2: #E5A298; */
 }
 
 

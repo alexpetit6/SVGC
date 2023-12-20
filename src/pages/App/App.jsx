@@ -19,13 +19,27 @@ import BlogPostPage from '../BlogPostPage/BlogPostPage';
 import BlogPostForm from '../BlogPostForm/BlogPostForm';
 import JoinPage from '../JoinPage/JoinPage';
 import ColorsForm from '../../components/ColorsForm/ColorsForm';
+import { getColors } from '../../utilities/colors-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [colors, setColors] = useState(null);
   const [headerImgs, setHeaderImgs] = useState(null);
   const [editingColors, setEditingColors] = useState(false);
   const [absolutePosition, setAbsolutePosition] = useState(true);
   const location = useLocation();
+
+  useEffect(() => {
+    async function Colors() {
+      const colors = await getColors();
+      setColors(colors);
+      const rootStyles = document.querySelector(':root').style;
+      rootStyles.setProperty('--primary-color', colors.primary);
+      rootStyles.setProperty('--secondary-color', colors.secondary);
+      rootStyles.setProperty('--acccent', colors.accent);
+    }
+    Colors();
+  }, []);
 
   useEffect(() => {
     const regex = /events\/[\S*]|calendar|admin|blog./g
@@ -36,22 +50,13 @@ export default function App() {
     setEditingColors(!editingColors);
   }
   
-  // useEffect(() => {
-  //   const rootStyles = document.querySelector(':root').style;
-  //   rootStyles.setProperty('--primary-color', 'red');
-  //   // function setCSSVariable(name, value) {
-  //   //   rootStyles.insertRule(`:root { ${name}: ${value}; }`, rootStyles.cssRules.length);
-  //   // }
-  //   // setCSSVariable('--primary-color', 'red');
-  // }, []);
-
   return (
     <main className="App">
       <>
       <NavBar absolutePosition={absolutePosition} user={user} setUser={setUser} />
       { user ? 
         editingColors ?
-        <ColorsForm handleEditing={handleEditing}/>
+        <ColorsForm colors={colors} setColors={setColors} handleEditing={handleEditing}/>
         :
         <Button onClick={handleEditing} id='change-colors-btn' variant='warning'>Change Colors</Button>
       : 

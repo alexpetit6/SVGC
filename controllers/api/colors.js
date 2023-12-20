@@ -8,8 +8,8 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    const color = await Color.findOne({});
-    res.json(color);
+    const colors = await Color.findOne({});
+    res.json(colors);
   } catch (err) {
     console.log('err');
   }
@@ -20,8 +20,8 @@ async function update(req, res) {
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key];
     };
-    const color = await Color.findOneAndUpdate({}, req.body);
-    res.json(color);
+    const colors = await Color.findOneAndUpdate({}, req.body);
+    res.json(colors);
   } catch (err) {
     res.json(err);
   }

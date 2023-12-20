@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { ChromePicker } from 'react-color';
 
-export default function ColorsForm({ handleEditing }) {
-  const [color, setColor] = useState('#fff');
+export default function ColorsForm({ colors, setColors, handleEditing }) {
+  const [color, setColor] = useState({
+
+  });
   const [isEditing, setEditing] = useState({
     primary: false,
     secondary: false,
