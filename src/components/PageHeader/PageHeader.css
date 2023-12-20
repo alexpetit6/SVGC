@@ -1,6 +1,6 @@
 .header-img {
   width: 100vw;
-  height: 70vh;
+  height: 55vh;
   overflow: hidden;
 }
 
@@ -15,7 +15,7 @@
   font-size: calc(2em + 2.5vw);
   text-shadow: 2px 5px 2px #000000;
   color: white;
-  top: 30vh;
+  top: 25vh;
 }
 
 #header-edit-btn {
