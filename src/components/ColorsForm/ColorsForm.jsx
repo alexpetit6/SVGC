@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { ChromePicker } from 'react-color';
 
-export default function ColorsForm({ colors, setColors }) {
+export default function ColorsForm({ handleEditing }) {
   const [color, setColor] = useState('#fff');
   const [isEditing, setEditing] = useState({
     primary: false,
@@ -61,7 +61,7 @@ export default function ColorsForm({ colors, setColors }) {
         </div>
         <div id='final-color-btn-container'>
           <Button id='color-submit-btn' variant='success'>Submit New Colors</Button>
-          <Button id='close-color-form' variant='danger'>Close</Button>
+          <Button onClick={handleEditing} id='close-color-form' variant='danger'>Close</Button>
         </div>
       </div>
   );

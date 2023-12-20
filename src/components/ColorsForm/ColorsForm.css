@@ -47,6 +47,7 @@
   align-items: center;
   margin-bottom: 5vh;
 }
+
 #color-submit-btn {
   grid-column: 2;
 }

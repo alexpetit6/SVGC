@@ -23,6 +23,7 @@ import ColorsForm from '../../components/ColorsForm/ColorsForm';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [headerImgs, setHeaderImgs] = useState(null);
+  const [editingColors, setEditingColors] = useState(false);
   const [absolutePosition, setAbsolutePosition] = useState(true);
   const location = useLocation();
 
@@ -30,6 +31,10 @@ export default function App() {
     const regex = /events\/[\S*]|calendar|admin|blog./g
     regex.test(location.pathname) ? setAbsolutePosition(false) : setAbsolutePosition(true);
   }, [location]);
+
+  function handleEditing() {
+    setEditingColors(!editingColors);
+  }
   
   // useEffect(() => {
   //   const rootStyles = document.querySelector(':root').style;
@@ -43,9 +48,15 @@ export default function App() {
   return (
     <main className="App">
       <>
-      <ColorsForm/>
       <NavBar absolutePosition={absolutePosition} user={user} setUser={setUser} />
-      <Button id='change-colors-btn' variant='warning'>Change Colors</Button>
+      { user ? 
+        editingColors ?
+        <ColorsForm handleEditing={handleEditing}/>
+        :
+        <Button onClick={handleEditing} id='change-colors-btn' variant='warning'>Change Colors</Button>
+      : 
+        null
+      }
       <Routes>
         { 
           user
