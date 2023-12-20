@@ -2,10 +2,13 @@ import './ColorsForm.css';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { ChromePicker } from 'react-color';
+import { update } from '../../utilities/colors-api';
 
 export default function ColorsForm({ colors, setColors, handleEditing }) {
-  const [color, setColor] = useState({
-
+  const [formData, setFormData] = useState({
+    primary: colors.primary,
+    secondary: colors.secondary,
+    accent: colors.accent,
   });
   const [isEditing, setEditing] = useState({
     primary: false,
@@ -20,8 +23,33 @@ export default function ColorsForm({ colors, setColors, handleEditing }) {
     });
   }
 
-  function handleChange(color) {
-    setColor(color);
+  function handlePrimary(color) {
+    setFormData({
+      ...formData,
+      primary: color.hex
+    });
+  }
+
+  function handleSecondary(color) {
+    setFormData({
+      ...formData,
+      secondary: color.hex
+    });
+  }
+
+  function handleAccent(color) {
+    setFormData({
+      ...formData,
+      accent: color.hex
+    });
+  }
+
+  async function handleSubmit() {
+    const newColors = await update(formData);
+    const rootStyles = document.querySelector(':root').style;
+      rootStyles.setProperty('--primary-color', newColors.primary);
+      rootStyles.setProperty('--secondary-color', newColors.secondary);
+      rootStyles.setProperty('--accent1', newColors.accent);
   }
 
   return (
@@ -29,40 +57,40 @@ export default function ColorsForm({ colors, setColors, handleEditing }) {
         <div id='color-input-container'>
           { isEditing.primary ?
             <div className='color-input'>
-              <ChromePicker color={color} onChange={handleChange}/>
+              <ChromePicker color={formData.primary} onChange={handlePrimary}/>
               <Button variant='success' onClick={() => handleClick('primary')}>Done</Button>
             </div>
             :
             <div className='open-color-container'>
               <Button className='open-color-picker' onClick={() => handleClick('primary')}>Change Primary Color</Button>
-              <div style={{backgroundColor: 'red'}}></div>
+              <div style={{backgroundColor: formData.primary}}></div>
             </div>
           }
           { isEditing.secondary ?
             <div className='color-input'>
-              <ChromePicker color={color} onChange={handleChange}/>
+              <ChromePicker color={formData.secondary} onChange={handleSecondary}/>
               <Button variant='success' onClick={() => handleClick('secondary')}>Done</Button>
             </div>
             :
             <div className='open-color-container'>
               <Button className='open-color-picker' onClick={() => handleClick('secondary')}>Change Secondary Color</Button>
-              <div style={{backgroundColor: 'red'}}></div>
+              <div style={{backgroundColor: formData.secondary}}></div>
             </div>
           }
           { isEditing.accent ?
             <div className='color-input'>
-              <ChromePicker color={color} onChange={handleChange}/>
+              <ChromePicker color={formData.accent} onChange={handleAccent}/>
               <Button variant='success' onClick={() => handleClick('accent')}>Done</Button>
             </div>
             :
             <div className='open-color-container'>
               <Button className='open-color-picker' onClick={() => handleClick('accent')}>Change Accent Color</Button>
-              <div style={{backgroundColor: 'red'}}></div>
+              <div style={{backgroundColor: formData.accent}}></div>
             </div>
           }
         </div>
         <div id='final-color-btn-container'>
-          <Button id='color-submit-btn' variant='success'>Submit New Colors</Button>
+          <Button id='color-submit-btn' variant='success' onClick={handleSubmit}>Submit New Colors</Button>
           <Button onClick={handleEditing} id='close-color-form' variant='danger'>Close</Button>
         </div>
       </div>

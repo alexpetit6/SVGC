@@ -36,7 +36,7 @@ export default function App() {
       const rootStyles = document.querySelector(':root').style;
       rootStyles.setProperty('--primary-color', colors.primary);
       rootStyles.setProperty('--secondary-color', colors.secondary);
-      rootStyles.setProperty('--acccent', colors.accent);
+      rootStyles.setProperty('--accent1', colors.accent);
     }
     Colors();
   }, []);
