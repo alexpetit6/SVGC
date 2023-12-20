@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
+import { Button } from 'react-bootstrap';
 import AuthPage from '../AuthPage/AuthPage';
 import EventDetailPage from '../EventDetailPage/EventDetailPage';
 import NewEventPage from '../NewEventPage/NewEventPage';
@@ -17,6 +18,7 @@ import BlogFeed from '../BlogFeed/BlogFeed';
 import BlogPostPage from '../BlogPostPage/BlogPostPage';
 import BlogPostForm from '../BlogPostForm/BlogPostForm';
 import JoinPage from '../JoinPage/JoinPage';
+import ColorsForm from '../../components/ColorsForm/ColorsForm';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -41,7 +43,9 @@ export default function App() {
   return (
     <main className="App">
       <>
+      <ColorsForm/>
       <NavBar absolutePosition={absolutePosition} user={user} setUser={setUser} />
+      <Button id='change-colors-btn' variant='warning'>Change Colors</Button>
       <Routes>
         { 
           user
