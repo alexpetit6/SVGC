@@ -83,7 +83,7 @@ export default function App() {
         <Route path="/community" element={<CommunityPage user={user}/>} />
         <Route path="/scholarships" element={<ScholarshipPage user={user} />} />
         <Route path="/join" element={<JoinPage user={user} />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home user={user} />} />
         <Route path="/photos" element={<PhotoGallery archive={false} user={user} />} />
         <Route path="/photos/archive" element={<PhotoGallery archive={true} user={user} />} />
         <Route path="/admin" element={<AuthPage setUser={setUser} />} />

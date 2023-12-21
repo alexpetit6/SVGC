@@ -7,6 +7,7 @@ export default function FileInputCard({ className, img, inputRef }) {
 
   function handleEditing() {
     setEditing(!editing);
+    inputRef.current.value = null;
   }
 
   return (
@@ -16,7 +17,14 @@ export default function FileInputCard({ className, img, inputRef }) {
       </div>
       <Card.Body>
         <Card.Text>
-          { editing ? <Form.Control type='file' ref={inputRef} /> : <Button onClick={handleEditing}>Change Image?</Button>}
+          { editing ? 
+            <>
+            <Form.Control type='file' ref={inputRef} /> 
+            <Button variant='warning' onClick={handleEditing}>CANCEL</Button>
+            </>
+          : 
+            <Button onClick={handleEditing}>Change Image?</Button>
+          }
         </Card.Text>
       </Card.Body>
     </Card>

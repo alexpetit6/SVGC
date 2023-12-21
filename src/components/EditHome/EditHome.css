@@ -1,0 +1,36 @@
+#brand-statement-input {
+  width: 50%;
+  position: absolute;
+  top: 45vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: calc(1em + 2vw);
+}
+
+#stop-edit-home {
+  position: relative;
+  top: 50%;
+  left: 8%
+}
+
+#submit-edit-home {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: calc(1em + 1vw);
+}
+
+.img-text > textarea {
+  height: 50%;
+}
+
+.edit-home-body-img {
+  height: fit-content;
+  margin: auto 0;
+}
+
+.edit-home-body-img > div > .card-img-top {
+  height: 75vh;
+}

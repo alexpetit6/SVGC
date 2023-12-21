@@ -4,8 +4,11 @@
 
 
 #home-img {
+  position: relative;
   width: 100vw;
   height: 100vh;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
 }
 
@@ -13,18 +16,20 @@
   width: 1440px;
 }
 
-@media (min-width: 1440px) {
-  #home-img > img {
-    width: 100vw;
-  }
-}
-
 #brand-statement {
   width: 100%;
   position: absolute;
   text-align: center;
   top: 45vh;
+  font-size: calc(1em + 2vw);
   color: white;
+}
+
+#open-edit-home {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .img-text {
@@ -39,6 +44,11 @@
   padding: 20px;
 }
 
+.img-text > * {
+  width: 75%;
+  font-size: calc(1em + 0.2vw);
+}
+
 .col-xl {
   padding: 0;
 }
@@ -51,9 +61,6 @@
   background-color: var(--secondary-color);
 }
 
-.img-text > p {
-width: 300px;
-}
 
 .home-body-img {
   height: 90vh;
