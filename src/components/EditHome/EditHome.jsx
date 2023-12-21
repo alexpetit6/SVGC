@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import { Row, Col, Card, Button } from 'react-bootstrap'
 import FileInputCard from '../FileInputCard/FileInputCard';
 
-export default function EditHome({ home }) {
+export default function EditHome({ home, setHome }) {
   const [isLoading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     brand: home.brand,
@@ -11,6 +11,7 @@ export default function EditHome({ home }) {
     imgText2: home.imgText2,
   });
 
+  const headerImgRef = useRef(null);
   const img1Ref = useRef(null);
   const img2Ref = useRef(null);
 
@@ -21,9 +22,25 @@ export default function EditHome({ home }) {
     });
   }
   
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
     setLoading(true);
+    const newFormData = new FormData();
+    for (const [key, value] of Object.entries(formData)) {
+      newFormData.append(key, value);
+    };
+    if (headerImgRef.current.value) newFormData.append('headerImg', firstImgRef.current.files[0]);
+    if (img1Ref.current.value) newFormData.append('img1', firstImgRef.current.files[0]);
+    if (img2Ref.current.value) newFormData.append('img2', secondImgRef.current.files[0]);
+    const updatedHome = await update(newFormData);
+    setFormData({
+      intro: updatedHome.brand,
+      body1: updatedHome.imgText1,
+      body2: updatedHome.imgText2,
+    });
+    img1Ref.current.value = null;
+    img2Ref.current.value = null;
+    setCommunity(updatedHome);
     setLoading(false);
   }
 

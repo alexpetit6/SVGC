@@ -21,6 +21,7 @@ async function update(req, res) {
       if (req.body[key] === '') delete req.body[key];
     };
     const home = await Home.findOneAndUpdate({}, req.body);
+    if (req.files['headerImg']) home.headerImg = await uploadFile(req.files['headerImg'][0]);
     if (req.files['img1']) home.img1 = await uploadFile(req.files['img1'][0]);
     if (req.files['img2']) home.img2 = await uploadFile(req.files['img2'][0]);
     await home.save();

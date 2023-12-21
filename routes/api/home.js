@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const upload = require("multer")();
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
-const communityCtrl = require('../../controllers/api/community')
+const homeCtrl = require('../../controllers/api/home');
 
-const imgsUpload = upload.fields([{ name: 'img1', maxCount: 1 }, { name: 'img2', maxCount: 1 }]);
+const imgsUpload = upload.fields([{ name: 'headerImg', maxCount: 1 }, { name: 'img1', maxCount: 1 }, { name: 'img2', maxCount: 1 }]);
 
-router.get('/', communityCtrl.show);
-router.put('/', ensureLoggedIn, imgsUpload, communityCtrl.update);
+router.get('/', homeCtrl.show);
+router.put('/', ensureLoggedIn, imgsUpload, homeCtrl.update);
 
 module.exports = router;
