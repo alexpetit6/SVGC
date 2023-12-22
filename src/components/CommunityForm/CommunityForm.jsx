@@ -30,8 +30,8 @@ export default function CommunityForm({ community, setCommunity }) {
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
     };
-    if (firstImgRef.current) newFormData.append('img1', firstImgRef.current.files[0]);
-    if (secondImgRef.current) newFormData.append('img2', secondImgRef.current.files[0]);
+    if (firstImgRef.current?.value) newFormData.append('img1', firstImgRef.current.files[0]);
+    if (secondImgRef.current?.value) newFormData.append('img2', secondImgRef.current.files[0]);
     const updatedCommunity = await update(newFormData);
     setFormData({
       intro: updatedCommunity.intro,
@@ -39,6 +39,8 @@ export default function CommunityForm({ community, setCommunity }) {
       body2: updatedCommunity.body2,
       outro: updatedCommunity.outro,
     });
+    if (firstImgRef.current?.value) firstImgRef.current.value = null;
+    if (secondImgRef.current?.value) secondImgRef.current.value = null;
     setCommunity(updatedCommunity);
     setLoading(false);
   }
