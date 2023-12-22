@@ -10,6 +10,7 @@ export default function Home({ user }) {
 
   useEffect(() => {
     async function Home() {
+      console.log('useffect')
       const home = await getHome();
       setHome(home);
     }

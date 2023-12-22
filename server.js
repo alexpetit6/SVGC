@@ -10,6 +10,10 @@ require('./config/database');
 
 const app = express();
 
+app.use((req, res, next) => {
+  console.log('Requested URL:', req.url);
+  next();
+});
 app.use(logger('dev'));
 app.use(express.json());
 
