@@ -61,7 +61,7 @@ export default function BlogPostForm() {
       const editRefs = [editGalleryRef1, editGalleryRef2, editGalleryRef3];
       const galleryIndices = [];
       editRefs.forEach(function(ref, i) {
-        if (ref.current) {
+        if (ref.current?.value) {
           newFormData.append('gallery', ref.current.files[0]);
           galleryIndices.push(i);
         };

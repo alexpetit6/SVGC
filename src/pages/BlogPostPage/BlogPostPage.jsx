@@ -7,7 +7,6 @@ import Fancybox from '../../components/FancyBox/FancyBox';
 export default function BlogPostPage() {
   const [post, setPost] = useState(null);
   const { postId } = useParams();
-  const body = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n Facilisis sed odio morbi quis commodo odio.\n\n Tellus id interdum velit laoreet id donec.\n\n Sed odio morbi quis commodo odio aenean sed adipiscing diam.\n\n Semper eget duis at tellus at urna.\n\n Nunc pulvinar sapien et ligula.\n\n'
 
   useEffect(function() {
     async function getPost() {

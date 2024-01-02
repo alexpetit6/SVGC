@@ -4,8 +4,14 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 90vh;
-  width: 100vw;
+  /* height: 90vh;
+  width: 100vw; */
+}
+
+.blog-header-img {
+  object-fit: cover;
+  /* max-height: 50vh; */
+  max-width: 80vw;
 }
 
 .blog-title {
@@ -39,11 +45,11 @@
   border: 15px solid var(--primary-color);
 }
 
-@media (max-width: 1440px) {
+/* @media (max-width: 1440px) {
   .blog-header-img {
     width: 1440px;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .blog-header {
