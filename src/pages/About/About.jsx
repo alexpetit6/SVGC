@@ -1,18 +1,17 @@
-import './CommunityPage.css';
+import './About.css';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import CommunityForm from '../../components/CommunityForm/CommunityForm';
-import { getCommunity } from '../../utilities/community-api';
+import { getAbout } from '../../utilities/about-api';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
-export default function CommunityPage({ user }) {
-  const [community, setCommunity] = useState();
+export default function About({ user }) {
+  const [about, setAbout] = useState();
   const [editing, setEditing] = useState(false);
 
   useEffect(function() {
     async function getDetails() {
-      const community = await getCommunity();
-      setCommunity(community);
+      const about = await getAbout();
+      setAbout(about);
     }
     getDetails();
   }, []);
@@ -21,34 +20,29 @@ export default function CommunityPage({ user }) {
     setEditing(!editing);
   }
 
-  if (community) {
+
+
+  if (about) {
     return (
       editing
       ?
       <>
-      <PageHeader img='https://i.imgur.com/zcyoc9z.jpg' text='Community Service' user={user} page='community' />
-      { user ? <Button id='edit-community-btn' onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
-      <CommunityForm community={community} setCommunity={setCommunity}/>
+      <PageHeader text='About' user={user} page='about' />
+      { user ? <Button id='edit-about-btn' onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
+      {/* <CommunityForm community={community} setCommunity={setCommunity}/> */}
       </>
       :
       <>
-      <PageHeader img='https://i.imgur.com/zcyoc9z.jpg' text='Community Service' user={user} page='community' />
-      { user ? <Button id='edit-community-btn' onClick={handleEditing} variant='warning' size='lg'>EDIT</Button> : null }
-      <div id='community-body'>
-        <p>
-          {community.intro}
+      <PageHeader text='About' user={user} page='about' />
+      { user ? <Button id='edit-about-btn' onClick={handleEditing} variant='warning' size='lg'>EDIT</Button> : null }
+      <div id='about-body'>
+        <p id='about-intro'>
+          {about.intro}
         </p>
-        <p>
-          {community.body1}
+        <p id='about-text'>
+          {about.text}
         </p>
-        <img src={community.img1} alt="" />
-        <img src={community.img2} alt="" />
-        <p>
-          {community.body2}
-        </p>
-        <p>
-          {community.outro}
-        </p>
+        <img src={about.img} alt="" />
       </div>
       </>
     )

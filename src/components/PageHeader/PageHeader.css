@@ -1,4 +1,5 @@
 .header-img {
+  position: relative;
   width: 100vw;
   height: 55vh;
   overflow: hidden;
@@ -21,7 +22,7 @@
 #header-edit-btn {
   position: absolute;
   left: 0;
-  bottom: 30%;
+  bottom: 0;
 }
 
 @media (min-width: 576px) {

@@ -7,7 +7,8 @@ const headerImgSchema = new Schema({
   gallery: Array,
   membership: Array,
   community: Array,
-  scholarships: Array
+  scholarships: Array,
+  about: Array,
 });
 
 module.exports = mongoose.model('HeaderImg', headerImgSchema);

@@ -13,11 +13,11 @@ import PhotoGallery from '../PhotoGallery/PhotoGallery';
 import CalendarPage from '../CalendarPage/CalendarPage';
 import Home from '../Home/Home';
 import CommunityPage from '../CommunityPage/CommunityPage';
-import ScholarshipPage from '../ScholarshipPage/ScholarshipPage';
 import BlogFeed from '../BlogFeed/BlogFeed';
 import BlogPostPage from '../BlogPostPage/BlogPostPage';
 import BlogPostForm from '../BlogPostForm/BlogPostForm';
 import JoinPage from '../JoinPage/JoinPage';
+import About from '../About/About';
 import ColorsForm from '../../components/ColorsForm/ColorsForm';
 import { getColors } from '../../utilities/colors-api';
 
@@ -75,17 +75,17 @@ export default function App() {
           :
           null
         }
+        <Route path="/" element={<Home user={user} />} />
         <Route path="/events" element={<EventFeed user={user} />} />
         <Route path="/events/:eventId" element={<EventDetailPage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/blog" element={<BlogFeed user={user} />} />
         <Route path="/blog/:postId" element={<BlogPostPage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/community" element={<CommunityPage user={user}/>} />
-        <Route path="/scholarships" element={<ScholarshipPage user={user} />} />
-        <Route path="/join" element={<JoinPage user={user} />} />
-        <Route path="/" element={<Home user={user} />} />
         <Route path="/photos" element={<PhotoGallery archive={false} user={user} />} />
         <Route path="/photos/archive" element={<PhotoGallery archive={true} user={user} />} />
+        <Route path="/join" element={<JoinPage user={user} />} />
+        <Route path="/about" element={<About user={user} />} />
         <Route path="/admin" element={<AuthPage setUser={setUser} />} />
       </Routes>
       <Footer />

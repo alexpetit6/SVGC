@@ -1,6 +1,6 @@
 #absolute-nav {
   position: absolute;
-  height: 13vh;
+  min-height: 13vh;
   width: 100%;
   top: 0;
   backdrop-filter: blur(10px) brightness(75%);

@@ -18,7 +18,7 @@ export default function HeaderImgForm({img, page, setHeaderImg}) {
     evt.preventDefault();
     setLoading(true);
     const type = isMobile ? 'mobile' : 'desktop'
-    if (fileInputRef.current) {
+    if (fileInputRef.current?.value) {
       const newFormData = new FormData();
       newFormData.append('type', type);
       newFormData.append('page', page);

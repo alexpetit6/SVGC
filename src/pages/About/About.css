@@ -1,0 +1,50 @@
+#edit-about-btn {
+  display: block;
+  margin: 20px auto;
+}
+
+/* #about-carousel {
+  height: 40vh;
+  width: 37vw;
+}
+
+.carousel-item > img {
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: cover;
+} */
+
+#about-body {
+  min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#about-body > * {
+  margin: 20px;
+}
+
+#about-intro {
+  text-align: center;
+  width: 100vw;
+}
+
+#about-text {
+  max-width: 50vw;
+}
+
+#about-body > img {
+  max-height: 70vh;
+  max-width: 40vw;
+  object-fit: cover;
+}
+
+@media (max-width: 576px) {
+  #about-body > img {
+    max-height: 70vh;
+    max-width: 80vw;
+    object-fit: cover;
+  }
+}

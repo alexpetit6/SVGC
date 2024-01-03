@@ -13,7 +13,7 @@
 }
 
 #event-header:hover {
-  background-color: #0a4b39dd;
+  background-color: var(--accent1);
   color: var(--secondary-color);
 }
 

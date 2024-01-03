@@ -19,6 +19,7 @@ async function show(req, res) {
 async function update(req, res) {
   try {
     const about = await About.findOne({});
+    about.intro = req.body.intro;
     about.text = req.body.text;
     if (req.files['img']) about.img = await uploadFile(req.files['img'][0]);
     if (req.files['carousel']) {
