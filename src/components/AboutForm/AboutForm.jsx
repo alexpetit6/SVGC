@@ -57,7 +57,7 @@ export default function AboutForm({ about, setAbout }) {
           rows={4} 
         />
       </Form.Group>
-      <FileInputCard className='about-input-card' img={about.img} inputRef={imgRef}/>
+      <FileInputCard className='about-input-card' img={about.img} inputRef={imgRef} />
       <Button type='submit' disabled={isLoading}>{isLoading ? 'Saving Changes...' : 'SUBMIT'}</Button>
     </Form>
   )

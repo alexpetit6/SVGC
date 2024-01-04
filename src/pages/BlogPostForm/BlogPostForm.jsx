@@ -53,18 +53,32 @@ export default function BlogPostForm() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
+    const newFormData = new FormData();
     if (postId) {
-      setLoading(true);
       if (headerInputRef.current?.value) newFormData.append('header', headerInputRef.current.files[0]);
-      const editRefs = [editGalleryRef1, editGalleryRef2, editGalleryRef3];
-      const galleryIndices = [];
-      editRefs.forEach(function(ref, i) {
-        if (ref.current?.value) {
-          newFormData.append('gallery', ref.current.files[0]);
-          galleryIndices.push(i);
+      if (galleryInputRef.current?.value) {
+        if (galleryInputRef.current.files.length !== 3) {
+          setErrorMsg({
+            ...errorMsg,
+            gallery: 'Must have exactly 3 files selected.'
+          });
+          return
         };
-      });
-      newFormData.append('galleryIndices', JSON.stringify(galleryIndices));
+        setLoading(true);
+        for (let i = 0; i < galleryInputRef.current.files.length; i++) {
+          newFormData.append('gallery', galleryInputRef.current.files[i]);
+        };
+      } else {
+        const editRefs = [editGalleryRef1, editGalleryRef2, editGalleryRef3];
+        const galleryIndices = [];
+        editRefs.forEach(function(ref, i) {
+          if (ref.current?.value) {
+            newFormData.append('gallery', ref.current.files[0]);
+            galleryIndices.push(i);
+          };
+        });
+        newFormData.append('galleryIndices', JSON.stringify(galleryIndices));
+      }
       await update(postId, newFormData);
       setLoading(false);
       return
@@ -95,7 +109,6 @@ export default function BlogPostForm() {
       };
     };
     setLoading(true);
-    const newFormData = new FormData();
     for (const [key, value] of Object.entries(formData)) {
       newFormData.append(key, value);
     };
@@ -132,7 +145,7 @@ export default function BlogPostForm() {
         <Form.Label>Header Photo</Form.Label>
         <p className='error-msg'>{errorMsg.headerPhoto}</p>
         { post ?
-        <FileInputCard inputRef={headerInputRef} img={post.headerPhoto}/>
+        <FileInputCard className='header-input' inputRef={headerInputRef} img={post.headerPhoto}/>
         :
         <Form.Control type='file' ref={headerInputRef} accept='image/jpeg'/>
       }
@@ -151,16 +164,17 @@ export default function BlogPostForm() {
       <Form.Group className="mb-3" controlId="eventForm.gallery">
         <Form.Label>Photo Gallery</Form.Label>
         <p className='error-msg'>{errorMsg.gallery}</p>
-        {
-          post
-          ?
-          <div className='edit-gallery'>
-          <FileInputCard inputRef={editGalleryRef1} img={post.gallery[0]}/>
-          <FileInputCard inputRef={editGalleryRef2} img={post.gallery[1]}/>
-          <FileInputCard inputRef={editGalleryRef3} img={post.gallery[2]}/>
-        </div>
-        :
-        <Form.Control type='file' ref={galleryInputRef} multiple accept='image/jpeg'/>
+        { post ?
+          post.gallery.length ?
+            <div className='edit-gallery'>
+              <FileInputCard inputRef={editGalleryRef1} img={post.gallery[0]}/>
+              <FileInputCard inputRef={editGalleryRef2} img={post.gallery[1]}/>
+              <FileInputCard inputRef={editGalleryRef3} img={post.gallery[2]}/>
+            </div>
+            :
+            <Form.Control type='file' ref={galleryInputRef} multiple accept='image/jpeg'/>
+          :
+          <Form.Control type='file' ref={galleryInputRef} multiple accept='image/jpeg'/>
         }
       </Form.Group>
       <div className="d-grid gap-2">

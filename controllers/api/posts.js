@@ -77,13 +77,20 @@ async function update(req, res) {
       updatedPost.headerPhoto = headerPhotoURL;
     };
     if (req.files['gallery']) {
-      const galleryIndices = JSON.parse(req.body.galleryIndices);
-      const newGalleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
-        return await uploadFile(p);
-      }));
-      newGalleryURLs.forEach(function(url, i) {
-        updatedPost.gallery.splice(galleryIndices[i], 1, url);
-      })
+      if (updatedPost.gallery.length) {
+        const galleryIndices = JSON.parse(req.body.galleryIndices);
+        const newGalleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
+          return await uploadFile(p);
+        }));
+        newGalleryURLs.forEach(function(url, i) {
+          updatedPost.gallery.splice(galleryIndices[i], 1, url);
+        })
+      } else {
+        const newGalleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
+          return await uploadFile(p);
+        }));
+        updatedPost.gallery = newGalleryURLs;
+      };
     };
     updatedPost.save();
     res.json(updatedPost);
