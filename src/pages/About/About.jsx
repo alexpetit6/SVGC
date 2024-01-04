@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { getAbout } from '../../utilities/about-api';
 import PageHeader from '../../components/PageHeader/PageHeader';
+import AboutForm from '../../components/AboutForm/AboutForm';
 
 export default function About({ user }) {
   const [about, setAbout] = useState();
@@ -29,7 +30,7 @@ export default function About({ user }) {
       <>
       <PageHeader text='About' user={user} page='about' />
       { user ? <Button id='edit-about-btn' onClick={handleEditing} variant='warning' size='lg'>Stop Editing</Button> : null }
-      {/* <CommunityForm community={community} setCommunity={setCommunity}/> */}
+      <AboutForm about={about} setAbout={setAbout}/>
       </>
       :
       <>

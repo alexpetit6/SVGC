@@ -1,0 +1,29 @@
+#about-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#about-form > * {
+  margin: 20px;
+}
+
+#about-form > :first-child {
+  width: 90vw;
+}
+
+#about-form > :nth-child(2), #about-form > :nth-child(5) {
+  width: 50vw;
+}
+
+.about-input-card > div > img {
+  max-height: 70vh;
+  max-width: 40vw;
+}
+
+@media (max-width: 576px) {
+  #about-form > :nth-child(2) {
+    width: auto;
+  }
+}
