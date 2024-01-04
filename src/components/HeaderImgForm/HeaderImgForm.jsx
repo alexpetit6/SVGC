@@ -40,6 +40,9 @@ export default function HeaderImgForm({img, page, setHeaderImg}) {
           onClick={() => handleCheck()}
         />
       <Button type='submit' disabled={isLoading}>{isLoading ? 'Saving Changes...' : 'SUBMIT'}</Button>
+      <h5>The navbar will obscure 25% of the image on both desktop and mobile.</h5>
+      <h5>Desktop image should have an aspect ratio of 5:1 and should not be less than 1440 pixels in width, eg: 2560 x 512.</h5>
+      <h5>Mobile image should have an aspect ratio of 4:5 and should not be less than 1080 pixels in width, eg: 1080 x 1296.</h5>
     </Form>
   )
 }

@@ -7,6 +7,8 @@
 
 .header-img > img {
   height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .header-text {
@@ -23,13 +25,6 @@
   position: absolute;
   left: 0;
   bottom: 0;
-}
-
-@media (min-width: 576px) {
-  .header-img > img {
-    width: 1440px;
-    height: auto;
-  }
 }
 
 @media (min-width: 1440px) {

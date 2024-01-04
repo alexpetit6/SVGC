@@ -19,7 +19,7 @@ export default function FileInputCard({ className, img, inputRef }) {
         <Card.Text>
           { editing ? 
             <>
-            <Form.Control type='file' ref={inputRef} /> 
+            <Form.Control type='file' ref={inputRef} accept='image/jpeg'/> 
             <Button variant='warning' onClick={handleEditing}>CANCEL</Button>
             </>
           : 
