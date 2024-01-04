@@ -1,0 +1,6 @@
+.new-btn {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 20px 0 10px;
+}

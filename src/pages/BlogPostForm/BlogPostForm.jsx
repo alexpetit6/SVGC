@@ -15,6 +15,12 @@ export default function BlogPostForm() {
   const [post, setPost] = useState(null)
   const [formData, setFormData] = useState(baseData);
   const [isLoading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState({
+    title: '',
+    headerPhoto: '',
+    body: '',
+    gallery: '',
+  })
 
   const { postId } = useParams();
 
@@ -31,10 +37,6 @@ export default function BlogPostForm() {
         setFormData({
           title: post.title,
           body: post.body,
-          location: post.location,
-          photo: post.photo,
-          date: post.formDate,
-          time: post.time,
         });
         setPost(post);
       }
@@ -51,13 +53,9 @@ export default function BlogPostForm() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    setLoading(true);
-    const newFormData = new FormData();
-    for (const [key, value] of Object.entries(formData)) {
-      newFormData.append(key, value);
-    };
     if (postId) {
-      if (headerInputRef.current) newFormData.append('header', headerInputRef.current.files[0]);
+      setLoading(true);
+      if (headerInputRef.current?.value) newFormData.append('header', headerInputRef.current.files[0]);
       const editRefs = [editGalleryRef1, editGalleryRef2, editGalleryRef3];
       const galleryIndices = [];
       editRefs.forEach(function(ref, i) {
@@ -68,14 +66,53 @@ export default function BlogPostForm() {
       });
       newFormData.append('galleryIndices', JSON.stringify(galleryIndices));
       await update(postId, newFormData);
-    } else {
-      newFormData.append('header', headerInputRef.current.files[0]);
-      newFormData.append('gallery', galleryInputRef.current.files[0]);
-      newFormData.append('gallery', galleryInputRef.current.files[1]);
-      newFormData.append('gallery', galleryInputRef.current.files[2]);
-      await create(newFormData);
-      setFormData(baseData);
-    }
+      setLoading(false);
+      return
+    };
+    if (!headerInputRef.current?.value) {
+      setErrorMsg({
+        ...errorMsg,
+        headerPhoto: '*Please select an image for the header image.'
+      });
+      return
+    };
+    if (galleryInputRef.current.value) {
+      if (galleryInputRef.current.files.length !== 3) {
+        setErrorMsg({
+          ...errorMsg,
+          gallery: '*Must have exactly 3 files selected.' 
+        });
+        return
+      };
+    };
+    for (const [key] of Object.entries(formData)) {
+      if (!formData[key]) {
+        setErrorMsg({
+          ...errorMsg,
+          [key]: '*Can not leave empty.'
+        });
+        return
+      };
+    };
+    setLoading(true);
+    const newFormData = new FormData();
+    for (const [key, value] of Object.entries(formData)) {
+      newFormData.append(key, value);
+    };
+    newFormData.append('header', headerInputRef.current.files[0]);
+    for (let i = 0; i < galleryInputRef.current.files.length; i++) {
+      newFormData.append('gallery', galleryInputRef.current.files[i]);
+    };
+    await create(newFormData);
+    headerInputRef.current.value = null;
+    galleryInputRef.current.value = null;
+    setErrorMsg({
+      title: '',
+      headerPhoto: '',
+      body: '',
+      gallery: '',
+    });
+    setFormData(baseData);
     setLoading(false);
   }
 
@@ -83,6 +120,7 @@ export default function BlogPostForm() {
     <Form onSubmit={handleSubmit} id='blog-form'>
       <Form.Group className="mb-3" controlId="blogForm.title">
         <Form.Label>Title</Form.Label>
+        <p className='error-msg'>{errorMsg.title}</p>
         <Form.Control 
           onChange={handleChange} 
           value={formData.title} 
@@ -91,10 +129,17 @@ export default function BlogPostForm() {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.photo">
-        <FileInputCard inputRef={headerInputRef} img={post ? post.headerPhoto : null}/>
+        <Form.Label>Header Photo</Form.Label>
+        <p className='error-msg'>{errorMsg.headerPhoto}</p>
+        { post ?
+        <FileInputCard inputRef={headerInputRef} img={post.headerPhoto}/>
+        :
+        <Form.Control type='file' ref={headerInputRef} accept='image/jpeg'/>
+      }
       </Form.Group>
       <Form.Group className="mb-3" controlId="blogForm.body">
         <Form.Label>Body Text</Form.Label>
+        <p className='error-msg'>{errorMsg.body}</p>
         <Form.Control 
           onChange={handleChange} 
           value={formData.body} 
@@ -105,16 +150,17 @@ export default function BlogPostForm() {
       </Form.Group>
       <Form.Group className="mb-3" controlId="eventForm.gallery">
         <Form.Label>Photo Gallery</Form.Label>
+        <p className='error-msg'>{errorMsg.gallery}</p>
         {
-        post
-        ?
-        <div className='edit-gallery'>
+          post
+          ?
+          <div className='edit-gallery'>
           <FileInputCard inputRef={editGalleryRef1} img={post.gallery[0]}/>
           <FileInputCard inputRef={editGalleryRef2} img={post.gallery[1]}/>
           <FileInputCard inputRef={editGalleryRef3} img={post.gallery[2]}/>
         </div>
         :
-        <Form.Control type='file' ref={galleryInputRef} multiple/>
+        <Form.Control type='file' ref={galleryInputRef} multiple accept='image/jpeg'/>
         }
       </Form.Group>
       <div className="d-grid gap-2">
@@ -123,7 +169,7 @@ export default function BlogPostForm() {
         ? 
         <Button type='submit' disabled={isLoading}>{isLoading ? 'Saving Changes...' : 'SUBMIT'}</Button> 
         : 
-        <Button type='submit' disabled={isLoading}>{isLoading ? 'Creating Event...' : 'SUBMIT'}</Button>
+        <Button type='submit' disabled={isLoading}>{isLoading ? 'Creating Post...' : 'SUBMIT'}</Button>
         }
       </div>
     </Form>

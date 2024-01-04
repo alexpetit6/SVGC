@@ -15,3 +15,7 @@
 .edit-gallery > * > img {
   height: 40vh;
 }
+
+.error-msg {
+  color: red;
+}

@@ -31,15 +31,18 @@ async function create(req, res) {
       if (req.body[key] === '') delete req.body[key];
     };
     const headerPhotoURL = await uploadFile(req.files['header'][0]);
-    const galleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
-      return await uploadFile(p);
-    }));
     const post = await Post.create({
       title: req.body.title,
       headerPhoto: headerPhotoURL,
       body: req.body.body,
-      gallery: galleryURLs,
     });
+    if (req.files['gallery']) {
+      const galleryURLs = await Promise.all(req.files['gallery'].map(async (p) => {
+        return await uploadFile(p);
+      }));
+      post.gallery = galleryURLs;
+      await post.save();
+    };
     res.json(post);
   } catch (err) {
     console.log(err)

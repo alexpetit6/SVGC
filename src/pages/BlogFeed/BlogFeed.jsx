@@ -1,7 +1,7 @@
 import './BlogFeed.css';
 import { getPosts } from '../../utilities/posts-api';
 import { useEffect, useState } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Button } from 'react-bootstrap';
 import BlogCard from '../../components/BlogCard/BlogCard';
 import PageHeader from '../../components/PageHeader/PageHeader';
 
@@ -24,6 +24,7 @@ export default function BlogFeed({ user }) {
   return (
     <>
     <PageHeader img={headerImg} text='Blog' user={user} page='blog' />
+    <Button className='new-btn' href='/blog/new' variant='success'>New Post</Button>
     <ListGroup>
       {Posts}
     </ListGroup>
