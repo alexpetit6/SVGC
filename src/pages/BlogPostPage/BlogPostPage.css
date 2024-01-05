@@ -9,13 +9,14 @@
 }
 
 .blog-header-img {
+  margin-top: 40px;
   object-fit: cover;
   max-height: 50vh;
   max-width: 80vw;
 }
 
 .blog-title {
-  font-size: calc(3em + 4vw);
+  font-size: calc(1em + 3vw);
   text-align: center;
 }
 
@@ -27,7 +28,8 @@
 }
 
 .blog-gallery > * > * {
-  height: 40vh;
+  max-height: 40vh;
+  max-width: 32vw;
 }
 
 .blog-gallery > * {
@@ -55,12 +57,17 @@
   .blog-header {
     height: 60vw;
   }
-
+  
   .blog-header-img {
-    width: 100%;
+    max-width: 90vw;
   }
-
+  
   .blog-body {
     width: 90vw;
+  }
+
+  .blog-gallery > * > * {
+    max-height: 30vh;
+    max-width: 80vw;
   }
 }

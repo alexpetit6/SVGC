@@ -22,8 +22,9 @@
   margin: 20px;
 }
 
-.edit-gallery > * > img {
-  height: 40vh;
+.edit-gallery > * > div > img {
+  max-height: 40vh;
+  max-width: 32vw;
 }
 
 .error-msg {

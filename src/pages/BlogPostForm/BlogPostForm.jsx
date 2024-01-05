@@ -167,9 +167,9 @@ export default function BlogPostForm() {
         { post ?
           post.gallery.length ?
             <div className='edit-gallery'>
-              <FileInputCard inputRef={editGalleryRef1} img={post.gallery[0]}/>
-              <FileInputCard inputRef={editGalleryRef2} img={post.gallery[1]}/>
-              <FileInputCard inputRef={editGalleryRef3} img={post.gallery[2]}/>
+              <FileInputCard className='gallery-input' inputRef={editGalleryRef1} img={post.gallery[0]}/>
+              <FileInputCard className='gallery-input' inputRef={editGalleryRef2} img={post.gallery[1]}/>
+              <FileInputCard className='gallery-input' inputRef={editGalleryRef3} img={post.gallery[2]}/>
             </div>
             :
             <Form.Control type='file' ref={galleryInputRef} multiple accept='image/jpeg'/>
