@@ -47,9 +47,9 @@ export default function ColorsForm({ colors, setColors, handleEditing }) {
   async function handleSubmit() {
     const newColors = await update(formData);
     const rootStyles = document.querySelector(':root').style;
-      rootStyles.setProperty('--primary-color', newColors.primary);
-      rootStyles.setProperty('--secondary-color', newColors.secondary);
-      rootStyles.setProperty('--accent1', newColors.accent);
+    rootStyles.setProperty('--primary-color', newColors.primary);
+    rootStyles.setProperty('--secondary-color', newColors.secondary);
+    rootStyles.setProperty('--accent1', newColors.accent);
   }
 
   return (

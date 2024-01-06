@@ -20,7 +20,7 @@ async function update(req, res) {
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key];
     };
-    const colors = await Color.findOneAndUpdate({}, req.body);
+    const colors = await Color.findOneAndUpdate({}, req.body, {new: true});
     res.json(colors);
   } catch (err) {
     res.json(err);
