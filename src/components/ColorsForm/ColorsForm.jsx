@@ -9,6 +9,7 @@ export default function ColorsForm({ colors, setColors, handleEditing }) {
     primary: colors.primary,
     secondary: colors.secondary,
     accent: colors.accent,
+    background: colors.background,
   });
   const [isEditing, setEditing] = useState({
     primary: false,
@@ -44,6 +45,13 @@ export default function ColorsForm({ colors, setColors, handleEditing }) {
     });
   }
 
+  function handleBackground(color) {
+    setFormData({
+      ...formData,
+      background: color.hex
+    });
+  }
+
   async function handleSubmit() {
     const newColors = await update(formData);
     const rootStyles = document.querySelector(':root').style;
@@ -75,6 +83,17 @@ export default function ColorsForm({ colors, setColors, handleEditing }) {
             <div className='open-color-container'>
               <Button className='open-color-picker' onClick={() => handleClick('secondary')}>Change Secondary Color</Button>
               <div style={{backgroundColor: formData.secondary}}></div>
+            </div>
+          }
+          { isEditing.background ?
+            <div className='color-input'>
+              <ChromePicker color={formData.background} onChange={handleBackground}/>
+              <Button variant='success' onClick={() => handleClick('background')}>Done</Button>
+            </div>
+            :
+            <div className='open-color-container'>
+              <Button className='open-color-picker' onClick={() => handleClick('background')}>Change Background Color</Button>
+              <div style={{backgroundColor: formData.background}}></div>
             </div>
           }
           { isEditing.accent ?

@@ -24,7 +24,11 @@ export default function BlogFeed({ user }) {
   return (
     <>
     <PageHeader img={headerImg} text='Blog' user={user} page='blog' />
-    <Button className='new-btn' href='/blog/new' variant='success'>New Post</Button>
+    { user ?
+      <Button className='new-btn' href='/blog/new' variant='success'>New Post</Button>
+    :
+      null
+    }
     <ListGroup>
       {Posts}
     </ListGroup>

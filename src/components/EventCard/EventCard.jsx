@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function EventCard({ event, setEvents, user }) {
   return (
-    <ListGroup.Item>
+    <ListGroup.Item className='event-card-list'>
       <Card className='event-card'>
           <Link id='event-link' to={`/events/${event.id}`}>
             <Card.Header id='event-header'>

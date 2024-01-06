@@ -5,7 +5,7 @@ import ActionButton from '../ActionButton/ActionButton';
 
 export default function BlogCard({ post, setPosts, user }) {
   return (
-    <ListGroup.Item>
+    <ListGroup.Item className='blog-card-list'>
       <Card className='blog-card'>
         <Card.Body className='blog-card-title'>
           <Card.Text>

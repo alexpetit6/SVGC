@@ -27,16 +27,7 @@ export default function NavBar({ user, setUser, absolutePosition }) {
             <Nav.Link href='/about'>About</Nav.Link>
             <Nav.Link href='/photos'>Photos</Nav.Link>
             <Nav.Link href='/join'>Membership</Nav.Link>
-            { 
-              user 
-              ? 
-              <>
-                <Nav.Link href='/events/new'>New Event</Nav.Link>
-                <Nav.Link href='/' onClick={handleLogOut}>Logout</Nav.Link> 
-              </>
-              : 
-              null 
-            }
+            { user ? <Nav.Link href='/' onClick={handleLogOut}>Logout</Nav.Link> : null }
           </Nav>
         </Navbar.Collapse>
       </Container>

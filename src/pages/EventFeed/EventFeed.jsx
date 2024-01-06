@@ -1,7 +1,7 @@
 import './EventFeed.css'
 import { useState, useEffect } from "react";
 import { getEvents } from "../../utilities/events-api";
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Button } from "react-bootstrap";
 import EventCard from '../../components/EventCard/EventCard'
 import PageHeader from '../../components/PageHeader/PageHeader';
 
@@ -24,7 +24,12 @@ export default function EventFeed({ user }) {
   return (
     <>
     <PageHeader text='Events' user={user} page='eventFeed' />
-    <ListGroup>
+    { user ?
+      <Button className='new-btn' href='/events/new' variant='success'>New Event</Button>
+    :
+      null
+    }
+    <ListGroup className='event-feed'>
       {EventCards}
     </ListGroup>
     </>

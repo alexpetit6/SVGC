@@ -1,3 +1,7 @@
+.event-card-list {
+  background-color: var(--background-color);
+}
+
 .event-card {
   width: 70vw;
   /* height: 25vmax; */

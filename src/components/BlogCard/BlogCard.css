@@ -1,3 +1,7 @@
+.blog-card-list {
+  background-color: var(--background-color);
+}
+
 .blog-card {
   width: 60vw;
   margin: 20px auto;

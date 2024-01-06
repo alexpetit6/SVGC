@@ -22,6 +22,7 @@
   text-align: center;
   top: 45vh;
   font-size: calc(1em + 2vw);
+  text-shadow: 2px 5px 2px #000000;
   color: white;
 }
 
