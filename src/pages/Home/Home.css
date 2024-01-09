@@ -64,7 +64,8 @@
 
 
 .home-body-img {
-  height: 90vh;
+  max-height: 90vh;
+  max-width: 45vw;
   margin: auto 20px;
 }
 
@@ -78,8 +79,13 @@
     height: 60vh;
   }
 
+  .img-text > * {
+    width: 90%;
+  }
+
   .home-body-img {
-    height: 60vh;
+    max-height: 60vh;
+    max-width: 80vw;
     margin: 20px;
   }
 }

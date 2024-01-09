@@ -12,7 +12,7 @@ export default function Footer() {
         <Link to='/calendar'>Calendar</Link>
         <Link to='/photos'>Photos</Link>
         <Link to='/community'>Community Service</Link>
-        <Link to='/scholarships'>Scholarships</Link>
+        <Link to='/about'>About</Link>
       </div>
     </div>
   )

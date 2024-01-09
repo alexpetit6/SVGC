@@ -22,7 +22,7 @@
 .nav-link {
   color: white;
   transition: all 500ms;
-  font-size: calc(0.5em + 0.8vw);
+  font-size: calc(13px + 0.8vw);
 }
 
 .nav-link:hover {
