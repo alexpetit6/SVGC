@@ -17,10 +17,8 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-    console.log('put')
     const community = await Community.findOne({});
     for (let key in req.body) {
-      console.log(`key: ${key}`)
       community[key] = req.body[key]
     };
     if (req.files['img1']) community.img1 = await uploadFile(req.files['img1'][0]);
