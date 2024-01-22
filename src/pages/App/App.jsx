@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
+import checkBrightness from '../../utilities/check-brightness';
 import './App.css';
 import { Button } from 'react-bootstrap';
 import AuthPage from '../AuthPage/AuthPage';
@@ -33,10 +34,12 @@ export default function App() {
     async function Colors() {
       const colors = await getColors();
       setColors(colors);
+      console.log(colors.text);
       const rootStyles = document.querySelector(':root').style;
       rootStyles.setProperty('--primary-color', colors.primary);
       rootStyles.setProperty('--secondary-color', colors.secondary);
       rootStyles.setProperty('--background-color', colors.background);
+      rootStyles.setProperty('--text-color', colors.text);
       rootStyles.setProperty('--accent1', colors.accent);
     }
     Colors();
