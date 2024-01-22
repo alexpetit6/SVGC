@@ -55,7 +55,7 @@ eventSchema.virtual('displayDate').get(function() {
 });
 
 eventSchema.virtual('color').get(function() {
-  return this.title === 'Board Meeting' ? 'var(--secondary-color)' : '#00E091'
+  return this.title === 'Board Meeting' ? 'var(--primary-color)' : 'var(--accent1)'
 });
 
 module.exports = mongoose.model('Event', eventSchema);

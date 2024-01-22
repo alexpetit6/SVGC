@@ -1,7 +1,6 @@
 import { getToken } from './users-service';
 
 export default async function sendRequest(url, method = 'GET', payload = null, payloadIsFormData = null) {
-  console.log('sendRequest running?', url, method);
   const options = { method };
   if (payload) {
     options.headers = payloadIsFormData ? {} : { 'Content-Type': 'application/json' };

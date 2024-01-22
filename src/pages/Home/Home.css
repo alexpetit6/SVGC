@@ -22,6 +22,8 @@
   text-align: center;
   top: 45vh;
   transform: translateY(-50%);
+  font-family: 'Kalnia', serif;
+  font-weight: 600;
   font-size: calc(3em + 2vw);
   text-shadow: 2px 5px 2px #000000;
   color: white;

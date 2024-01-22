@@ -1,3 +1,4 @@
+import './CalendarPage.css'
 import { useState, useEffect } from "react";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -38,7 +39,7 @@ export default function CalendarPage() {
   };
 
   return (
-    <div>
+    <div id='calendar'>
       <Calendar
         localizer={localizer}
         startAccessor="date"
