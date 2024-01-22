@@ -57,6 +57,8 @@ export default function ColorsForm({ colors, setColors, handleEditing }) {
     const rootStyles = document.querySelector(':root').style;
     rootStyles.setProperty('--primary-color', newColors.primary);
     rootStyles.setProperty('--secondary-color', newColors.secondary);
+    rootStyles.setProperty('--background-color', newColors.background);
+    rootStyles.setProperty('--text-color', newColors.text);
     rootStyles.setProperty('--accent1', newColors.accent);
   }
 

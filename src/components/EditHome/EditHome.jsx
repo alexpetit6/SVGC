@@ -74,6 +74,8 @@ export default function EditHome({ handleEditing, home, setHome }) {
             <>
             <Form.Control type='file' ref={headerImgRef} />
             <Button variant='warning' onClick={handleEditMainImg}>CANCEL</Button>
+            <p>Main images should have an aspect ratio of 16:9 and not be less than 1440 in width ie: 2560 x 1440</p>
+            <p>Navbar will obscure the top 13% of the image</p>
             </>
           :
             <Button onClick={handleEditMainImg}>Change Main Image</Button>

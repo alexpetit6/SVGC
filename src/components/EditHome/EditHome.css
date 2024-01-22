@@ -27,6 +27,10 @@
   bottom: 0;
 }
 
+#change-home-img > p {
+  background-color: white;
+}
+
 .img-text > textarea {
   height: 50%;
 }
