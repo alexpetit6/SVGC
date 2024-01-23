@@ -1,4 +1,3 @@
-const { colors } = require('debug/src/browser');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

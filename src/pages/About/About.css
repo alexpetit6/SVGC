@@ -3,17 +3,6 @@
   margin: 20px auto;
 }
 
-/* #about-carousel {
-  height: 40vh;
-  width: 37vw;
-}
-
-.carousel-item > img {
-  max-height: 90%;
-  max-width: 90%;
-  object-fit: cover;
-} */
-
 #about-body {
   min-height: 80vh;
   display: flex;

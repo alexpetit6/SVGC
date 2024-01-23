@@ -1,6 +1,6 @@
 import './Home.css'
 import { useState, useEffect } from 'react';
-import { Row, Col, Card, Button } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import { getHome } from '../../utilities/home-api';
 import EditHome from '../../components/EditHome/EditHome';
 

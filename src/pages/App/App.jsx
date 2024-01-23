@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
-import checkBrightness from '../../utilities/check-brightness';
 import './App.css';
 import { Button } from 'react-bootstrap';
 import AuthPage from '../AuthPage/AuthPage';
