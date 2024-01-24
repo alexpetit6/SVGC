@@ -13,8 +13,8 @@ SVGC stands for Snoqualmie Valley Garden Club: the non-profit that this website 
 
 # Getting Started
 
-[Click to View Project Planning]([User Stories, Wireframes, and ERDs](https://trello.com/b/9sHdXhhj/svgc))
-Below is the link to visit the mock version of the site for testing the admin features of the site.
-[Click to Visit the Site!]([Heroku Site](https://snoqualmie-valley-garden-club-37f9bfbdf548.herokuapp.com/events))
-[Click to Visit the Mock Site!]([Heroku Site](https://mock-svgc-9dfa386ab90d.herokuapp.com/))
+- [Click to View Project Planning]([User Stories, Wireframes, and ERDs](https://trello.com/b/9sHdXhhj/svgc))
+- Below is the link to visit the mock version of the site for testing the admin features of the site.
+- [Click to Visit the Mock Site!]([Heroku Site](https://mock-svgc-9dfa386ab90d.herokuapp.com/))
+- [Click to Visit the Site!]([Heroku Site](https://snoqualmie-valley-garden-club-37f9bfbdf548.herokuapp.com/events))
 
